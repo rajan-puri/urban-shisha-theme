@@ -1,0 +1,164 @@
+{
+  "key": "group_us_pages",
+  "title": "Urban Shisha \u2014 Page content",
+  "fields": [
+    {
+      "key": "field_us_page_intro_eyebrow",
+      "name": "page_intro_eyebrow",
+      "label": "Intro eyebrow",
+      "type": "text"
+    },
+    {
+      "key": "field_us_page_intro_heading",
+      "name": "page_intro_heading",
+      "label": "Intro heading",
+      "type": "text"
+    },
+    {
+      "key": "field_us_page_intro_description",
+      "name": "page_intro_description",
+      "label": "Intro description",
+      "type": "textarea"
+    },
+    {
+      "key": "field_us_page_intro_image",
+      "name": "page_intro_image",
+      "label": "Intro image",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all"
+    },
+    {
+      "key": "field_us_page_intro_cta",
+      "name": "page_intro_cta",
+      "label": "Intro CTA",
+      "type": "link",
+      "return_format": "array"
+    },
+    {
+      "key": "field_us_page_content_panels",
+      "name": "page_content_panels",
+      "label": "Content panels",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Add item",
+      "sub_fields": [
+        {
+          "key": "field_us_page_panel_title",
+          "name": "page_panel_title",
+          "label": "Title",
+          "type": "text"
+        },
+        {
+          "key": "field_us_page_panel_eyebrow",
+          "name": "page_panel_eyebrow",
+          "label": "Eyebrow",
+          "type": "text"
+        },
+        {
+          "key": "field_us_page_panel_copy",
+          "name": "page_panel_copy",
+          "label": "Description",
+          "type": "textarea",
+          "rows": 2
+        },
+        {
+          "key": "field_us_page_panel_image",
+          "name": "page_panel_image",
+          "label": "Image",
+          "type": "image",
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all"
+        },
+        {
+          "key": "field_us_page_panel_link",
+          "name": "page_panel_link",
+          "label": "Destination",
+          "type": "link",
+          "return_format": "array"
+        }
+      ],
+      "min": 0,
+      "max": 0
+    },
+    {
+      "key": "field_us_page_faqs",
+      "name": "page_faqs",
+      "label": "FAQs",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Add item",
+      "sub_fields": [
+        {
+          "key": "field_us_page_faq_question",
+          "name": "page_faq_question",
+          "label": "Question",
+          "type": "text"
+        },
+        {
+          "key": "field_us_page_faq_answer",
+          "name": "page_faq_answer",
+          "label": "Answer",
+          "type": "wysiwyg",
+          "tabs": "visual",
+          "toolbar": "basic",
+          "media_upload": 0
+        }
+      ],
+      "min": 0,
+      "max": 0
+    },
+    {
+      "key": "field_us_page_process_steps",
+      "name": "page_process_steps",
+      "label": "Process / principles",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Add item",
+      "sub_fields": [
+        {
+          "key": "field_us_page_step_title",
+          "name": "page_step_title",
+          "label": "Title",
+          "type": "text"
+        },
+        {
+          "key": "field_us_page_step_description",
+          "name": "page_step_description",
+          "label": "Description",
+          "type": "textarea"
+        }
+      ],
+      "min": 0,
+      "max": 0
+    },
+    {
+      "key": "field_us_page_form_heading",
+      "name": "page_form_heading",
+      "label": "Form heading",
+      "type": "text"
+    },
+    {
+      "key": "field_us_page_form_note",
+      "name": "page_form_note",
+      "label": "Form note",
+      "type": "textarea",
+      "instructions": "Content only. Real contact/wholesale submission handlers are a separate implementation step."
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "page"
+      }
+    ]
+  ],
+  "active": true,
+  "position": "normal",
+  "style": "default",
+  "show_in_rest": 0
+}

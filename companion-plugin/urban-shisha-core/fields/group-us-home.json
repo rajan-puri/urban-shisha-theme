@@ -1,0 +1,1151 @@
+{
+  "key": "group_us_home",
+  "title": "Urban Shisha \u2014 Homepage",
+  "fields": [
+    {
+      "key": "field_us_home_sections",
+      "name": "home_sections",
+      "label": "Homepage sections",
+      "type": "flexible_content",
+      "layouts": {
+        "layout_us_hero": {
+          "key": "layout_us_hero",
+          "name": "hero",
+          "label": "Hero",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_us_home_hero_enabled",
+              "name": "home_hero_enabled",
+              "label": "Show section",
+              "type": "true_false",
+              "ui": 1,
+              "default_value": 1
+            },
+            {
+              "key": "field_us_home_hero_eyebrow",
+              "name": "home_hero_eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_hero_heading",
+              "name": "home_hero_heading",
+              "label": "Heading",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_hero_description",
+              "name": "home_hero_description",
+              "label": "Description",
+              "type": "textarea",
+              "rows": 3
+            },
+            {
+              "key": "field_us_home_hero_cta",
+              "name": "home_hero_cta",
+              "label": "Section CTA",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_us_home_hero_image",
+              "name": "home_hero_image",
+              "label": "Hero transparent product image",
+              "type": "image",
+              "return_format": "id",
+              "preview_size": "medium",
+              "library": "all"
+            },
+            {
+              "key": "field_us_home_hero_secondary_image",
+              "name": "home_hero_secondary_image",
+              "label": "Secondary hero image",
+              "type": "image",
+              "return_format": "id",
+              "preview_size": "medium",
+              "library": "all"
+            },
+            {
+              "key": "field_us_home_hero_sticker",
+              "name": "home_hero_sticker",
+              "label": "Sticker text",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_hero_secondary_cta",
+              "name": "home_hero_secondary_cta",
+              "label": "Secondary CTA",
+              "type": "link",
+              "return_format": "array"
+            }
+          ],
+          "min": 0,
+          "max": 1
+        },
+        "layout_us_categories": {
+          "key": "layout_us_categories",
+          "name": "categories",
+          "label": "Explore the essentials",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_us_home_categories_enabled",
+              "name": "home_categories_enabled",
+              "label": "Show section",
+              "type": "true_false",
+              "ui": 1,
+              "default_value": 1
+            },
+            {
+              "key": "field_us_home_categories_eyebrow",
+              "name": "home_categories_eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_categories_heading",
+              "name": "home_categories_heading",
+              "label": "Heading",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_categories_description",
+              "name": "home_categories_description",
+              "label": "Description",
+              "type": "textarea",
+              "rows": 3
+            },
+            {
+              "key": "field_us_home_categories_cta",
+              "name": "home_categories_cta",
+              "label": "Section CTA",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_us_home_categories_cards",
+              "name": "home_categories_cards",
+              "label": "Cards",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add item",
+              "sub_fields": [
+                {
+                  "key": "field_us_home_categories_card_title",
+                  "name": "home_categories_card_title",
+                  "label": "Title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_categories_card_eyebrow",
+                  "name": "home_categories_card_eyebrow",
+                  "label": "Eyebrow",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_categories_card_copy",
+                  "name": "home_categories_card_copy",
+                  "label": "Description",
+                  "type": "textarea",
+                  "rows": 2
+                },
+                {
+                  "key": "field_us_home_categories_card_image",
+                  "name": "home_categories_card_image",
+                  "label": "Image",
+                  "type": "image",
+                  "return_format": "id",
+                  "preview_size": "medium",
+                  "library": "all"
+                },
+                {
+                  "key": "field_us_home_categories_card_link",
+                  "name": "home_categories_card_link",
+                  "label": "Destination",
+                  "type": "link",
+                  "return_format": "array"
+                }
+              ],
+              "min": 0,
+              "max": 0
+            }
+          ],
+          "min": 0,
+          "max": 1
+        },
+        "layout_us_brands": {
+          "key": "layout_us_brands",
+          "name": "brands",
+          "label": "Shop by brand",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_us_home_brands_enabled",
+              "name": "home_brands_enabled",
+              "label": "Show section",
+              "type": "true_false",
+              "ui": 1,
+              "default_value": 1
+            },
+            {
+              "key": "field_us_home_brands_eyebrow",
+              "name": "home_brands_eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_brands_heading",
+              "name": "home_brands_heading",
+              "label": "Heading",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_brands_description",
+              "name": "home_brands_description",
+              "label": "Description",
+              "type": "textarea",
+              "rows": 3
+            },
+            {
+              "key": "field_us_home_brands_cta",
+              "name": "home_brands_cta",
+              "label": "Section CTA",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_us_home_brands_cards",
+              "name": "home_brands_cards",
+              "label": "Cards",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add item",
+              "sub_fields": [
+                {
+                  "key": "field_us_home_brands_card_title",
+                  "name": "home_brands_card_title",
+                  "label": "Title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_brands_card_eyebrow",
+                  "name": "home_brands_card_eyebrow",
+                  "label": "Eyebrow",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_brands_card_copy",
+                  "name": "home_brands_card_copy",
+                  "label": "Description",
+                  "type": "textarea",
+                  "rows": 2
+                },
+                {
+                  "key": "field_us_home_brands_card_image",
+                  "name": "home_brands_card_image",
+                  "label": "Image",
+                  "type": "image",
+                  "return_format": "id",
+                  "preview_size": "medium",
+                  "library": "all"
+                },
+                {
+                  "key": "field_us_home_brands_card_link",
+                  "name": "home_brands_card_link",
+                  "label": "Destination",
+                  "type": "link",
+                  "return_format": "array"
+                }
+              ],
+              "min": 0,
+              "max": 0
+            }
+          ],
+          "min": 0,
+          "max": 1
+        },
+        "layout_us_moods": {
+          "key": "layout_us_moods",
+          "name": "moods",
+          "label": "Shop by mood",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_us_home_moods_enabled",
+              "name": "home_moods_enabled",
+              "label": "Show section",
+              "type": "true_false",
+              "ui": 1,
+              "default_value": 1
+            },
+            {
+              "key": "field_us_home_moods_eyebrow",
+              "name": "home_moods_eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_moods_heading",
+              "name": "home_moods_heading",
+              "label": "Heading",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_moods_description",
+              "name": "home_moods_description",
+              "label": "Description",
+              "type": "textarea",
+              "rows": 3
+            },
+            {
+              "key": "field_us_home_moods_cta",
+              "name": "home_moods_cta",
+              "label": "Section CTA",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_us_home_moods_cards",
+              "name": "home_moods_cards",
+              "label": "Cards",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add item",
+              "sub_fields": [
+                {
+                  "key": "field_us_home_moods_card_title",
+                  "name": "home_moods_card_title",
+                  "label": "Title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_moods_card_eyebrow",
+                  "name": "home_moods_card_eyebrow",
+                  "label": "Eyebrow",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_moods_card_copy",
+                  "name": "home_moods_card_copy",
+                  "label": "Description",
+                  "type": "textarea",
+                  "rows": 2
+                },
+                {
+                  "key": "field_us_home_moods_card_image",
+                  "name": "home_moods_card_image",
+                  "label": "Image",
+                  "type": "image",
+                  "return_format": "id",
+                  "preview_size": "medium",
+                  "library": "all"
+                },
+                {
+                  "key": "field_us_home_moods_card_link",
+                  "name": "home_moods_card_link",
+                  "label": "Destination",
+                  "type": "link",
+                  "return_format": "array"
+                }
+              ],
+              "min": 0,
+              "max": 0
+            }
+          ],
+          "min": 0,
+          "max": 1
+        },
+        "layout_us_hookah_rail": {
+          "key": "layout_us_hookah_rail",
+          "name": "hookah_rail",
+          "label": "Hookah collection",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_us_home_hookah_rail_enabled",
+              "name": "home_hookah_rail_enabled",
+              "label": "Show section",
+              "type": "true_false",
+              "ui": 1,
+              "default_value": 1
+            },
+            {
+              "key": "field_us_home_hookah_rail_eyebrow",
+              "name": "home_hookah_rail_eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_hookah_rail_heading",
+              "name": "home_hookah_rail_heading",
+              "label": "Heading",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_hookah_rail_description",
+              "name": "home_hookah_rail_description",
+              "label": "Description",
+              "type": "textarea",
+              "rows": 3
+            },
+            {
+              "key": "field_us_home_hookah_rail_cta",
+              "name": "home_hookah_rail_cta",
+              "label": "Section CTA",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_us_home_hookah_rail_products",
+              "name": "home_hookah_rail_products",
+              "label": "Selected products",
+              "type": "relationship",
+              "post_type": [
+                "product"
+              ],
+              "filters": [
+                "search",
+                "taxonomy"
+              ],
+              "return_format": "id",
+              "instructions": "Select WooCommerce products. Price and stock always come from WooCommerce. Product structure will be configured after owner instructions."
+            },
+            {
+              "key": "field_us_home_hookah_rail_mode",
+              "name": "home_hookah_rail_mode",
+              "label": "Product source",
+              "type": "select",
+              "choices": {
+                "selected": "Selected products",
+                "latest": "Newest products",
+                "featured": "Featured products"
+              },
+              "default_value": "selected"
+            },
+            {
+              "key": "field_us_home_hookah_rail_limit",
+              "name": "home_hookah_rail_limit",
+              "label": "Number of products",
+              "type": "number",
+              "default_value": 8,
+              "min": 1,
+              "max": 24
+            }
+          ],
+          "min": 0,
+          "max": 1
+        },
+        "layout_us_spotlight": {
+          "key": "layout_us_spotlight",
+          "name": "spotlight",
+          "label": "Product spotlight",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_us_home_spotlight_enabled",
+              "name": "home_spotlight_enabled",
+              "label": "Show section",
+              "type": "true_false",
+              "ui": 1,
+              "default_value": 1
+            },
+            {
+              "key": "field_us_home_spotlight_eyebrow",
+              "name": "home_spotlight_eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_spotlight_heading",
+              "name": "home_spotlight_heading",
+              "label": "Heading",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_spotlight_description",
+              "name": "home_spotlight_description",
+              "label": "Description",
+              "type": "textarea",
+              "rows": 3
+            },
+            {
+              "key": "field_us_home_spotlight_cta",
+              "name": "home_spotlight_cta",
+              "label": "Section CTA",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_us_home_spotlight_products",
+              "name": "home_spotlight_products",
+              "label": "Selected products",
+              "type": "relationship",
+              "post_type": [
+                "product"
+              ],
+              "filters": [
+                "search",
+                "taxonomy"
+              ],
+              "return_format": "id",
+              "instructions": "Select WooCommerce products. Price and stock always come from WooCommerce. Product structure will be configured after owner instructions."
+            },
+            {
+              "key": "field_us_home_spotlight_mode",
+              "name": "home_spotlight_mode",
+              "label": "Product source",
+              "type": "select",
+              "choices": {
+                "selected": "Selected products",
+                "latest": "Newest products",
+                "featured": "Featured products"
+              },
+              "default_value": "selected"
+            },
+            {
+              "key": "field_us_home_spotlight_limit",
+              "name": "home_spotlight_limit",
+              "label": "Number of products",
+              "type": "number",
+              "default_value": 8,
+              "min": 1,
+              "max": 24
+            }
+          ],
+          "min": 0,
+          "max": 1
+        },
+        "layout_us_kit": {
+          "key": "layout_us_kit",
+          "name": "kit",
+          "label": "Complete your kit",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_us_home_kit_enabled",
+              "name": "home_kit_enabled",
+              "label": "Show section",
+              "type": "true_false",
+              "ui": 1,
+              "default_value": 1
+            },
+            {
+              "key": "field_us_home_kit_eyebrow",
+              "name": "home_kit_eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_kit_heading",
+              "name": "home_kit_heading",
+              "label": "Heading",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_kit_description",
+              "name": "home_kit_description",
+              "label": "Description",
+              "type": "textarea",
+              "rows": 3
+            },
+            {
+              "key": "field_us_home_kit_cta",
+              "name": "home_kit_cta",
+              "label": "Section CTA",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_us_home_kit_cards",
+              "name": "home_kit_cards",
+              "label": "Cards",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add item",
+              "sub_fields": [
+                {
+                  "key": "field_us_home_kit_card_title",
+                  "name": "home_kit_card_title",
+                  "label": "Title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_kit_card_eyebrow",
+                  "name": "home_kit_card_eyebrow",
+                  "label": "Eyebrow",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_kit_card_copy",
+                  "name": "home_kit_card_copy",
+                  "label": "Description",
+                  "type": "textarea",
+                  "rows": 2
+                },
+                {
+                  "key": "field_us_home_kit_card_image",
+                  "name": "home_kit_card_image",
+                  "label": "Image",
+                  "type": "image",
+                  "return_format": "id",
+                  "preview_size": "medium",
+                  "library": "all"
+                },
+                {
+                  "key": "field_us_home_kit_card_link",
+                  "name": "home_kit_card_link",
+                  "label": "Destination",
+                  "type": "link",
+                  "return_format": "array"
+                }
+              ],
+              "min": 0,
+              "max": 0
+            }
+          ],
+          "min": 0,
+          "max": 1
+        },
+        "layout_us_accessories": {
+          "key": "layout_us_accessories",
+          "name": "accessories",
+          "label": "Complete your setup",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_us_home_accessories_enabled",
+              "name": "home_accessories_enabled",
+              "label": "Show section",
+              "type": "true_false",
+              "ui": 1,
+              "default_value": 1
+            },
+            {
+              "key": "field_us_home_accessories_eyebrow",
+              "name": "home_accessories_eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_accessories_heading",
+              "name": "home_accessories_heading",
+              "label": "Heading",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_accessories_description",
+              "name": "home_accessories_description",
+              "label": "Description",
+              "type": "textarea",
+              "rows": 3
+            },
+            {
+              "key": "field_us_home_accessories_cta",
+              "name": "home_accessories_cta",
+              "label": "Section CTA",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_us_home_accessories_products",
+              "name": "home_accessories_products",
+              "label": "Selected products",
+              "type": "relationship",
+              "post_type": [
+                "product"
+              ],
+              "filters": [
+                "search",
+                "taxonomy"
+              ],
+              "return_format": "id",
+              "instructions": "Select WooCommerce products. Price and stock always come from WooCommerce. Product structure will be configured after owner instructions."
+            },
+            {
+              "key": "field_us_home_accessories_mode",
+              "name": "home_accessories_mode",
+              "label": "Product source",
+              "type": "select",
+              "choices": {
+                "selected": "Selected products",
+                "latest": "Newest products",
+                "featured": "Featured products"
+              },
+              "default_value": "selected"
+            },
+            {
+              "key": "field_us_home_accessories_limit",
+              "name": "home_accessories_limit",
+              "label": "Number of products",
+              "type": "number",
+              "default_value": 8,
+              "min": 1,
+              "max": 24
+            }
+          ],
+          "min": 0,
+          "max": 1
+        },
+        "layout_us_budgets": {
+          "key": "layout_us_budgets",
+          "name": "budgets",
+          "label": "Shop by budget",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_us_home_budgets_enabled",
+              "name": "home_budgets_enabled",
+              "label": "Show section",
+              "type": "true_false",
+              "ui": 1,
+              "default_value": 1
+            },
+            {
+              "key": "field_us_home_budgets_eyebrow",
+              "name": "home_budgets_eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_budgets_heading",
+              "name": "home_budgets_heading",
+              "label": "Heading",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_budgets_description",
+              "name": "home_budgets_description",
+              "label": "Description",
+              "type": "textarea",
+              "rows": 3
+            },
+            {
+              "key": "field_us_home_budgets_cta",
+              "name": "home_budgets_cta",
+              "label": "Section CTA",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_us_home_budgets_ranges",
+              "name": "home_budgets_ranges",
+              "label": "Budget ranges",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add item",
+              "sub_fields": [
+                {
+                  "key": "field_us_home_budgets_range_title",
+                  "name": "home_budgets_range_title",
+                  "label": "Label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_budgets_min",
+                  "name": "home_budgets_min",
+                  "label": "Minimum price",
+                  "type": "number",
+                  "min": 0
+                },
+                {
+                  "key": "field_us_home_budgets_max",
+                  "name": "home_budgets_max",
+                  "label": "Maximum price",
+                  "type": "number",
+                  "min": 0,
+                  "instructions": "Leave empty for no upper limit."
+                },
+                {
+                  "key": "field_us_home_budgets_range_image",
+                  "name": "home_budgets_range_image",
+                  "label": "Image",
+                  "type": "image",
+                  "return_format": "id",
+                  "preview_size": "medium",
+                  "library": "all"
+                }
+              ],
+              "min": 0,
+              "max": 3
+            }
+          ],
+          "min": 0,
+          "max": 1
+        },
+        "layout_us_arrivals": {
+          "key": "layout_us_arrivals",
+          "name": "arrivals",
+          "label": "Fresh arrivals",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_us_home_arrivals_enabled",
+              "name": "home_arrivals_enabled",
+              "label": "Show section",
+              "type": "true_false",
+              "ui": 1,
+              "default_value": 1
+            },
+            {
+              "key": "field_us_home_arrivals_eyebrow",
+              "name": "home_arrivals_eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_arrivals_heading",
+              "name": "home_arrivals_heading",
+              "label": "Heading",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_arrivals_description",
+              "name": "home_arrivals_description",
+              "label": "Description",
+              "type": "textarea",
+              "rows": 3
+            },
+            {
+              "key": "field_us_home_arrivals_cta",
+              "name": "home_arrivals_cta",
+              "label": "Section CTA",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_us_home_arrivals_products",
+              "name": "home_arrivals_products",
+              "label": "Selected products",
+              "type": "relationship",
+              "post_type": [
+                "product"
+              ],
+              "filters": [
+                "search",
+                "taxonomy"
+              ],
+              "return_format": "id",
+              "instructions": "Select WooCommerce products. Price and stock always come from WooCommerce. Product structure will be configured after owner instructions."
+            },
+            {
+              "key": "field_us_home_arrivals_mode",
+              "name": "home_arrivals_mode",
+              "label": "Product source",
+              "type": "select",
+              "choices": {
+                "selected": "Selected products",
+                "latest": "Newest products",
+                "featured": "Featured products"
+              },
+              "default_value": "selected"
+            },
+            {
+              "key": "field_us_home_arrivals_limit",
+              "name": "home_arrivals_limit",
+              "label": "Number of products",
+              "type": "number",
+              "default_value": 8,
+              "min": 1,
+              "max": 24
+            }
+          ],
+          "min": 0,
+          "max": 1
+        },
+        "layout_us_builder": {
+          "key": "layout_us_builder",
+          "name": "builder",
+          "label": "Build it your way",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_us_home_builder_enabled",
+              "name": "home_builder_enabled",
+              "label": "Show section",
+              "type": "true_false",
+              "ui": 1,
+              "default_value": 1
+            },
+            {
+              "key": "field_us_home_builder_eyebrow",
+              "name": "home_builder_eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_builder_heading",
+              "name": "home_builder_heading",
+              "label": "Heading",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_builder_description",
+              "name": "home_builder_description",
+              "label": "Description",
+              "type": "textarea",
+              "rows": 3
+            },
+            {
+              "key": "field_us_home_builder_cta",
+              "name": "home_builder_cta",
+              "label": "Section CTA",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_us_home_builder_note",
+              "name": "home_builder_note",
+              "label": "Builder note",
+              "type": "textarea",
+              "instructions": "Product slots and compatibility will be configured after product instructions."
+            }
+          ],
+          "min": 0,
+          "max": 1
+        },
+        "layout_us_editorial": {
+          "key": "layout_us_editorial",
+          "name": "editorial",
+          "label": "Editorial collections",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_us_home_editorial_enabled",
+              "name": "home_editorial_enabled",
+              "label": "Show section",
+              "type": "true_false",
+              "ui": 1,
+              "default_value": 1
+            },
+            {
+              "key": "field_us_home_editorial_eyebrow",
+              "name": "home_editorial_eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_editorial_heading",
+              "name": "home_editorial_heading",
+              "label": "Heading",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_editorial_description",
+              "name": "home_editorial_description",
+              "label": "Description",
+              "type": "textarea",
+              "rows": 3
+            },
+            {
+              "key": "field_us_home_editorial_cta",
+              "name": "home_editorial_cta",
+              "label": "Section CTA",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_us_home_editorial_cards",
+              "name": "home_editorial_cards",
+              "label": "Cards",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add item",
+              "sub_fields": [
+                {
+                  "key": "field_us_home_editorial_card_title",
+                  "name": "home_editorial_card_title",
+                  "label": "Title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_editorial_card_eyebrow",
+                  "name": "home_editorial_card_eyebrow",
+                  "label": "Eyebrow",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_editorial_card_copy",
+                  "name": "home_editorial_card_copy",
+                  "label": "Description",
+                  "type": "textarea",
+                  "rows": 2
+                },
+                {
+                  "key": "field_us_home_editorial_card_image",
+                  "name": "home_editorial_card_image",
+                  "label": "Image",
+                  "type": "image",
+                  "return_format": "id",
+                  "preview_size": "medium",
+                  "library": "all"
+                },
+                {
+                  "key": "field_us_home_editorial_card_link",
+                  "name": "home_editorial_card_link",
+                  "label": "Destination",
+                  "type": "link",
+                  "return_format": "array"
+                }
+              ],
+              "min": 0,
+              "max": 0
+            }
+          ],
+          "min": 0,
+          "max": 1
+        },
+        "layout_us_guides": {
+          "key": "layout_us_guides",
+          "name": "guides",
+          "label": "Guides",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_us_home_guides_enabled",
+              "name": "home_guides_enabled",
+              "label": "Show section",
+              "type": "true_false",
+              "ui": 1,
+              "default_value": 1
+            },
+            {
+              "key": "field_us_home_guides_eyebrow",
+              "name": "home_guides_eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_guides_heading",
+              "name": "home_guides_heading",
+              "label": "Heading",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_guides_description",
+              "name": "home_guides_description",
+              "label": "Description",
+              "type": "textarea",
+              "rows": 3
+            },
+            {
+              "key": "field_us_home_guides_cta",
+              "name": "home_guides_cta",
+              "label": "Section CTA",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_us_home_guides_cards",
+              "name": "home_guides_cards",
+              "label": "Cards",
+              "type": "repeater",
+              "layout": "block",
+              "button_label": "Add item",
+              "sub_fields": [
+                {
+                  "key": "field_us_home_guides_card_title",
+                  "name": "home_guides_card_title",
+                  "label": "Title",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_guides_card_eyebrow",
+                  "name": "home_guides_card_eyebrow",
+                  "label": "Eyebrow",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_guides_card_copy",
+                  "name": "home_guides_card_copy",
+                  "label": "Description",
+                  "type": "textarea",
+                  "rows": 2
+                },
+                {
+                  "key": "field_us_home_guides_card_image",
+                  "name": "home_guides_card_image",
+                  "label": "Image",
+                  "type": "image",
+                  "return_format": "id",
+                  "preview_size": "medium",
+                  "library": "all"
+                },
+                {
+                  "key": "field_us_home_guides_card_link",
+                  "name": "home_guides_card_link",
+                  "label": "Destination",
+                  "type": "link",
+                  "return_format": "array"
+                }
+              ],
+              "min": 0,
+              "max": 0
+            }
+          ],
+          "min": 0,
+          "max": 1
+        },
+        "layout_us_closing": {
+          "key": "layout_us_closing",
+          "name": "closing",
+          "label": "Closing CTA",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_us_home_closing_enabled",
+              "name": "home_closing_enabled",
+              "label": "Show section",
+              "type": "true_false",
+              "ui": 1,
+              "default_value": 1
+            },
+            {
+              "key": "field_us_home_closing_eyebrow",
+              "name": "home_closing_eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_closing_heading",
+              "name": "home_closing_heading",
+              "label": "Heading",
+              "type": "text"
+            },
+            {
+              "key": "field_us_home_closing_description",
+              "name": "home_closing_description",
+              "label": "Description",
+              "type": "textarea",
+              "rows": 3
+            },
+            {
+              "key": "field_us_home_closing_cta",
+              "name": "home_closing_cta",
+              "label": "Section CTA",
+              "type": "link",
+              "return_format": "array"
+            }
+          ],
+          "min": 0,
+          "max": 1
+        }
+      },
+      "button_label": "Add approved section",
+      "instructions": "Drag to reorder approved sections. Fields are ready; template binding and approved content migration are the next conversion stage."
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "urban-shisha-home"
+      }
+    ]
+  ],
+  "active": true,
+  "position": "normal",
+  "style": "default",
+  "show_in_rest": 0
+}

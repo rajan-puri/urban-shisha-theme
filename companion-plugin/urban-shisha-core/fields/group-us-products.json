@@ -1,0 +1,167 @@
+{
+  "key": "group_us_products",
+  "title": "Urban Shisha — Product details",
+  "fields": [
+    {
+      "key": "field_us_product_intro_tab",
+      "name": "us_product_intro_tab",
+      "label": "Presentation",
+      "type": "tab"
+    },
+    {
+      "key": "field_us_product_showcase_image",
+      "name": "us_product_showcase_image",
+      "label": "Transparent showcase image",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all",
+      "instructions": "Optional transparent cutout for decorative product compositions. Native WooCommerce featured image/gallery remain the main product photography. Leave empty until a suitable asset is supplied."
+    },
+    {
+      "key": "field_us_product_specifications",
+      "name": "us_product_specifications",
+      "label": "Specifications",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Add specification",
+      "sub_fields": [
+        {
+          "key": "field_us_product_spec_label",
+          "name": "spec_label",
+          "label": "Label",
+          "type": "text",
+          "required": 1
+        },
+        {
+          "key": "field_us_product_spec_value",
+          "name": "spec_value",
+          "label": "Value",
+          "type": "text",
+          "required": 1
+        }
+      ]
+    },
+    {
+      "key": "field_us_product_features",
+      "name": "us_product_features",
+      "label": "Features",
+      "type": "repeater",
+      "layout": "row",
+      "button_label": "Add feature",
+      "sub_fields": [
+        {
+          "key": "field_us_product_feature_name",
+          "name": "feature_name",
+          "label": "Feature",
+          "type": "text",
+          "required": 1
+        },
+        {
+          "key": "field_us_product_feature_availability",
+          "name": "feature_availability",
+          "label": "Available",
+          "type": "select",
+          "choices": {
+            "yes": "Yes",
+            "no": "No",
+            "unspecified": "Not specified"
+          },
+          "default_value": "unspecified",
+          "return_format": "value"
+        },
+        {
+          "key": "field_us_product_feature_notes",
+          "name": "feature_notes",
+          "label": "Details",
+          "type": "textarea",
+          "rows": 2
+        }
+      ]
+    },
+    {
+      "key": "field_us_product_included_items",
+      "name": "us_product_included_items",
+      "label": "Included items",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Add included item",
+      "instructions": "Confirm included items for Urban Shisha before publishing. Imported source-store free gift promotions are not included.",
+      "sub_fields": [
+        {
+          "key": "field_us_product_included_item",
+          "name": "included_item",
+          "label": "Item",
+          "type": "text",
+          "required": 1
+        }
+      ]
+    },
+    {
+      "key": "field_us_product_usage_steps",
+      "name": "us_product_usage_steps",
+      "label": "Usage instructions",
+      "type": "repeater",
+      "layout": "row",
+      "button_label": "Add step",
+      "sub_fields": [
+        {
+          "key": "field_us_product_usage_step",
+          "name": "usage_step",
+          "label": "Step",
+          "type": "text",
+          "required": 1
+        },
+        {
+          "key": "field_us_product_usage_instructions",
+          "name": "usage_instructions",
+          "label": "Instructions",
+          "type": "textarea",
+          "rows": 3,
+          "required": 1
+        }
+      ]
+    },
+    {
+      "key": "field_us_product_review_tab",
+      "name": "us_product_review_tab",
+      "label": "Import review",
+      "type": "tab"
+    },
+    {
+      "key": "field_us_product_review_status",
+      "name": "us_product_review_status",
+      "label": "Content review",
+      "type": "select",
+      "choices": {
+        "pending": "Pending review",
+        "approved": "Content reviewed"
+      },
+      "default_value": "pending",
+      "instructions": "Review source descriptions, features and included items. Set your own price and stock in WooCommerce Product data. Approval here does not publish or restock the product.",
+      "return_format": "value"
+    },
+    {
+      "key": "field_us_product_review_notes",
+      "name": "us_product_review_notes",
+      "label": "Review notes",
+      "type": "textarea",
+      "rows": 3
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "product"
+      }
+    ]
+  ],
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true,
+  "show_in_rest": false
+}

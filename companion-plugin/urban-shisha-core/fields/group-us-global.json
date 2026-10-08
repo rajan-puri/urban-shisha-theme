@@ -1,0 +1,337 @@
+{
+  "key": "group_us_global",
+  "title": "Urban Shisha \u2014 Global settings",
+  "fields": [
+    {
+      "key": "field_us_branding_tab",
+      "name": "branding_tab",
+      "label": "Branding",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_us_brand_name",
+      "name": "brand_name",
+      "label": "Brand name",
+      "type": "text"
+    },
+    {
+      "key": "field_us_brand_logo",
+      "name": "brand_logo",
+      "label": "Logo",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all"
+    },
+    {
+      "key": "field_us_brand_logo_light",
+      "name": "brand_logo_light",
+      "label": "Logo for dark backgrounds",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all"
+    },
+    {
+      "key": "field_us_brand_domain",
+      "name": "brand_domain",
+      "label": "Public domain",
+      "type": "text"
+    },
+    {
+      "key": "field_us_announcement_tab",
+      "name": "announcement_tab",
+      "label": "Announcement",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_us_announcement_enabled",
+      "name": "announcement_enabled",
+      "label": "Show announcement",
+      "type": "true_false",
+      "ui": 1
+    },
+    {
+      "key": "field_us_announcement_text",
+      "name": "announcement_text",
+      "label": "Announcement text",
+      "type": "text"
+    },
+    {
+      "key": "field_us_announcement_link",
+      "name": "announcement_link",
+      "label": "Announcement link",
+      "type": "link",
+      "return_format": "array"
+    },
+    {
+      "key": "field_us_contacts_tab",
+      "name": "contacts_tab",
+      "label": "Business & contacts",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_us_business_location",
+      "name": "business_location",
+      "label": "Business location",
+      "type": "textarea",
+      "rows": 3,
+      "instructions": "Business address only. There is no walk-in retail store."
+    },
+    {
+      "key": "field_us_owners",
+      "name": "owners",
+      "label": "Business contacts",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Add item",
+      "sub_fields": [
+        {
+          "key": "field_us_owner_name",
+          "name": "owner_name",
+          "label": "Name",
+          "type": "text"
+        },
+        {
+          "key": "field_us_owner_phone",
+          "name": "owner_phone",
+          "label": "Phone number",
+          "type": "text"
+        }
+      ],
+      "min": 0,
+      "max": 0
+    },
+    {
+      "key": "field_us_support_email",
+      "name": "support_email",
+      "label": "Support email",
+      "type": "email"
+    },
+    {
+      "key": "field_us_primary_whatsapp",
+      "name": "primary_whatsapp",
+      "label": "Primary WhatsApp number",
+      "type": "text",
+      "instructions": "Use country code. Leave blank until a primary WhatsApp contact is confirmed."
+    },
+    {
+      "key": "field_us_support_hours",
+      "name": "support_hours",
+      "label": "Support hours",
+      "type": "text"
+    },
+    {
+      "key": "field_us_instagram_url",
+      "name": "instagram_url",
+      "label": "Instagram URL",
+      "type": "url"
+    },
+    {
+      "key": "field_us_social_links",
+      "name": "social_links",
+      "label": "Other social links",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Add item",
+      "sub_fields": [
+        {
+          "key": "field_us_social_label",
+          "name": "social_label",
+          "label": "Label",
+          "type": "text"
+        },
+        {
+          "key": "field_us_social_url",
+          "name": "social_url",
+          "label": "URL",
+          "type": "url"
+        }
+      ],
+      "min": 0,
+      "max": 0
+    },
+    {
+      "key": "field_us_navigation_tab",
+      "name": "navigation_tab",
+      "label": "Navigation content",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_us_mega_eyebrow",
+      "name": "mega_eyebrow",
+      "label": "Mega menu eyebrow",
+      "type": "text"
+    },
+    {
+      "key": "field_us_mega_heading",
+      "name": "mega_heading",
+      "label": "Mega menu heading",
+      "type": "text"
+    },
+    {
+      "key": "field_us_mega_cards",
+      "name": "mega_cards",
+      "label": "Mega menu category cards",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Add item",
+      "sub_fields": [
+        {
+          "key": "field_us_mega_card_label",
+          "name": "mega_card_label",
+          "label": "Label",
+          "type": "text"
+        },
+        {
+          "key": "field_us_mega_card_image",
+          "name": "mega_card_image",
+          "label": "Image",
+          "type": "image",
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all"
+        },
+        {
+          "key": "field_us_mega_card_link",
+          "name": "mega_card_link",
+          "label": "Destination",
+          "type": "link",
+          "return_format": "array"
+        }
+      ],
+      "min": 0,
+      "max": 8
+    },
+    {
+      "key": "field_us_footer_tab",
+      "name": "footer_tab",
+      "label": "Footer & newsletter",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_us_footer_description",
+      "name": "footer_description",
+      "label": "Footer description",
+      "type": "textarea"
+    },
+    {
+      "key": "field_us_newsletter_eyebrow",
+      "name": "newsletter_eyebrow",
+      "label": "Newsletter eyebrow",
+      "type": "text"
+    },
+    {
+      "key": "field_us_newsletter_heading",
+      "name": "newsletter_heading",
+      "label": "Newsletter heading",
+      "type": "text"
+    },
+    {
+      "key": "field_us_newsletter_description",
+      "name": "newsletter_description",
+      "label": "Newsletter description",
+      "type": "textarea"
+    },
+    {
+      "key": "field_us_newsletter_placeholder",
+      "name": "newsletter_placeholder",
+      "label": "Email placeholder",
+      "type": "text"
+    },
+    {
+      "key": "field_us_newsletter_note",
+      "name": "newsletter_note",
+      "label": "Newsletter note",
+      "type": "text",
+      "instructions": "Content only; subscription integration remains pending."
+    },
+    {
+      "key": "field_us_footer_copyright",
+      "name": "footer_copyright",
+      "label": "Copyright text",
+      "type": "text"
+    },
+    {
+      "key": "field_us_credit_label",
+      "name": "credit_label",
+      "label": "Credit label",
+      "type": "text"
+    },
+    {
+      "key": "field_us_credit_link",
+      "name": "credit_link",
+      "label": "Credit link",
+      "type": "link",
+      "return_format": "array"
+    },
+    {
+      "key": "field_us_age_tab",
+      "name": "age_tab",
+      "label": "Age confirmation",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_us_age_eyebrow",
+      "name": "age_eyebrow",
+      "label": "Eyebrow",
+      "type": "text"
+    },
+    {
+      "key": "field_us_age_heading",
+      "name": "age_heading",
+      "label": "Heading",
+      "type": "textarea",
+      "rows": 2
+    },
+    {
+      "key": "field_us_age_description",
+      "name": "age_description",
+      "label": "Description",
+      "type": "textarea"
+    },
+    {
+      "key": "field_us_age_accept_label",
+      "name": "age_accept_label",
+      "label": "Accept button label",
+      "type": "text"
+    },
+    {
+      "key": "field_us_age_decline_label",
+      "name": "age_decline_label",
+      "label": "Decline button label",
+      "type": "text"
+    },
+    {
+      "key": "field_us_age_declined_message",
+      "name": "age_declined_message",
+      "label": "Under-age message",
+      "type": "textarea"
+    },
+    {
+      "key": "field_us_health_notice",
+      "name": "health_notice",
+      "label": "Health notice",
+      "type": "text"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "urban-shisha-settings"
+      }
+    ]
+  ],
+  "active": true,
+  "position": "normal",
+  "style": "default",
+  "show_in_rest": 0
+}
