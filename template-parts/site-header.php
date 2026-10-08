@@ -23,12 +23,10 @@ defined( 'ABSPATH' ) || exit;
 <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></symbol></defs></svg>
 <a class="skip-link" href="#main"><?php esc_html_e( 'Skip to content', 'urban-shisha' ); ?></a>
 <?php
-$announcement_enabled = (bool) urban_shisha_get_option( 'announcement_enabled', true );
-$announcement_text    = urban_shisha_get_option( 'announcement_text', 'A new perspective on your setup.' );
-$announcement_link    = urban_shisha_parse_link( urban_shisha_get_option( 'announcement_link', array(
-	'url'   => urban_shisha_route_url( 'shop', array( 'category' => 'hookahs' ) ),
-	'title' => 'Discover the collection',
-) ) );
+$announcement_enabled = (bool) urban_shisha_get_option( 'announcement_enabled', false );
+$announcement_text    = urban_shisha_get_option( 'announcement_text', '' );
+$announcement_link    = urban_shisha_parse_link( urban_shisha_get_option( 'announcement_link' ) );
+
 if ( $announcement_enabled && ( $announcement_text || $announcement_link ) ) :
 ?>
 <aside class="announcement" aria-label="<?php esc_attr_e( 'Announcement', 'urban-shisha' ); ?>">
@@ -52,7 +50,9 @@ if ( $announcement_enabled && ( $announcement_text || $announcement_link ) ) :
 </nav>
 <div class="header-actions">
 <button class="icon-button" data-open="search" aria-label="<?php esc_attr_e( 'Search products', 'urban-shisha' ); ?>"><svg><use href="#i-search"/></svg></button>
-<a class="icon-button wishlist-nav" href="<?php echo esc_url( urban_shisha_route_url( 'account', array( 'tab' => 'wishlist' ) ) ); ?>" aria-label="<?php esc_attr_e( 'Saved products', 'urban-shisha' ); ?>"><svg><use href="#i-heart"/></svg></a>
+<?php $wishlist_link = urban_shisha_parse_link( urban_shisha_get_option( 'header_wishlist_link' ) ); if ( $wishlist_link ) : ?>
+<a class="icon-button wishlist-nav" href="<?php echo esc_url( $wishlist_link['url'] ); ?>"<?php echo $wishlist_link['target'] ? ' target="_blank" rel="noopener noreferrer"' : ''; ?> aria-label="<?php esc_attr_e( 'Saved products', 'urban-shisha' ); ?>"><svg><use href="#i-heart"/></svg></a>
+<?php endif; ?>
 <div class="account-entry">
 	<button type="button" class="icon-button account-nav account-trigger" id="account-trigger" aria-label="<?php esc_attr_e( 'Open My Account menu', 'urban-shisha' ); ?>" aria-expanded="false" aria-controls="account-shortcuts">
 		<svg aria-hidden="true"><use href="#i-user"/></svg>
@@ -69,7 +69,7 @@ if ( $announcement_enabled && ( $announcement_text || $announcement_link ) ) :
 			<nav aria-label="<?php esc_attr_e( 'Account shortcuts', 'urban-shisha' ); ?>">
 				<a href="<?php echo esc_url( urban_shisha_route_url( 'account', array( 'tab' => 'orders' ) ) ); ?>"><?php esc_html_e( 'My orders', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
 				<a href="<?php echo esc_url( urban_shisha_route_url( 'account', array( 'tab' => 'addresses' ) ) ); ?>"><?php esc_html_e( 'Addresses', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-				<a href="<?php echo esc_url( urban_shisha_route_url( 'account', array( 'tab' => 'wishlist' ) ) ); ?>"><?php esc_html_e( 'Wishlist', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+				<?php if ( $wishlist_link ) : ?>				<a href="<?php echo esc_url( $wishlist_link['url'] ); ?>"<?php echo $wishlist_link['target'] ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>><?php esc_html_e( 'Wishlist', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><?php endif; ?>
 				<a href="<?php echo esc_url( urban_shisha_route_url( 'account', array( 'tab' => 'details' ) ) ); ?>"><?php esc_html_e( 'Account details', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
 			</nav>
 			<a class="account-logout" href="<?php echo esc_url( $logout_url ); ?>"><?php esc_html_e( 'Log out', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -79,7 +79,7 @@ if ( $announcement_enabled && ( $announcement_text || $announcement_link ) ) :
 			<nav aria-label="<?php esc_attr_e( 'Account shortcuts', 'urban-shisha' ); ?>">
 				<a href="<?php echo esc_url( urban_shisha_route_url( 'account', array( 'tab' => 'orders' ) ) ); ?>"><?php esc_html_e( 'My orders', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
 				<a href="<?php echo esc_url( urban_shisha_route_url( 'account', array( 'tab' => 'addresses' ) ) ); ?>"><?php esc_html_e( 'Addresses', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-				<a href="<?php echo esc_url( urban_shisha_route_url( 'account', array( 'tab' => 'wishlist' ) ) ); ?>"><?php esc_html_e( 'Wishlist', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+				<?php if ( $wishlist_link ) : ?>				<a href="<?php echo esc_url( $wishlist_link['url'] ); ?>"<?php echo $wishlist_link['target'] ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>><?php esc_html_e( 'Wishlist', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><?php endif; ?>
 			</nav>
 			<a class="account-menu-help" href="<?php echo esc_url( urban_shisha_route_url( 'contact' ) ); ?>"><?php esc_html_e( 'Need a hand? Contact us', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
 		<?php endif; ?>
@@ -87,74 +87,50 @@ if ( $announcement_enabled && ( $announcement_text || $announcement_link ) ) :
 </div>
 <a class="bag-button" href="<?php echo esc_url( urban_shisha_route_url( 'cart' ) ); ?>" aria-label="<?php esc_attr_e( 'Open shopping bag', 'urban-shisha' ); ?>">
 	<svg><use href="#i-bag"/></svg>
-	<span class="cart-count"><?php echo esc_html( (string) urban_shisha_get_cart_count() ); ?></span>
+	<?php echo urban_shisha_cart_count_markup(); ?>
 </a>
 <button class="icon-button mobile-toggle" aria-label="<?php esc_attr_e( 'Open navigation', 'urban-shisha' ); ?>" aria-expanded="false" aria-controls="mobile-nav"><svg><use href="#i-menu"/></svg></button>
 </div>
-</div><div class="mega-menu" id="category-menu" aria-labelledby="mega-toggle" hidden>
+</div>
 <?php
-$mega_eyebrow = urban_shisha_get_option( 'mega_eyebrow', 'THE WHOLE SETUP.' );
-$mega_heading = urban_shisha_get_option( 'mega_heading', 'Shop your next favourite.' );
-$mega_cards   = urban_shisha_get_option( 'mega_cards', array() );
-$shop_all_url = urban_shisha_route_url( 'shop' );
+$mega_cards = urban_shisha_header_cards();
+$mega_eyebrow = urban_shisha_get_option( 'mega_eyebrow', '' );
+$mega_heading = urban_shisha_get_option( 'mega_heading', '' );
+$shop_link = urban_shisha_parse_link( urban_shisha_get_option( 'mega_shop_link' ) );
+$mega_note = urban_shisha_get_option( 'mega_footer_note', '' );
 ?>
-<div class="mega-heading">
-	<div>
-		<?php if ( $mega_eyebrow ) : ?>
-			<p class="eyebrow"><?php echo esc_html( $mega_eyebrow ); ?></p>
-		<?php endif; ?>
-		<?php if ( $mega_heading ) : ?>
-			<h2><?php echo esc_html( $mega_heading ); ?></h2>
-		<?php endif; ?>
-	</div>
-	<a class="text-link" href="<?php echo esc_url( $shop_all_url ); ?>"><?php esc_html_e( 'Shop all products', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+<?php if ( $mega_cards ) : ?>
+<div class="mega-menu" id="category-menu" aria-label="<?php esc_attr_e( 'Product categories', 'urban-shisha' ); ?>" hidden>
+<div class="mega-heading"><div>
+<?php if ( $mega_eyebrow ) : ?><p class="eyebrow"><?php echo esc_html( $mega_eyebrow ); ?></p><?php endif; ?>
+<?php if ( $mega_heading ) : ?><h2><?php echo esc_html( $mega_heading ); ?></h2><?php endif; ?>
 </div>
-<?php if ( ! empty( $mega_cards ) && is_array( $mega_cards ) ) : ?>
-	<div class="mega-categories">
-		<?php foreach ( $mega_cards as $card ) :
-			$label     = ! empty( $card['mega_card_label'] ) ? $card['mega_card_label'] : '';
-			$img_id    = ! empty( $card['mega_card_image'] ) ? (int) $card['mega_card_image'] : 0;
-			$link_info = urban_shisha_parse_link( ! empty( $card['mega_card_link'] ) ? $card['mega_card_link'] : array() );
-			$url       = $link_info ? $link_info['url'] : urban_shisha_route_url( 'shop' );
-			$target    = $link_info ? $link_info['target'] : '';
-		?>
-			<a class="mega-category" href="<?php echo esc_url( $url ); ?>"<?php echo $target ? ' target="' . esc_attr( $target ) . '" rel="noopener noreferrer"' : ''; ?>>
-				<span class="mega-photo" aria-hidden="true">
-					<?php if ( $img_id ) : ?>
-						<?php echo wp_get_attachment_image( $img_id, 'medium', false, array( 'class' => 'mega-photo-img', 'alt' => esc_attr( $label ) ) ); ?>
-					<?php endif; ?>
-				</span>
-				<span class="mega-label"><?php echo esc_html( $label ); ?><svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
-			</a>
-		<?php endforeach; ?>
-	</div>
+<?php if ( $shop_link ) : ?><a class="text-link" href="<?php echo esc_url( $shop_link['url'] ); ?>"<?php echo $shop_link['target'] ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>><?php echo esc_html( $shop_link['title'] ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a><?php endif; ?>
+</div>
+<div class="mega-categories">
+<?php foreach ( $mega_cards as $card ) : ?>
+<a class="mega-category" href="<?php echo esc_url( $card['url'] ); ?>"<?php echo $card['target'] ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>>
+<span class="mega-photo" aria-hidden="true"><?php if ( $card['image'] ) { echo wp_get_attachment_image( $card['image'], 'medium', false, array( 'class' => 'mega-photo-img', 'alt' => '' ) ); } ?></span>
+<span class="mega-label"><?php echo esc_html( $card['label'] ); ?><svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+</a>
+<?php endforeach; ?>
+</div>
+<div class="mega-bottom"><?php urban_shisha_render_header_menu( false, 'header-shortcuts' ); ?><?php if ( $mega_note ) : ?><span><?php echo esc_html( $mega_note ); ?></span><?php endif; ?></div>
+</div>
 <?php endif; ?>
-<div class="mega-bottom">
-	<a href="<?php echo esc_url( urban_shisha_route_url( 'home' ) . '#arrivals' ); ?>"><?php esc_html_e( 'New arrivals', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-	<a href="<?php echo esc_url( urban_shisha_route_url( 'wholesale' ) ); ?>"><?php esc_html_e( 'Wholesale enquiries', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-	<span><?php esc_html_e( 'For the 18+ crew.', 'urban-shisha' ); ?></span>
+<nav class="mobile-nav" id="mobile-nav" aria-label="<?php esc_attr_e( 'Mobile navigation', 'urban-shisha' ); ?>" hidden>
+<?php if ( $mega_cards ) : ?>
+<?php $mobile_heading = urban_shisha_get_option( 'mobile_category_heading', '' ); ?>
+<?php if ( $mobile_heading ) : ?><p class="mobile-category-title"><?php echo esc_html( $mobile_heading ); ?></p><?php endif; ?>
+<div class="mobile-categories">
+<?php foreach ( $mega_cards as $card ) : ?>
+<a class="mobile-category" href="<?php echo esc_url( $card['url'] ); ?>"<?php echo $card['target'] ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>>
+<span class="mobile-photo" aria-hidden="true"><?php if ( $card['image'] ) { echo wp_get_attachment_image( $card['image'], 'medium', false, array( 'class' => 'mobile-photo-img', 'alt' => '' ) ); } ?></span>
+<span class="mobile-label"><?php echo esc_html( $card['label'] ); ?><svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+</a>
+<?php endforeach; ?>
 </div>
-</div><nav class="mobile-nav" id="mobile-nav" aria-label="<?php esc_attr_e( 'Mobile navigation', 'urban-shisha' ); ?>" hidden>
-<?php if ( ! empty( $mega_cards ) && is_array( $mega_cards ) ) : ?>
-	<p class="mobile-category-title"><?php esc_html_e( 'SHOP BY CATEGORY', 'urban-shisha' ); ?></p>
-	<div class="mobile-categories">
-		<?php foreach ( $mega_cards as $card ) :
-			$label     = ! empty( $card['mega_card_label'] ) ? $card['mega_card_label'] : '';
-			$img_id    = ! empty( $card['mega_card_image'] ) ? (int) $card['mega_card_image'] : 0;
-			$link_info = urban_shisha_parse_link( ! empty( $card['mega_card_link'] ) ? $card['mega_card_link'] : array() );
-			$url       = $link_info ? $link_info['url'] : urban_shisha_route_url( 'shop' );
-			$target    = $link_info ? $link_info['target'] : '';
-		?>
-			<a class="mobile-category" href="<?php echo esc_url( $url ); ?>"<?php echo $target ? ' target="' . esc_attr( $target ) . '" rel="noopener noreferrer"' : ''; ?>>
-				<span class="mobile-photo" aria-hidden="true">
-					<?php if ( $img_id ) : ?>
-						<?php echo wp_get_attachment_image( $img_id, 'medium', false, array( 'class' => 'mobile-photo-img', 'alt' => esc_attr( $label ) ) ); ?>
-					<?php endif; ?>
-				</span>
-				<span class="mobile-label"><?php echo esc_html( $label ); ?><svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
-			</a>
-		<?php endforeach; ?>
-	</div>
 <?php endif; ?>
 <?php urban_shisha_render_mobile_nav_links(); ?>
 </nav></header>
+<?php get_template_part( 'template-parts/header', 'search' ); ?>

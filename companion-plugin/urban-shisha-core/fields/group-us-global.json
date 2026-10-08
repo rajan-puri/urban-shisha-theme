@@ -1,6 +1,6 @@
 {
   "key": "group_us_global",
-  "title": "Urban Shisha \u2014 Global settings",
+  "title": "Urban Shisha — Global settings",
   "fields": [
     {
       "key": "field_us_branding_tab",
@@ -182,6 +182,20 @@
       "button_label": "Add item",
       "sub_fields": [
         {
+          "key": "field_us_mega_card_category",
+          "name": "mega_card_category",
+          "label": "WooCommerce category",
+          "type": "taxonomy",
+          "taxonomy": "product_cat",
+          "field_type": "select",
+          "return_format": "id",
+          "allow_null": 1,
+          "add_term": 0,
+          "save_terms": 0,
+          "load_terms": 0,
+          "multiple": 0
+        },
+        {
           "key": "field_us_mega_card_label",
           "name": "mega_card_label",
           "label": "Label",
@@ -205,7 +219,35 @@
         }
       ],
       "min": 0,
-      "max": 8
+      "max": 8,
+      "instructions": "Choose a WooCommerce category for a canonical destination. A custom destination is used only when no category is selected. Images and optional labels are shared by desktop and mobile."
+    },
+    {
+      "key": "field_us_mega_shop_link",
+      "name": "mega_shop_link",
+      "label": "Mega menu shop link",
+      "type": "link",
+      "return_format": "array"
+    },
+    {
+      "key": "field_us_mega_footer_note",
+      "name": "mega_footer_note",
+      "label": "Mega menu footer note",
+      "type": "text"
+    },
+    {
+      "key": "field_us_mobile_category_heading",
+      "name": "mobile_category_heading",
+      "label": "Mobile category heading",
+      "type": "text"
+    },
+    {
+      "key": "field_us_header_wishlist_link",
+      "name": "header_wishlist_link",
+      "label": "Wishlist destination",
+      "type": "link",
+      "return_format": "array",
+      "instructions": "Leave empty until a real wishlist page/integration is available. This does not implement wishlist storage."
     },
     {
       "key": "field_us_footer_tab",

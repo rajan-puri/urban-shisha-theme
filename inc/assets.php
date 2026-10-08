@@ -16,7 +16,10 @@ function urban_shisha_enqueue_assets() {
 	wp_register_script( 'urban-shisha-scroll-trigger', get_theme_file_uri( 'assets/js/ScrollTrigger.min.js' ), array( 'urban-shisha-gsap' ), urban_shisha_asset_version( 'assets/js/ScrollTrigger.min.js' ), $footer_defer );
 	wp_register_script( 'urban-shisha-catalog', get_theme_file_uri( 'assets/js/catalog.js' ), array(), urban_shisha_asset_version( 'assets/js/catalog.js' ), $footer_defer );
 	wp_register_script( 'urban-shisha-store-config', get_theme_file_uri( 'assets/js/config.js' ), array(), urban_shisha_asset_version( 'assets/js/config.js' ), $footer_defer );
-	wp_enqueue_script( 'urban-shisha-shell', get_theme_file_uri( 'assets/js/theme-shell.js' ), array( 'urban-shisha-catalog', 'urban-shisha-store-config' ), urban_shisha_asset_version( 'assets/js/theme-shell.js' ), $footer_defer );
+	wp_enqueue_script( 'urban-shisha-shell', get_theme_file_uri( 'assets/js/theme-shell.js' ), array(), urban_shisha_asset_version( 'assets/js/theme-shell.js' ), $footer_defer );
+	if ( class_exists( 'WooCommerce' ) ) {
+		wp_enqueue_script( 'wc-cart-fragments' );
+	}
 	wp_enqueue_script( 'urban-shisha-navigation', get_theme_file_uri( 'assets/js/navigation.js' ), array( 'urban-shisha-shell' ), urban_shisha_asset_version( 'assets/js/navigation.js' ), $footer_defer );
 	wp_enqueue_script( 'urban-shisha-gsap' );
 
