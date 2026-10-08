@@ -1,0 +1,13 @@
+/*
+Theme Name: Urban Shisha
+Theme URI: https://urbanshisha.in/
+Author: Mates Creation
+Author URI: https://matescreation.com/
+Description: Custom classic theme foundation for the approved Urban Shisha design. WooCommerce and homepage conversion are being implemented in stages.
+Version: 0.1.0
+Requires at least: 6.3
+Requires PHP: 8.0
+Text Domain: urban-shisha
+*/
+/* Approved design lives in assets/site.css; these rules only style fallback WordPress content. */
+.wp-foundation-content{padding-block:65px;min-height:40vh}.wp-foundation-content h1{font-size:clamp(35px,4.5vw,66px);line-height:1.05;letter-spacing:-.05em;margin-bottom:30px}.wp-foundation-content .entry-content{max-width:780px;font-size:16px;line-height:1.85}.wp-foundation-content .entry-content>*+*{margin-top:22px}.wp-foundation-content .entry-content ul,.wp-foundation-content .entry-content ol{padding-left:25px}.wp-foundation-content .entry-content a,.wp-foundation-content .entry-title a{text-decoration:underline;text-underline-offset:4px}.wp-foundation-content .entry-content img{max-width:100%;height:auto}.wp-foundation-content article+article{margin-top:50px;padding-top:40px;border-top:1px solid var(--line)}.wp-foundation-content .entry-title{font-size:34px;line-height:1.15;margin-bottom:20px;text-transform:none}.wp-foundation-content .post-navigation,.wp-foundation-content .navigation.pagination{margin-top:35px}.admin-bar .site-header{top:45px}@media(max-width:782px){.admin-bar .site-header{top:56px}}@media(max-width:600px){.wp-foundation-content{padding-block:45px}.wp-foundation-content .entry-title{font-size:28px}}
