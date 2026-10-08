@@ -29,4 +29,10 @@ This is a delegation smoke test, not a website feature. AGENTS.md defines Codex 
 
 ## Feedback
 
-No attempts yet. Manager will record actual CLI and verification results here.
+### Attempt 1 — CLI argument rejected
+
+- Command: `agy -p "Read tasks/task-1.md and implement it exactly. Touch only the listed files." --print-timeout 600`
+- Exit code: 2.
+- Exact error: `invalid value "600" for flag -print-timeout: time: missing unit in duration "600"`
+- No worker implementation ran. Manager checked Git status/diff before retrying.
+- Correction: use `--print-timeout 600s`, preserving the intended 600-second timeout. No permission bypass.
