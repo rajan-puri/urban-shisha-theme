@@ -2,7 +2,7 @@
 
 ## Goal
 
-Create `hello.txt` at the project root containing exactly `manager test ok`.
+Create `hello.txt` at the project root whose content, ignoring trailing whitespace/newlines, is exactly `manager test ok`.
 
 ## Context
 
@@ -15,7 +15,7 @@ This is a delegation smoke test, not a website feature. AGENTS.md defines Codex 
 
 ## Constraints
 
-- File bytes must be exactly UTF-8 `manager test ok` (15 bytes), without a trailing newline, BOM, quotes or extra whitespace.
+- UTF-8 content must be `manager test ok` after ignoring trailing whitespace/newlines. Leading whitespace, altered internal spacing, BOM, quotes or additional non-whitespace content are not allowed.
 - Do not modify task documents, AGENTS.md, theme code, assets, plugin files or database data.
 - Do not install anything, run builds that modify files, or commit changes. The Manager performs verification and Git operations.
 
@@ -23,7 +23,7 @@ This is a delegation smoke test, not a website feature. AGENTS.md defines Codex 
 
 - [x] `hello.txt` exists as a regular file at the project root.
 - [x] `cat hello.txt` displays `manager test ok`.
-- [ ] Exact-byte verification equals `b'manager test ok'` (15 bytes).
+- [x] `hello.txt` ka content, trailing whitespace/newline ignore karke, exactly `manager test ok` ho.
 - [x] Git inspection shows only `hello.txt` changed by the Worker.
 - [x] Manager-run `npm run lint` and `npm run build` pass; any generated changes are separately inspected.
 
@@ -55,5 +55,13 @@ This is a delegation smoke test, not a website feature. AGENTS.md defines Codex 
 - Manager specification correction: the initial task incorrectly called the expected string 14 bytes. It is 15 bytes. The literal expected bytes and no-newline requirement were unchanged; the arithmetic above is now corrected.
 - Added intent-to-add for `hello.txt` to inspect the new file with `git diff 770ed83 -- hello.txt`. Git scope check showed only `hello.txt` changed by the Worker. No out-of-scope revert was needed.
 - `git diff --check`, `npm run lint`, and `npm run build` all passed. Build produced no additional tracked/untracked changes.
-- Final result: **FAIL** on strict exact-byte acceptance. Three attempts used; no further worker retry and no Manager feature fix. Leave the failed file for review.
+- Historical result before the owner's acceptance correction: **FAIL** on strict exact-byte acceptance. This result is superseded by the re-verification below. Three worker attempts were used; no Manager feature fix.
 - Checkpoint commits: `53372ba` before attempt 1, `bee981d` before attempt 2, `770ed83` before attempt 3.
+
+### Owner-corrected acceptance — PASS (9 October 2026)
+
+- Owner clarified that trailing whitespace/newlines are allowed. Goal, Constraints and Acceptance criteria now agree with that requirement.
+- Manager independently ran `cat hello.txt` and `assert Path('hello.txt').read_text(encoding='utf-8').rstrip() == 'manager test ok'`. Both passed.
+- `git diff --check` passed. Only Manager-maintained `AGENTS.md` and this task specification were edited during re-verification; `hello.txt` was not changed.
+- Earlier lint/build and worker-scope checks remain applicable; no feature code changed, so no repeated build or worker invocation was necessary.
+- Final task result: **PASS**. This supersedes the earlier strict-format failure. The CLI permission errors remain historical facts, not unresolved content acceptance failures.
