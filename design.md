@@ -598,6 +598,10 @@ Read [BUSINESS-DETAILS.md](BUSINESS-DETAILS.md) before adding business copy or c
 The active conversion workspace is now `/Users/rajan/Local Sites/urban-shisha/app/public/wp-content/themes/urban-shisha-theme`. Earlier Downloads paths in this document describe the source project. The owner reports WooCommerce installed/activated but not configured, and requested skipping the initial backup for this fresh local installation. The owner has resumed steps 1–2: setup verification and theme foundation. Homepage conversion and activation remain the next stage.
 
 
+## Dynamic CMS requirement
+
+The owner requires all main customer-facing content to be editable through WordPress Admin. Follow [DYNAMIC-CMS-SCOPE.md](DYNAMIC-CMS-SCOPE.md) for data ownership, editable sections and conversion acceptance. WooCommerce owns commerce data; Secure Custom Fields supplies structured editorial content and global settings. Preserve the approved design. This is planned scope, not a claim that conversion is already implemented.
+
 ## WordPress foundation — steps 1–2 complete
 
 Current workspace: `/Users/rajan/Local Sites/urban-shisha/app/public/wp-content/themes/urban-shisha-theme`. WordPress 7.1.3 connects to Local’s MySQL 8.4.0 with PHP 8.2.30. WooCommerce 11.2.0 is active; its default Shop/Cart/Checkout/My Account pages already exist. There are zero catalogue products. These are observed setup facts, not an indication that commerce settings are finished.
