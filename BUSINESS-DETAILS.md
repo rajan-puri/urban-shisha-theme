@@ -12,7 +12,7 @@ Recorded 8 October 2026. Source: business owner’s instructions in this session
 | Akshay’s business contact | +91 78278 77268 (`+917827877268`) |
 | Business location | Rohini Sector 24, Delhi, 110085, India |
 | Physical retail store | None at present |
-| WooCommerce status | Verified installed and active (11.2.0); default commerce pages exist, catalogue has no products; business setup remains pending |
+| WooCommerce status | Active (11.2.0); basic address/currency/India-region/account setup complete, commerce pages verified, catalogue empty; shipping/tax/payment configuration pending |
 
 ## How to use
 
@@ -24,6 +24,8 @@ Recorded 8 October 2026. Source: business owner’s instructions in this session
 - The preview `assets/js/config.js` remains unchanged during the foundation work. Populate relevant settings when that work resumes and the necessary channel choice is available.
 
 ## Current development decisions
+
+- The owner subsequently authorised basic WooCommerce settings and SCF field preparation. See `WOOCOMMERCE-CMS-SETUP.md`. Product structure awaits owner instructions. Core editable schemas are now in the active `urban-shisha-core` plugin; dynamic template binding is pending.
 
 - Continue WordPress/WooCommerce work in `/Users/rajan/Local Sites/urban-shisha/app/public/wp-content/themes/urban-shisha-theme`.
 - This is a fresh local WordPress installation; the owner explicitly requested skipping the initial backup step.

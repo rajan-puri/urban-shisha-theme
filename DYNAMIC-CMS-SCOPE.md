@@ -37,6 +37,19 @@ Seed confirmed details from BUSINESS-DETAILS.md only. Urban Shisha is based in R
 - Define how empty optional sections are hidden and how required missing content is flagged in admin. Do not mask incomplete configuration with permanent hardcoded sample content.
 - Keep layout, breakpoints, icon artwork, decorative shapes and GSAP choreography in code. Standard interface labels should remain translatable.
 
+## Maintainable source structure
+
+The owner also requires clean PHP, CSS and JavaScript for future maintenance. Apply this requirement throughout conversion:
+
+- Keep `functions.php` as a small bootstrap that loads named modules from `inc/`. It already follows this pattern. Put setup, assets, routes, CMS fields, template helpers and WooCommerce integration in separate modules as those responsibilities are implemented.
+- Keep markup in page templates and reusable `template-parts/`, not inside `functions.php`.
+- Organise authored CSS into shared tokens/base, layout/components and page-specific styles. Consolidate the existing revision/override sheets into their owning components during conversion; do not keep appending competing overrides or duplicate selectors as a maintenance strategy.
+- Treat generated `assets/site.css` as build output, not an editable source file. Keep an explicit source/build mapping. Keep root `style.css` for WordPress theme metadata and narrowly scoped integration styles.
+- Organise JavaScript into shared behavior, page behavior and animation modules. Keep vendor GSAP/ScrollTrigger separate from authored code. Replace broad preview scripts gradually as their pages are converted, rather than loading every page's script globally.
+- Enqueue assets through the single `inc/assets.php` entry point with explicit dependencies and load page-specific assets only where needed. Do not scatter script/style tags or inline behavior through templates.
+- Use consistent descriptive filenames and prefixed PHP functions. Document each module's responsibility and the build commands in README. Remove superseded code after its replacement is verified.
+- Keep the current preview working while migrating. Do not move existing files without updating their HTML references, enqueue paths and build inputs. Verify the approved layout and relevant interactions after consolidation.
+
 ## Implementation sequence
 
 1. Audit current fields/plugins, add SCF where needed, define global settings and section schemas.

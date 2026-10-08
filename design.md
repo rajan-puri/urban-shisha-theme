@@ -600,6 +600,8 @@ The active conversion workspace is now `/Users/rajan/Local Sites/urban-shisha/ap
 
 ## Dynamic CMS requirement
 
+Basic WooCommerce configuration and SCF field preparation are now completed as documented in [WOOCOMMERCE-CMS-SETUP.md](WOOCOMMERCE-CMS-SETUP.md). Editable schemas live in the separate `urban-shisha-core` plugin. Product structure and dynamic template conversion remain pending.
+
 The owner requires all main customer-facing content to be editable through WordPress Admin. Follow [DYNAMIC-CMS-SCOPE.md](DYNAMIC-CMS-SCOPE.md) for data ownership, editable sections and conversion acceptance. WooCommerce owns commerce data; Secure Custom Fields supplies structured editorial content and global settings. Preserve the approved design. This is planned scope, not a claim that conversion is already implemented.
 
 ## WordPress foundation — steps 1–2 complete
