@@ -17,7 +17,7 @@
    agy -p "Read tasks/task-N.md and implement it exactly. Touch only the listed files." --print-timeout 600
    ```
 
-   Never use `--dangerously-skip-permissions`. Do not bypass a worker permission denial. Record CLI errors or blocked permissions as failures and explain them to the user.
+   Never use `--dangerously-skip-permissions`. Do not override explicit deny rules or broadly disable permission checks. A documented, exact-file allow rule may pre-approve a write explicitly requested by the user; preserve existing settings and restore temporary configuration afterward. Otherwise record blocked permissions as failures and explain them to the user.
 
    Local CLI compatibility: the installed `agy` rejects bare `600` with `time: missing unit in duration "600"`. Use `--print-timeout 600s` on this installation (the same 10-minute limit). The initial smoke-test feedback records this observed failure; do not repeatedly run a known-invalid flag.
 5. Independently verify the result. The worker's response is not evidence of completion:
