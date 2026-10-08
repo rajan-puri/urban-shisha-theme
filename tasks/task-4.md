@@ -21,12 +21,12 @@ User wants homepage fields managed elsewhere later. Preserve all existing fields
 
 ## Acceptance criteria
 
-- [ ] `acf_get_options_page('urban-shisha-home')` is false/unregistered.
-- [ ] Global `urban-shisha-settings` options page still registered.
-- [ ] All three original SCF field groups remain registered and their JSON unchanged.
-- [ ] Diff contains only removal of the 7-line homepage submenu registration; PHP syntax passes.
-- [ ] Other files and existing data remain unchanged.
+- [x] `acf_get_options_page('urban-shisha-home')` is false/unregistered.
+- [x] Global `urban-shisha-settings` options page still registered.
+- [x] All three original SCF field groups remain registered and their JSON unchanged.
+- [x] Diff contains only removal of the 7-line homepage submenu registration; PHP syntax passes.
+- [x] Other files and existing data remain unchanged.
 
 ## Feedback
 
-No attempts yet.
+Attempt 1 — PASS. Worker modified only the allowlisted sibling-plugin file. Manager compared its complete contents against the checkpoint and asserted that the sole change was removal of the seven-line submenu registration. Hash checks confirmed all other snapshotted theme/plugin files, including field JSON, were unchanged. PHP syntax and native SCF checks passed: homepage options page unregistered, global page registered, all three field groups preserved. No database writes were introduced or run. Original temporary CLI permission settings restored. The verified external-plugin diff is recorded in `tasks/task-4.patch`; theme feature changes from earlier work were left untouched.
