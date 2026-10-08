@@ -209,3 +209,8 @@ Added a consistent account icon and shared account dropdown to all 14 pages, inc
 Implementation: `assets/navigation.css`, `assets/js/navigation.js`, header markup/icon symbols across the HTML pages, and build/lint/static checks. The compact mobile Checkout header hides its decorative age pill to make room for account access. The build now includes 14 CSS source files; HTML page count remains 14.
 
 Account menu verification: lint/build/static checks pass. All 14 pages pass desktop hover/click/Escape checks and mobile touch/viewport checks at 390 and 320px, plus 1024px layout/hover-exit checks. Keyboard focus, Shop menu coordination and Wishlist routing pass; no JavaScript errors, failed asset responses or automated accessibility violations in the checked account menus. Reports/screenshots: `review/account-menu-*`.
+
+
+## WordPress setup check and theme foundation — 8 October 2026
+
+Verified Local database connection, WordPress/PHP/MySQL versions and active WooCommerce. Confirmed default commerce pages and an empty product catalogue. Added root theme stylesheet/metadata, functions bootstrap, feature/menu registration, asset enqueues, route helpers, header/footer PHP, standard page/post/404/index fallbacks and shared template parts. Added WordPress-only `theme-shell.js`; the original HTML designs are unchanged. PHP/JS/static checks, static build, isolated WordPress rendering and five-width browser/accessibility checks pass. Reports are in `WORDPRESS-FOUNDATION-*.json`. Urban Shisha 0.1.0 is recognised but inactive; active theme and store configuration were not changed. No homepage conversion or backup was performed in this stage.

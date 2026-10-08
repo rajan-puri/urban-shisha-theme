@@ -21,7 +21,7 @@ The weekly counter is visibly labelled demo data. The builder meter counts how m
 
 ## Scope and conversion
 
-This is a working HTML/CSS/vanilla JavaScript homepage, Shop and Product preview, ready to split into custom WordPress theme templates. It is not yet an installable theme or connected WooCommerce shop. Prices, stock and combinations remain preview data. Bag and wishlist use local browser storage. Payments, subscriptions and orders are not submitted.
+This is a working HTML/CSS/vanilla JavaScript homepage, Shop and Product preview, ready to split into custom WordPress theme templates. The local WordPress folder now also has a recognised, inactive classic-theme foundation; approved page conversion and live WooCommerce flows are still pending. Prices, stock and combinations remain preview data. Bag and wishlist use local browser storage. Payments, subscriptions and orders are not submitted.
 
 For WordPress conversion, split header/front-page/footer template parts, enqueue local styles/scripts, replace catalog and bag logic with WooCommerce APIs and real permalinks, and connect real account, checkout, contact and policy pages. Configure contact channels in `assets/js/config.js`.
 
@@ -63,3 +63,10 @@ Open http://127.0.0.1:8091/wholesale.html. Select products, adjust quantities, a
 Open `about.html` for the new brand page. Standalone policies are `shipping.html`, `returns.html`, `privacy.html`, `terms.html` and `age-policy.html`. Existing footer links point to these pages; About is under Discover. They use `assets/pages.css` / `assets/js/pages.js` and are included in lint/build/static verification. Policy business terms remain clearly marked review drafts; fill the real merchant and operational details in `POLICY-REVIEW.md` before live use.
 
 Account access is shared across all 14 pages, including Checkout. `assets/navigation.css` / `assets/js/navigation.js` provide the hover/click/tap dropdown, keyboard access and responsive positioning.
+
+
+## WordPress foundation status
+
+Steps 1–2 are complete in the Local WordPress theme folder. Theme metadata/core PHP files, shared template parts, feature/menu registration, WordPress asset queues and route helpers are ready. `theme-shell.js` provides shared shell behaviour without loading the page-specific preview commerce scripts. Twenty Twenty-Five remains active; Urban Shisha is recognised as an inactive theme. Homepage conversion and activation are next.
+
+Read the WordPress foundation section in `design.md`. `WORDPRESS-FOUNDATION-CHECK.json` and `WORDPRESS-FOUNDATION-BROWSER.json` record bootstrap/layout checks. `npm run build` still builds the original static HTML distribution; it does not package the new PHP theme.

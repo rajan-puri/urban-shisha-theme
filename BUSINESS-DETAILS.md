@@ -1,6 +1,6 @@
 # Urban Shisha — user-provided business details
 
-Recorded 8 October 2026. Source: business owner’s instructions in this session. Use these details when the relevant page or WooCommerce setting is implemented; the owner asked to pause implementation while supplying them.
+Recorded 8 October 2026. Source: business owner’s instructions in this session. Use these details when the relevant page or WooCommerce setting is implemented; the owner subsequently authorised WordPress setup checks and theme foundation only (steps 1–2).
 
 | Detail | Provided value |
 | --- | --- |
@@ -12,7 +12,7 @@ Recorded 8 October 2026. Source: business owner’s instructions in this session
 | Akshay’s business contact | +91 78278 77268 (`+917827877268`) |
 | Business location | Rohini Sector 24, Delhi, 110085, India |
 | Physical retail store | None at present |
-| WooCommerce status | Owner reports installed and activated; no store setup has been completed yet |
+| WooCommerce status | Verified installed and active (11.2.0); default commerce pages exist, catalogue has no products; business setup remains pending |
 
 ## How to use
 
@@ -21,7 +21,7 @@ Recorded 8 October 2026. Source: business owner’s instructions in this session
 - Use the supplied city/state/PIN/country for WooCommerce setup when needed. No house, unit or street number was supplied; do not invent a full dispatch or return address.
 - No single primary support number or WhatsApp availability has been specified. Keep both contacts recorded; do not silently choose one as the universal WhatsApp/contact destination.
 - No business email, Instagram profile, GSTIN, legal entity/partnership registration, grievance contact, operating hours, shipping rates, return windows or payment provider has been supplied. Do not infer those from the brand name or co-ownership.
-- The initial preview `assets/js/config.js` has not been changed while implementation is paused. Populate relevant settings when that work resumes and the necessary channel choice is available.
+- The preview `assets/js/config.js` remains unchanged during the foundation work. Populate relevant settings when that work resumes and the necessary channel choice is available.
 
 ## Current development decisions
 
