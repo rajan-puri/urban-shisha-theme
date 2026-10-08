@@ -51,3 +51,15 @@ Important global names: brand_name, brand_logo, brand_logo_light (image IDs), an
 
 - Worker exit code 0, but no implementation. Exact relevant output: `jetski: no output produced — a tool required the "read_file" permission that headless mode cannot prompt for, so it was auto-denied.`
 - Temporary write settings were restored byte-for-byte. Manager will add exact-file read permissions for the task, project context and installed Forge rules for attempt 2. No shell permissions or permission bypass.
+
+### Attempt 2 — Timeout and incomplete acceptance
+
+- Exact worker output: `[agy] print timeout after 10m0s with turn in progress; returning partial output`. Exit 0 does not mean completion. Original CLI settings restored.
+- Manager inspected all changed files; only allowlisted paths changed. PHP syntax checks for 5 changed/new PHP files passed; git diff --check passed.
+- FAIL: `scripts/seed-shell.php` does not exist (`ls: scripts/seed-shell.php: No such file or directory`). Implement it first in the final attempt. Keep it concise and idempotent; no shell commands are needed.
+- FAIL: `urban_shisha_get_option` treats cleared empty strings as missing and returns hardcoded defaults. Independent check using `acf/load_value/name=footer_description` set to empty string returned `HARDCODED FALLBACK`. Preserve deliberately saved empty/false values. Templates must NOT supply hardcoded marketing defaults. Seed approved marketing copy into DB instead. Required age-button/title safety labels can use translatable functional defaults, but optional copy must hide when cleared.
+- FAIL: native menu helpers and footer template contain permanent default navigation arrays. Remove fallback navigation; unassigned/empty native menus must remain empty (or show an admin-only setup notice). Seed approved menus into DB once. Ensure at most one mega-toggle ID even if multiple menu items have the marker. Mobile must include nested menu links, not silently discard children.
+- FAIL: footer-wordmark letters remain hardcoded URBAN SHISHA even when brand_name changes. Render escaped letters from the saved brand name.
+- FAIL: unconfigured Instagram and WhatsApp render pretend channel buttons. Hide absent social channels; keep a truthful general contact link. Move inline presentation styles into allowlisted style.css. Style configured social anchors consistently with the original social buttons; retain transparent images and approved spacing.
+- Other priorities: preserve blank credit behavior (no fabricated URL), validate link URL after sanitizing, guarantee menu parent/child accessibility. Do not rewrite already-correct icon/account/cart markup unnecessarily.
+- Final attempt: continue the partial implementation; do not start over or spend the turn re-auditing unchanged documents. Finish seed script and these precise corrections. No additional feature files beyond the original allowlist.
