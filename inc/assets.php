@@ -24,6 +24,7 @@ function urban_shisha_enqueue_assets() {
 		'assetBase' => trailingslashit( get_theme_file_uri( 'assets' ) ),
 		'shopUrl' => urban_shisha_route_url( 'shop' ),
 		'contactUrl' => urban_shisha_route_url( 'contact' ),
+		'requireAgeConfirmation' => ! is_page( array( 'shipping', 'returns', 'privacy-policy', 'terms-and-conditions', 'age-policy' ) ),
 	);
 	wp_add_inline_script( 'urban-shisha-shell', 'window.UrbanShishaTheme = ' . wp_json_encode( $context, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT ) . ';', 'before' );
 }
