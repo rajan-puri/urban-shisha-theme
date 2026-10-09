@@ -104,7 +104,7 @@ function setFieldError(input, errorEl, message) {
 }
 
 function initContactForm() {
-  const form = $('#contact-form');
+  const form = $('#contact-form') || $('.wpcf7 form');
   const topicSelect = $('#contact-topic');
   const orderRefGroup = $('#order-ref-group');
   const feedbackBox = $('#contact-form-feedback');
@@ -113,14 +113,22 @@ function initContactForm() {
 
   // Conditional Order Reference field
   if (topicSelect && orderRefGroup) {
-    topicSelect.addEventListener('change', () => {
-      const isOrderTopic = topicSelect.value === 'order-support';
+    const handleTopicChange = () => {
+      const val = (topicSelect.value || '').toLowerCase();
+      const isOrderTopic = val.includes('order');
       orderRefGroup.hidden = !isOrderTopic;
       if (!isOrderTopic) {
         const orderInput = $('#contact-order-ref');
         if (orderInput) orderInput.value = '';
       }
-    });
+    };
+    topicSelect.addEventListener('change', handleTopicChange);
+    handleTopicChange();
+  }
+
+  // If Contact Form 7 is active on this form, let CF7 handle AJAX validation & submission
+  if (form.classList.contains('wpcf7-form') || form.closest('.wpcf7')) {
+    return;
   }
 
   form.addEventListener('submit', e => {

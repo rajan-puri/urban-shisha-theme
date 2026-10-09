@@ -11,3 +11,4 @@ require_once __DIR__ . '/inc/commerce.php';
 require_once __DIR__ . '/inc/home.php';
 require_once __DIR__ . '/inc/shop.php';
 require_once __DIR__ . '/inc/product.php';
+require_once __DIR__ . '/inc/commerce-flows.php';

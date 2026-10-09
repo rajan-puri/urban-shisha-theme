@@ -120,13 +120,28 @@
 
 	// Update all heart buttons on page
 	function updatePageHearts() {
-		const buttons = document.querySelectorAll('.save-product, [data-save]');
+		const buttons = document.querySelectorAll('.save-product, [data-save], [data-cart-save]');
 		buttons.forEach(btn => {
-			const id = Number(btn.dataset.save || btn.dataset.productId);
+			const id = Number(btn.dataset.save || btn.dataset.cartSave || btn.dataset.productId);
 			if (!id) return;
 			const isSaved = savedWishlistIds.includes(id);
 			btn.classList.toggle('is-saved', isSaved);
 			btn.setAttribute('aria-pressed', isSaved ? 'true' : 'false');
+			const span = btn.querySelector('span');
+			if (span && (btn.classList.contains('cart-save-btn') || btn.hasAttribute('data-cart-save'))) {
+				span.textContent = isSaved ? 'Saved to wishlist' : 'Save to wishlist';
+			}
+		});
+		updateWishlistCounts();
+	}
+
+	// Update wishlist count badges
+	function updateWishlistCounts(count) {
+		const num = Math.max(0, parseInt(count !== undefined ? count : savedWishlistIds.length, 10) || 0);
+		const countEls = document.querySelectorAll('.wishlist-count');
+		countEls.forEach(el => {
+			el.textContent = num.toString();
+			el.hidden = (num === 0);
 		});
 	}
 
@@ -475,5 +490,7 @@
 		toggleWishlist,
 		showToast,
 		getWishlist: () => [...savedWishlistIds],
+		updatePageHearts,
+		updateWishlistCounts,
 	};
 })();

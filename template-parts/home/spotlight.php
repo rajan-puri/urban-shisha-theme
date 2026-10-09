@@ -74,8 +74,8 @@ $first = $spotlight_items[0] ?? null;
 						<span class="spotlight-choice-copy">
 							<strong><?php echo esc_html( $item['name'] ); ?></strong>
 							<span><?php echo $item['price_html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+                            <span class="spotlight-choice-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
 						</span>
-						<span class="spotlight-choice-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
 					</button>
 				<?php endforeach; ?>
 			</div>

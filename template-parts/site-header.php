@@ -20,7 +20,11 @@ defined( 'ABSPATH' ) || exit;
 <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
 <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
 <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
-<symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></symbol></defs></svg>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-edit" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
+<symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></symbol></defs></svg>
 <a class="skip-link" href="#main"><?php esc_html_e( 'Skip to content', 'urban-shisha' ); ?></a>
 <?php
 $announcement_enabled = (bool) urban_shisha_get_option( 'announcement_enabled', false );
@@ -50,8 +54,13 @@ if ( $announcement_enabled && ( $announcement_text || $announcement_link ) ) :
 </nav>
 <div class="header-actions">
 <button class="icon-button" data-open="search" aria-label="<?php esc_attr_e( 'Search products', 'urban-shisha' ); ?>"><svg><use href="#i-search"/></svg></button>
-<?php $wishlist_link = urban_shisha_parse_link( urban_shisha_get_option( 'header_wishlist_link' ) ); ?>
-<button type="button" class="icon-button wishlist-nav" data-open="wishlist" aria-label="<?php esc_attr_e( 'Saved products', 'urban-shisha' ); ?>"><svg><use href="#i-heart"/></svg></button>
+<?php
+$initial_wishlist_count = ( is_user_logged_in() && function_exists( 'urban_shisha_get_user_wishlist' ) ) ? count( urban_shisha_get_user_wishlist() ) : 0;
+?>
+<button type="button" class="icon-button wishlist-nav" data-open="wishlist" aria-label="<?php esc_attr_e( 'Saved products', 'urban-shisha' ); ?>">
+	<svg><use href="#i-heart"/></svg>
+	<span class="wishlist-count"<?php echo ( 0 === $initial_wishlist_count ) ? ' hidden' : ''; ?>><?php echo esc_html( (string) $initial_wishlist_count ); ?></span>
+</button>
 <div class="account-entry">
 	<button type="button" class="icon-button account-nav account-trigger" id="account-trigger" aria-label="<?php esc_attr_e( 'Open My Account menu', 'urban-shisha' ); ?>" aria-expanded="false" aria-controls="account-shortcuts">
 		<svg aria-hidden="true"><use href="#i-user"/></svg>

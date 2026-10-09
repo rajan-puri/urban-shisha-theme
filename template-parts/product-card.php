@@ -57,19 +57,21 @@ $is_hidden      = ! empty( $args['hidden'] );
 		</button>
 	</div>
 	<div class="product-info">
-		<div>
+		<div class="product-info-top">
 			<p class="product-type"><?php echo esc_html( $category_name ); ?></p>
 			<a class="product-name" href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $name ); ?></a>
-			<p class="price"><?php echo $price_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 		</div>
-		<?php if ( $can_quick_add ) : ?>
-			<button type="button" class="add-product" data-add="<?php echo esc_attr( $product_id ); ?>" aria-label="<?php echo esc_attr( sprintf( __( 'Add %s to bag', 'urban-shisha' ), $name ) ); ?>">
-				<svg aria-hidden="true"><use href="#i-plus"/></svg>
-			</button>
-		<?php else : ?>
-			<a class="add-product" href="<?php echo esc_url( $permalink ); ?>" aria-label="<?php echo esc_attr( sprintf( __( 'View %s', 'urban-shisha' ), $name ) ); ?>">
-				<svg aria-hidden="true"><use href="#i-arrow"/></svg>
-			</a>
-		<?php endif; ?>
+		<div class="product-info-bottom">
+			<p class="price"><?php echo $price_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+			<?php if ( $can_quick_add ) : ?>
+				<button type="button" class="add-product" data-add="<?php echo esc_attr( $product_id ); ?>" aria-label="<?php echo esc_attr( sprintf( __( 'Add %s to bag', 'urban-shisha' ), $name ) ); ?>">
+					<svg aria-hidden="true"><use href="#i-plus"/></svg>
+				</button>
+			<?php else : ?>
+				<a class="add-product" href="<?php echo esc_url( $permalink ); ?>" aria-label="<?php echo esc_attr( sprintf( __( 'View %s', 'urban-shisha' ), $name ) ); ?>">
+					<svg aria-hidden="true"><use href="#i-arrow"/></svg>
+				</a>
+			<?php endif; ?>
+		</div>
 	</div>
 </article>

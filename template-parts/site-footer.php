@@ -34,8 +34,6 @@ if ( null === $footer_description ) {
 	$footer_description = "Hookahs with character.\nEssentials with purpose.\nA setup that feels like you.";
 }
 
-$business_location = urban_shisha_get_option( 'business_location', '' );
-$owners            = urban_shisha_get_option( 'owners', array() );
 $support_email     = urban_shisha_get_option( 'support_email', '' );
 $primary_whatsapp  = urban_shisha_get_option( 'primary_whatsapp', '' );
 $support_hours     = urban_shisha_get_option( 'support_hours', '' );
@@ -100,58 +98,10 @@ if ( null === $credit_label && null === $credit_link ) {
 
 		<a class="footer-concierge" href="<?php echo esc_url( urban_shisha_route_url( 'contact' ) ); ?>"><?php esc_html_e( 'Talk to your concierge', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
 
-		<div class="social-links">
-			<?php if ( $instagram_url ) : ?>
-				<a href="<?php echo esc_url( $instagram_url ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Instagram', 'urban-shisha' ); ?>"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
-			<?php else : ?>
-				<button type="button" data-info="social" aria-label="<?php esc_attr_e( 'Instagram', 'urban-shisha' ); ?>"><svg aria-hidden="true"><use href="#i-instagram"/></svg></button>
-			<?php endif; ?>
+		<?php get_template_part( 'template-parts/footer', 'socials' ); ?>
 
-			<?php if ( $primary_whatsapp ) :
-				$clean_wa = preg_replace( '/[^\d]/', '', $primary_whatsapp );
-			?>
-				<a href="https://wa.me/<?php echo esc_attr( $clean_wa ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'WhatsApp support', 'urban-shisha' ); ?>"><svg aria-hidden="true"><use href="#i-chat"/></svg></a>
-			<?php else : ?>
-				<button type="button" data-info="contact" aria-label="<?php esc_attr_e( 'WhatsApp support', 'urban-shisha' ); ?>"><svg aria-hidden="true"><use href="#i-chat"/></svg></button>
-			<?php endif; ?>
-
-			<?php if ( ! empty( $social_links ) && is_array( $social_links ) ) : ?>
-				<?php foreach ( $social_links as $social ) :
-					$s_label = ! empty( $social['social_label'] ) ? sanitize_text_field( $social['social_label'] ) : '';
-					$s_url   = ! empty( $social['social_url'] ) ? esc_url( $social['social_url'] ) : '';
-					if ( $s_url ) :
-				?>
-					<a href="<?php echo esc_url( $s_url ); ?>" target="_blank" rel="noopener noreferrer" class="social-link-custom" aria-label="<?php echo esc_attr( $s_label ?: __( 'Social link', 'urban-shisha' ) ); ?>"><?php echo esc_html( $s_label ); ?></a>
-				<?php endif; endforeach; ?>
-			<?php endif; ?>
-		</div>
-
-		<?php if ( $business_location || ! empty( $owners ) || $support_email || $support_hours ) : ?>
+		<?php if ( $support_email || $support_hours ) : ?>
 			<div class="footer-contacts-block">
-				<?php if ( $business_location ) : ?>
-					<p class="footer-address">
-						<svg class="footer-icon-pin" aria-hidden="true"><use href="#i-map-pin"/></svg>
-						<span><?php echo nl2br( esc_html( $business_location ) ); ?></span>
-					</p>
-				<?php endif; ?>
-
-				<?php if ( ! empty( $owners ) && is_array( $owners ) ) : ?>
-					<div class="footer-contacts">
-						<?php foreach ( $owners as $owner ) :
-							$o_name  = ! empty( $owner['owner_name'] ) ? sanitize_text_field( $owner['owner_name'] ) : '';
-							$o_phone = ! empty( $owner['owner_phone'] ) ? sanitize_text_field( $owner['owner_phone'] ) : '';
-							if ( $o_phone ) :
-								$clean_phone = preg_replace( '/[^\d+]/', '', $o_phone );
-							?>
-								<a href="tel:<?php echo esc_attr( $clean_phone ); ?>" class="footer-contact-link">
-									<svg class="footer-contact-icon" aria-hidden="true"><use href="#i-chat"/></svg>
-									<span><?php echo $o_name ? esc_html( $o_name . ': ' ) : ''; ?><?php echo esc_html( $o_phone ); ?></span>
-								</a>
-							<?php endif; ?>
-						<?php endforeach; ?>
-					</div>
-				<?php endif; ?>
-
 				<?php if ( $support_email ) : ?>
 					<div class="footer-contacts footer-contacts-email">
 						<a href="mailto:<?php echo esc_attr( $support_email ); ?>" class="footer-contact-link">
@@ -212,3 +162,16 @@ if ( null === $credit_label && null === $credit_link ) {
 	<?php endif; ?>
 </div>
 </div></footer>
+
+<?php
+$raw_phone      = urban_shisha_get_option( 'store_whatsapp', '' );
+$whatsapp_clean = preg_replace( '/\D/', '', (string) $raw_phone );
+$whatsapp_link  = ( ! empty( $whatsapp_clean ) && strlen( $whatsapp_clean ) >= 7 ) ? 'https://wa.me/' . $whatsapp_clean : urban_shisha_route_url( 'contact' );
+?>
+<a class="whatsapp-button" href="<?php echo esc_url( $whatsapp_link ); ?>" aria-label="<?php esc_attr_e( 'Contact Urban Shisha', 'urban-shisha' ); ?>"<?php echo ( strpos( $whatsapp_link, 'wa.me' ) !== false ) ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>>
+	<svg aria-hidden="true"><use href="#i-chat"/></svg>
+	<span><?php esc_html_e( 'Let’s talk', 'urban-shisha' ); ?></span>
+</a>
+<button class="back-to-top" id="back-to-top" aria-label="<?php esc_attr_e( 'Back to top', 'urban-shisha' ); ?>" title="<?php esc_attr_e( 'Back to top', 'urban-shisha' ); ?>">
+	<svg aria-hidden="true"><use href="#i-arrow"/></svg>
+</button>

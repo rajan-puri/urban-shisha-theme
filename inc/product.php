@@ -1,215 +1,95 @@
 <?php
-/**
- * Urban Shisha — Single Product data resolution and template helpers.
- *
- * @package UrbanShishaTheme
- */
-
+/** Actual WooCommerce product presentation and purchase endpoint. */
 defined( 'ABSPATH' ) || exit;
 
-/**
- * Retrieve comprehensive single product data context.
- *
- * @param int|WC_Product|null $product_or_id Product object or ID.
- * @return array<string, mixed>|null
- */
-function urban_shisha_get_single_product_context( $product_or_id = null ): ?array {
-	$product = null;
-	if ( $product_or_id instanceof WC_Product ) {
-		$product = $product_or_id;
-	} elseif ( is_numeric( $product_or_id ) && $product_or_id > 0 ) {
-		$product = wc_get_product( $product_or_id );
-	} else {
-		global $product;
-	}
-
-	if ( ! $product instanceof WC_Product ) {
-		return null;
-	}
-
-	$id          = $product->get_id();
-	$status      = get_post_status( $id );
-	$can_preview = current_user_can( 'edit_products' );
-
-	if ( 'draft' === $status && ! $can_preview ) {
-		return null;
-	}
-
-	$data = urban_shisha_get_product_data( $product );
-	if ( ! $data ) {
-		return null;
-	}
-
-	// 1. Resolve Gallery: Studio cutout first, followed by real WooCommerce images
-	$gallery = array();
-
-	// Studio cutout
-	$gallery[] = array(
-		'type' => 'studio',
-		'name' => __( 'Studio cutout', 'urban-shisha' ),
-		'src'  => $data['cutout_url'],
-	);
-
-	// Featured image if distinct from cutout
-	$featured_id = (int) $product->get_image_id();
-	if ( $featured_id ) {
-		$feat_url = wp_get_attachment_image_url( $featured_id, 'full' );
-		if ( $feat_url && $feat_url !== $data['cutout_url'] ) {
-			$gallery[] = array(
-				'type' => 'photo',
-				'name' => sprintf( __( '%s photograph', 'urban-shisha' ), $data['name'] ),
-				'src'  => $feat_url,
-			);
-		}
-	}
-
-	// Gallery images
-	$gallery_ids = $product->get_gallery_image_ids();
-	if ( ! empty( $gallery_ids ) ) {
-		foreach ( $gallery_ids as $g_id ) {
-			$g_url = wp_get_attachment_image_url( $g_id, 'full' );
-			if ( $g_url ) {
-				$gallery[] = array(
-					'type' => 'photo',
-					'name' => sprintf( __( '%s angle', 'urban-shisha' ), $data['name'] ),
-					'src'  => $g_url,
-				);
-			}
-		}
-	}
-
-	// If Brando or matching signature product without uploaded gallery, use approved local photoshoot photography
-	if ( count( $gallery ) < 2 && false !== stripos( $data['name'], 'brando' ) ) {
-		for ( $b = 1; $b <= 3; $b++ ) {
-			$gallery[] = array(
-				'type' => 'photo',
-				'name' => sprintf( __( 'Brando detail photograph %d', 'urban-shisha' ), $b ),
-				'src'  => get_theme_file_uri( sprintf( 'assets/images/brando/brando-%d.png', $b ) ),
-			);
-		}
-	}
-
-	// 2. Brand & Series Labels
-	$brand_name  = $data['brand_name'] ?: 'COCOYAYA';
-	$brand_link  = add_query_arg( 'brand', sanitize_title( $brand_name ), urban_shisha_route_url( 'shop' ) );
-	$series_meta = get_post_meta( $id, '_us_product_series', true );
-	if ( ! $series_meta ) {
-		$series_meta = get_post_meta( $id, '_us_source_vendor', true );
-	}
-	$series_label = $series_meta ? strtoupper( sanitize_text_field( $series_meta ) ) : __( 'THE KING SERIES', 'urban-shisha' );
-
-	// 3. Subtitle / Finish description
-	$subtitle = (string) get_post_meta( $id, '_us_product_subtitle', true );
-	if ( ! $subtitle ) {
-		// Try resolving from attributes or short description
-		$colour_attr = $product->get_attribute( 'pa_colour' ) ?: $product->get_attribute( 'colour' );
-		if ( $colour_attr ) {
-			$subtitle = sprintf( __( '%s stem.<br>Glass base.', 'urban-shisha' ), esc_html( $colour_attr ) );
-		} else {
-			$subtitle = __( 'Bronze stem.<br>Green line glass base.', 'urban-shisha' );
-		}
-	}
-
-	// 4. Quick Specs: Height, Weight, Base/Materials
-	$weight_val = $product->get_weight();
-	$weight_str = $weight_val ? sprintf( __( 'Approx. %s kg', 'urban-shisha' ), wc_format_localized_decimal( $weight_val ) ) : __( 'Approx. 7 kg', 'urban-shisha' );
-
-	$height_attr = $product->get_attribute( 'pa_height' ) ?: $product->get_attribute( 'height' );
-	$height_str  = $height_attr ? esc_html( $height_attr ) : __( '32 inches*', 'urban-shisha' );
-
-	$base_attr   = $product->get_attribute( 'pa_base' ) ?: $product->get_attribute( 'base' );
-	$base_str    = $base_attr ? esc_html( $base_attr ) : __( 'Green glass', 'urban-shisha' );
-
-	$quick_specs = array(
-		array(
-			'label' => __( 'HEIGHT', 'urban-shisha' ),
-			'value' => $height_str,
-		),
-		array(
-			'label' => __( 'WEIGHT', 'urban-shisha' ),
-			'value' => $weight_str,
-		),
-		array(
-			'label' => __( 'BASE', 'urban-shisha' ),
-			'value' => $base_str,
-		),
-	);
-
-	// 5. Spec poster image & details
-	$poster_img_url = '';
-	if ( count( $gallery ) > 2 && 'photo' === $gallery[2]['type'] ) {
-		$poster_img_url = $gallery[2]['src'];
-	} elseif ( count( $gallery ) > 1 && 'photo' === $gallery[1]['type'] ) {
-		$poster_img_url = $gallery[1]['src'];
-	} else {
-		$poster_img_url = get_theme_file_uri( 'assets/images/brando/brando-2.png' );
-	}
-
-	$poster_heading = __( 'BRONZE.<br>GLASS.<br>CHARACTER.', 'urban-shisha' );
-
-	// 6. Recommended Accessories
-	$accessories = urban_shisha_query_products(
-		array(
-			'limit'    => 3,
-			'category' => array( 'bowls', 'heat', 'hoses', 'care', 'charcoal', 'accessories' ),
-		)
-	);
-
-	// 7. Related Hookahs
-	$related_products = urban_shisha_query_products(
-		array(
-			'limit'    => 3,
-			'category' => 'hookahs',
-		)
-	);
-
-	// Filter out the current product from related lists
-	$accessories      = array_values( array_filter( $accessories, fn( $p ) => (int) $p['id'] !== $id ) );
-	$related_products = array_values( array_filter( $related_products, fn( $p ) => (int) $p['id'] !== $id ) );
-
-	return array(
-		'product'          => $product,
-		'data'             => $data,
-		'gallery'          => $gallery,
-		'brand_name'       => $brand_name,
-		'brand_link'       => $brand_link,
-		'series_label'     => $series_label,
-		'subtitle'         => $subtitle,
-		'quick_specs'      => $quick_specs,
-		'poster_img_url'   => $poster_img_url,
-		'poster_heading'   => $poster_heading,
-		'accessories'      => $accessories,
-		'related_products' => $related_products,
-	);
+function urban_shisha_product_field( string $name, int $id, $fallback = '' ) {
+	$value = function_exists( 'get_field' ) ? get_field( $name, $id ) : get_post_meta( $id, $name, true );
+	return false === $value || null === $value || '' === $value ? $fallback : $value;
 }
 
-/**
- * Compile localized JSON configuration for product-wordpress.js.
- *
- * @return array<string, mixed>
- */
+function urban_shisha_get_single_product_context( $product_or_id = null ): ?array {
+	$product = $product_or_id instanceof WC_Product ? $product_or_id : wc_get_product( $product_or_id ?: get_queried_object_id() );
+	if ( ! $product ) { return null; }
+	$data = urban_shisha_get_product_data( $product );
+	if ( ! $data ) { return null; }
+	$id = $product->get_id();
+	$gallery = array();
+	if ( ! empty( $data['cutout_url'] ) ) {
+		$gallery[] = array( 'src' => $data['cutout_url'], 'type' => 'studio', 'name' => $data['name'] );
+	}
+	foreach ( array_unique( array_merge( array( $product->get_image_id() ), $product->get_gallery_image_ids() ) ) as $image_id ) {
+		$src = wp_get_attachment_image_url( $image_id, 'full' );
+		if ( $src && ! in_array( $src, array_column( $gallery, 'src' ), true ) ) {
+			$gallery[] = array( 'src' => $src, 'type' => 'photo', 'name' => $data['name'] );
+		}
+	}
+	if ( ! $gallery ) { $gallery[] = array( 'src' => wc_placeholder_img_src(), 'type' => 'photo', 'name' => $data['name'] ); }
+	$specs = (array) urban_shisha_product_field( 'us_product_specifications', $id, array() );
+	foreach ( $product->get_attributes() as $attribute ) {
+		$specs[] = array( 'spec_label' => wc_attribute_label( $attribute->get_name() ), 'spec_value' => $product->get_attribute( $attribute->get_name() ) );
+	}
+	if ( $product->get_weight() ) { $specs[] = array( 'spec_label' => 'Weight', 'spec_value' => wc_format_weight( $product->get_weight() ) ); }
+	if ( $product->has_dimensions() ) { $specs[] = array( 'spec_label' => 'Dimensions', 'spec_value' => wc_format_dimensions( $product->get_dimensions( false ) ) ); }
+	$categories = wp_get_post_terms( $id, 'product_cat', array( 'fields' => 'slugs' ) );
+	$related = urban_shisha_query_products( array( 'limit' => 4, 'category' => is_wp_error( $categories ) ? array() : $categories ) );
+	$related = array_slice( array_values( array_filter( $related, fn( $item ) => $item['id'] !== $id ) ), 0, 3 );
+	$accessories = urban_shisha_query_products( array( 'limit' => 4, 'category' => array( 'bowls', 'heat-management', 'hoses-mouthpieces', 'tools-spares', 'charcoal' ) ) );
+	$accessories = array_slice( array_values( array_filter( $accessories, fn( $item ) => $item['id'] !== $id ) ), 0, 3 );
+	return compact( 'product', 'data', 'gallery', 'specs', 'related', 'accessories' );
+}
+
 function urban_shisha_get_single_product_client_config(): array {
 	$context = urban_shisha_get_single_product_context();
-	if ( ! $context ) {
-		return array();
-	}
-
-	$product = $context['product'];
-	$data    = $context['data'];
-
-	return array(
-		'productId'      => $data['id'],
-		'name'           => $data['name'],
-		'price'          => $data['price_num'],
-		'priceHtml'      => $data['price_html'],
-		'isInStock'      => $data['is_in_stock'],
-		'isPurchasable'  => $data['is_purchasable'],
-		'isVariable'     => $data['is_variable'],
-		'canQuickAdd'    => $data['can_quick_add'],
-		'gallery'        => $context['gallery'],
-		'cartNonce'      => wp_create_nonce( 'urban_shisha_cart_nonce' ),
-		'wishlistNonce'  => wp_create_nonce( 'urban_shisha_wishlist_nonce' ),
-		'ajaxUrl'        => admin_url( 'admin-ajax.php' ),
-		'isLoggedIn'     => is_user_logged_in(),
-	);
+	if ( ! $context ) { return array(); }
+	return array( 'productId' => $context['data']['id'], 'gallery' => $context['gallery'], 'priceHtml' => $context['data']['price_html'], 'published' => 'publish' === $context['product']->get_status(), 'ajaxUrl' => admin_url( 'admin-ajax.php' ), 'cartNonce' => wp_create_nonce( 'urban_shisha_cart_nonce' ) );
 }
+
+/** Protect native and AJAX purchase flows while imported products are drafts. */
+function urban_shisha_product_purchase_validation( $valid, $product_id ) {
+	if ( 'publish' !== get_post_status( $product_id ) ) {
+		wc_add_notice( __( 'This product is not available to purchase yet.', 'urban-shisha' ), 'error' );
+		return false;
+	}
+	return $valid;
+}
+add_filter( 'woocommerce_add_to_cart_validation', 'urban_shisha_product_purchase_validation', 10, 2 );
+
+function urban_shisha_product_add_to_cart(): void {
+	check_ajax_referer( 'urban_shisha_cart_nonce', 'nonce' );
+	if ( ! WC()->cart ) { wc_load_cart(); }
+	$id = absint( $_POST['product_id'] ?? 0 );
+	$variation_id = absint( $_POST['variation_id'] ?? 0 );
+	$quantity = wc_stock_amount( wp_unslash( $_POST['quantity'] ?? '1' ) );
+	$product = wc_get_product( $id );
+	$attributes = array();
+	foreach ( $_POST as $key => $value ) {
+		if ( str_starts_with( $key, 'attribute_' ) && is_scalar( $value ) ) { $attributes[ sanitize_title( $key ) ] = wc_clean( wp_unslash( $value ) ); }
+	}
+	try {
+		if ( ! $product || 'publish' !== $product->get_status() || $quantity <= 0 || ! $product->is_purchasable() ) { throw new Exception( 'This product is not available to purchase yet.' ); }
+		if ( $product->is_type( 'variable' ) ) {
+			$variation = wc_get_product( $variation_id );
+			if ( ! $variation || $variation->get_parent_id() !== $id ) { throw new Exception( 'Please choose your product options.' ); }
+		} elseif ( ! $product->is_type( 'simple' ) || $variation_id ) { throw new Exception( 'Please use this product’s purchase options.' ); }
+		if ( ! apply_filters( 'woocommerce_add_to_cart_validation', true, $id, $quantity, $variation_id, $attributes ) ) { throw new Exception( 'Unable to add this selection.' ); }
+		$key = WC()->cart->add_to_cart( $id, $quantity, $variation_id, $attributes );
+		if ( ! $key ) { throw new Exception( 'Please check the product options and stock.' ); }
+		wc_clear_notices();
+		do_action( 'woocommerce_ajax_added_to_cart', $id );
+		WC_AJAX::get_refreshed_fragments();
+	} catch ( Exception $error ) {
+		$notices = wc_get_notices( 'error' );
+		$message = $notices ? html_entity_decode( wp_strip_all_tags( implode( ' ', array_column( $notices, 'notice' ) ) ), ENT_QUOTES, get_bloginfo( 'charset' ) ) : $error->getMessage();
+		wc_clear_notices();
+		wp_send_json_error( array( 'message' => $message ) );
+	}
+}
+add_action( 'wp_ajax_urban_shisha_product_add_to_cart', 'urban_shisha_product_add_to_cart' );
+add_action( 'wp_ajax_nopriv_urban_shisha_product_add_to_cart', 'urban_shisha_product_add_to_cart' );
+
+/** Keep a dedicated AJAX purchase from also running the native POST handler. */
+add_action( 'wp_loaded', function () {
+	if ( wp_doing_ajax() && 'urban_shisha_product_add_to_cart' === ( $_REQUEST['action'] ?? '' ) ) {
+		remove_action( 'wp_loaded', array( 'WC_Form_Handler', 'add_to_cart_action' ), 20 );
+	}
+}, 5 );

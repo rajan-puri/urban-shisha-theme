@@ -79,8 +79,7 @@ function urban_shisha_seed_shop_media( string $rel_path, string $key, string $ti
 		array(
 			'post_type'      => 'attachment',
 			'post_status'    => 'inherit',
-			'meta_key'       => '_us_seed_image_key',
-			'meta_value'     => $key,
+			'meta_query' => array( 'relation' => 'OR', array( 'key' => '_us_seed_image_key', 'value' => $key ), array( 'key' => '_us_cutout_index', 'value' => 1 ) ),
 			'posts_per_page' => 1,
 			'fields'         => 'ids',
 		)
@@ -136,7 +135,7 @@ $poster_attach_id = urban_shisha_seed_shop_media(
 // 4. Seed editorial fields on Shop page if unset
 $default_shop_fields = array(
 	'shop_hero_eyebrow'          => 'THE WHOLE SETUP. ALL IN ONE PLACE.',
-	'shop_hero_heading'          => "GOOD TASTE.<br>GREAT GEAR.",
+	'shop_hero_heading'          => "GOOD TASTE.<br><span>GREAT GEAR.</span>",
 	'shop_hero_description'      => 'Statement hookahs. The right extras. Find your kind of setup.',
 	'shop_hero_poster_word'      => "THE<br>EDIT",
 	'shop_hero_poster_sticker'   => "18+<br>ONLY",
@@ -159,10 +158,10 @@ $default_shop_fields = array(
 $seeded_count = 0;
 foreach ( $default_shop_fields as $meta_key => $default_val ) {
 	$current_val = get_post_meta( $shop_page_id, $meta_key, true );
-	if ( '' === $current_val || false === $current_val ) {
+	if ( ! metadata_exists( 'post', $shop_page_id, $meta_key ) ) {
 		update_post_meta( $shop_page_id, $meta_key, $default_val );
 		if ( function_exists( 'update_field' ) ) {
-			update_field( $meta_key, $default_val, $shop_page_id );
+			update_field( 'field_us_' . $meta_key, $default_val, $shop_page_id );
 		}
 		$seeded_count++;
 	}

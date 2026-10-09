@@ -503,6 +503,11 @@
   display: none;
 }
 
+.faq-trigger::marker {
+  display: none;
+  content: "";
+}
+
 .faq-trigger:hover {
   color: var(--primary);
 }
@@ -661,4 +666,60 @@
     width: 100%;
     justify-content: center;
   }
+}
+
+/* ==========================================================================
+   CONTACT FORM 7 INTEGRATION
+   ========================================================================== */
+.wpcf7 {
+  width: 100%;
+}
+
+.wpcf7 form.wpcf7-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.wpcf7-form-control-wrap {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.wpcf7-not-valid-tip {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pop);
+  margin-top: 5px;
+}
+
+.wpcf7-response-output {
+  margin: 16px 0 0 !important;
+  padding: 14px 18px !important;
+  border-radius: 14px !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+  border: 2px solid var(--ink) !important;
+  box-shadow: 2px 2px 0 var(--ink) !important;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+  background: #EAF8EE !important;
+  border-color: #1B8344 !important;
+  color: #0E4824 !important;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.failed .wpcf7-response-output {
+  background: #FFF5F2 !important;
+  border-color: var(--pop) !important;
+  color: var(--ink) !important;
+}
+
+.wpcf7-spinner {
+  margin: 0 auto;
+  display: block;
 }

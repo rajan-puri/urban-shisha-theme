@@ -13,13 +13,21 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-$fields     = urban_shisha_get_shop_fields();
-$params     = urban_shisha_sanitize_shop_params();
-$result     = urban_shisha_get_shop_products( $params );
-$products   = $result['products'];
-$categories = urban_shisha_get_shop_categories();
-$brands     = urban_shisha_get_shop_brands();
-$shop_url   = urban_shisha_route_url( 'shop' );
+$fields       = urban_shisha_get_shop_fields();
+$params       = urban_shisha_sanitize_shop_params();
+$result       = urban_shisha_get_shop_products( $params );
+$products     = $result['products'];
+$total        = $result['total'];
+$max_pages    = $result['max_num_pages'];
+$paged        = $result['paged'];
+$categories   = urban_shisha_get_shop_categories();
+$brands       = urban_shisha_get_shop_brands();
+$shop_url     = urban_shisha_route_url( 'shop' );
+$price_bounds = urban_shisha_get_shop_price_bounds();
+$catalog_min  = $price_bounds['min'];
+$catalog_max  = $price_bounds['max'];
+$current_min  = $params['min'];
+$current_max  = ( null !== $params['max'] ) ? $params['max'] : $catalog_max;
 ?>
 <main id="main" class="shop-main">
 	<div class="shop-intro">
@@ -47,7 +55,7 @@ $shop_url   = urban_shisha_route_url( 'shop' );
 				</div>
 				<div class="shop-poster" aria-hidden="true">
 					<span><?php echo wp_kses_post( $fields['hero_poster_word'] ); ?></span>
-					<img src="<?php echo esc_url( $fields['hero_poster_image_url'] ); ?>" alt="" width="340" height="340">
+					<?php if ( $fields['hero_poster_image_url'] ) : ?><img src="<?php echo esc_url( $fields['hero_poster_image_url'] ); ?>" alt="" width="340" height="340"><?php endif; ?>
 					<span class="shop-poster-sticker"><?php echo wp_kses_post( $fields['hero_poster_sticker'] ); ?></span>
 				</div>
 			</div>
@@ -91,13 +99,13 @@ $shop_url   = urban_shisha_route_url( 'shop' );
 							<summary><?php esc_html_e( 'Price range', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-chevron"/></svg></summary>
 							<div>
 								<div class="price-inputs">
-									<label>Min ₹<input id="price-min" name="min" type="number" min="0" max="20000" step="1" value="<?php echo esc_attr( (string) $params['min'] ); ?>" inputmode="numeric"></label>
+									<label>Min ₹<input id="price-min" name="min" type="number" min="<?php echo esc_attr( (string) $catalog_min ); ?>" step="0.01" value="<?php echo esc_attr( (string) $current_min ); ?>" inputmode="numeric"></label>
 									<span aria-hidden="true">—</span>
-									<label>Max ₹<input id="price-max" name="max" type="number" min="0" max="20000" step="1" value="<?php echo esc_attr( (string) $params['max'] ); ?>" inputmode="numeric"></label>
+									<label>Max ₹<input id="price-max" name="max" type="number" min="<?php echo esc_attr( (string) $catalog_min ); ?>" step="0.01" value="<?php echo esc_attr( (string) $current_max ); ?>" inputmode="numeric"></label>
 								</div>
 								<label class="sr-only" for="price-range"><?php esc_html_e( 'Maximum price', 'urban-shisha' ); ?></label>
-								<input type="range" id="price-range" min="0" max="20000" step="100" value="<?php echo esc_attr( (string) $params['max'] ); ?>">
-								<p class="filter-price-note" id="price-note">Up to ₹<?php echo esc_html( number_format( (float) $params['max'] ) ); ?></p>
+								<input type="range" id="price-range" min="<?php echo esc_attr( (string) $catalog_min ); ?>" max="<?php echo esc_attr( (string) $catalog_max ); ?>" step="100" value="<?php echo esc_attr( (string) $current_max ); ?>">
+								<p class="filter-price-note" id="price-note">Up to ₹<?php echo esc_html( number_format( (float) $current_max ) ); ?></p>
 							</div>
 						</details>
 
@@ -138,15 +146,24 @@ $shop_url   = urban_shisha_route_url( 'shop' );
 				<div class="shop-toolbar">
 					<div>
 						<p class="eyebrow"><?php esc_html_e( 'YOUR NEXT FAVOURITE IS HERE.', 'urban-shisha' ); ?></p>
-						<h2 id="catalog-title"><?php esc_html_e( 'All products', 'urban-shisha' ); ?><span class="punct">.</span></h2>
+						<?php
+						$catalog_title = __( 'All products', 'urban-shisha' );
+						if ( 1 === count( $params['category'] ) ) {
+							$defs = urban_shisha_get_shop_category_definitions();
+							$cat_slug = $params['category'][0];
+							if ( isset( $defs[ $cat_slug ] ) ) {
+								$catalog_title = $defs[ $cat_slug ];
+							}
+						} elseif ( 1 === count( $params['brand'] ) ) {
+							$brand_term = get_term_by( 'slug', $params['brand'][0], 'product_brand' );
+							if ( $brand_term ) {
+								$catalog_title = $brand_term->name;
+							}
+						}
+						?>
+						<h2 id="catalog-title"><?php echo esc_html( $catalog_title ); ?><span class="punct">.</span></h2>
 						<p id="result-count" role="status" aria-live="polite">
-							<?php
-							printf(
-								/* translators: %d: number of products */
-								_n( '%d product in your edit', '%d products in your edit', count( $products ), 'urban-shisha' ),
-								count( $products )
-							);
-							?>
+							<?php echo esc_html( urban_shisha_get_shop_result_count_text( $total, $paged, 24 ) ); ?>
 						</p>
 					</div>
 					<label class="shop-sort"><?php esc_html_e( 'Sort by', 'urban-shisha' ); ?>
@@ -155,6 +172,7 @@ $shop_url   = urban_shisha_route_url( 'shop' );
 							<option value="price-low"<?php selected( $params['sort'], 'price-low' ); ?>><?php esc_html_e( 'Price: low to high', 'urban-shisha' ); ?></option>
 							<option value="price-high"<?php selected( $params['sort'], 'price-high' ); ?>><?php esc_html_e( 'Price: high to low', 'urban-shisha' ); ?></option>
 							<option value="name"<?php selected( $params['sort'], 'name' ); ?>><?php esc_html_e( 'Name: A–Z', 'urban-shisha' ); ?></option>
+                            <option value="date"<?php selected( $params['sort'], 'date' ); ?>><?php esc_html_e( 'Newest first', 'urban-shisha' ); ?></option>
 						</select>
 					</label>
 				</div>
@@ -177,6 +195,8 @@ $shop_url   = urban_shisha_route_url( 'shop' );
 						<?php get_template_part( 'template-parts/product-card', null, array( 'product_data' => $item ) ); ?>
 					<?php endforeach; ?>
 				</div>
+
+				<?php echo urban_shisha_render_shop_pagination( $paged, $max_pages, $params ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 
 				<div class="shop-empty" id="shop-empty"<?php echo ! empty( $products ) ? ' hidden' : ''; ?>>
 					<span><?php echo esc_html( $fields['empty_eyebrow'] ); ?></span>

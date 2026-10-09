@@ -22,7 +22,7 @@ function urban_shisha_route_url( $route, $query = array() ) {
 		$url = get_privacy_policy_url();
 	}
 	if ( 'account' === $route && isset( $query['tab'] ) ) {
-		$endpoints = array( 'orders' => 'orders', 'addresses' => 'edit-address', 'details' => 'edit-account' );
+		$endpoints = array( 'orders' => 'orders', 'addresses' => 'edit-address', 'details' => 'edit-account', 'wishlist' => 'wishlist' );
 		$tab = $query['tab'];
 		if ( isset( $endpoints[ $tab ] ) && function_exists( 'wc_get_endpoint_url' ) ) {
 			$url = wc_get_endpoint_url( $endpoints[ $tab ], '', $url );

@@ -50,3 +50,12 @@ Pre-implementation manager notes: installed WC template loader tries root woocom
 Worker attempt1 blocked before implementation: headless read_file permission auto-denied while consulting installed Woo templates. Manager is granting scoped exact-file read permissions for project files/native WC templates and exact deployed shop-schema write. No feature changes yet. This is tooling blockage, not acceptance PASS. Re-run with file tools only.
 
 User pause 9 Oct: "abhi work ko yhi roko". All active Home/Shop agy workers terminated. Partial changes retained, no commits. Home isolated output at /tmp/urban-shisha-home-worker NOT merged. Resume only on user instruction; inspect current status and incomplete files before continuing.
+
+9 Oct — direct Codex completion requested by user, changes first followed by one consolidated final verification phase. No agy, commit or push.
+- Retained category/brand archive scope across AJAX sorting, reset and navigation; valid numbered pagination survives refresh, with out-of-range requests clamped.
+- Real featured priority, newest sorting, title/content/SKU/brand search, decimal-safe validated ranges and Woo parent/variation price lookup filtering.
+- Saved nineteen original Shop editorial fields through SCF, preserved explicit empty edits, reused Media assets and verified migration preserves saved metadata/media count.
+- Corrected native Woo add-to-cart fragment response handling, header/drawer refresh, request races, accessible loading/error/retry state and mobile close/focus handling.
+- Final checks passed: PHP/JS syntax, lint/build, existing server Shop catalogue checks (107 drafts, 24/page, five pages), pagination reload, filters/search/reset, price range, newest, archive contexts, Back navigation, wishlist add/remove restoration, SKU/featured temporary fixture, actual cart add/fragments/drawer/remove, 1440/390/320 mobile and preserved Home builder.
+- Current Local PHP runtime is 8.5.3; temporary WP CLI wrapper updated to match. Final browser brand test used real /brand/ archives. Completed remaining checks without repeating the already-passed checks.
+- Temporary hidden test product was deleted and cart/wishlist restored. Existing drafts, stock and Coming Soon were preserved.

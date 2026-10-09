@@ -14,6 +14,7 @@ require_once __DIR__ . '/inc/cms.php';
 require_once __DIR__ . '/inc/product-admin.php';
 require_once __DIR__ . '/inc/wishlist.php';
 require_once __DIR__ . '/inc/newsletter.php';
+require_once __DIR__ . '/inc/telegram.php';
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
     require_once __DIR__ . '/inc/catalog-import.php';
 }

@@ -149,3 +149,13 @@ body.has-studio-cursor {
 	color: inherit;
 }
 
+
+/* Featured choices: the current price and arrow share one aligned footer row. */
+.home .spotlight-choice-copy{display:grid;grid-template-columns:minmax(0,1fr) 24px;align-items:center;gap:10px 12px;padding-right:0;width:100%}
+.home .spotlight-choice-copy>strong{grid-column:1/-1}
+.home .spotlight-choice-copy>span:not(.spotlight-choice-arrow){display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;margin-top:0;font-size:18px;line-height:1.4;min-width:0;font-weight:700}
+.home .spotlight-choice-copy ins{background:transparent;text-decoration:none;font-weight:700}
+.home .spotlight-choice-copy del{font-size:13px;font-weight:400;opacity:.55}
+.home .spotlight-choice-copy .woocommerce-Price-amount{white-space:nowrap}
+.home .spotlight-choice-copy>.spotlight-choice-arrow{position:static;display:grid;place-items:center;margin:0;width:24px;height:36px}
+@media(max-width:600px){.home .spotlight-choice-copy{gap:8px;grid-template-columns:minmax(0,1fr) 20px}.home .spotlight-choice-copy>span:not(.spotlight-choice-arrow){font-size:16px}.home .spotlight-choice-copy del{font-size:11px}.home .spotlight-choice-copy>.spotlight-choice-arrow{width:20px}.home .spotlight-choice-arrow svg{width:18px;height:18px}}

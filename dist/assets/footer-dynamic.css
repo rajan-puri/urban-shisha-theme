@@ -83,3 +83,22 @@
 		margin-top: 18px;
 	}
 }
+
+/* Social buttons follow the lime/lilac palette and offset outline pattern. */
+.site-footer .footer-social-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;max-width:300px;padding:0 4px 4px 0}
+.site-footer .footer-social-links .footer-social{--social-bg:var(--accent);display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;min-height:44px;padding:10px;background:var(--social-bg);color:var(--ink);border:2px solid var(--ink);border-radius:50%;box-shadow:3px 3px 0 var(--ink);opacity:1;transition:transform .2s ease,box-shadow .2s ease}
+.site-footer .footer-social svg{display:block;width:22px;height:22px;stroke:none;flex-shrink:0}
+.site-footer .footer-social:not(:disabled):hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+.site-footer .footer-social:focus-visible{outline:2px solid var(--bg);outline-offset:5px}
+.site-footer .footer-social:disabled{cursor:default}
+.site-footer .footer-social-links .social-link-custom{font-size:13px;text-decoration:underline;text-underline-offset:4px}
+@media(prefers-reduced-motion:reduce){.site-footer .footer-social-links .footer-social{transition:none}}
+.site-footer .footer-social svg path{fill:currentColor;stroke:none}
+.site-footer .footer-social svg path[fill="none"]{fill:none;stroke:currentColor}
+.site-footer .footer-social svg path[fill="var(--social-bg)"]{fill:var(--social-bg)}
+.site-footer .footer-social svg circle:not([fill="none"]){fill:currentColor;stroke:none}
+
+/* One palette for every platform, including link hover overrides. */
+.site-footer .footer-social-links .footer-social:hover,
+.site-footer .footer-social-links .footer-social:focus-visible{--social-bg:var(--soft);background:var(--social-bg);color:var(--ink)}
+.site-footer .footer-social-links .footer-social svg{color:var(--ink)}

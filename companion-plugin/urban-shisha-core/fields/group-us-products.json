@@ -1,6 +1,6 @@
 {
   "key": "group_us_products",
-  "title": "Urban Shisha — Product details",
+  "title": "Urban Shisha \u2014 Product details",
   "fields": [
     {
       "key": "field_us_product_intro_tab",
@@ -17,6 +17,34 @@
       "preview_size": "medium",
       "library": "all",
       "instructions": "Optional transparent cutout for decorative product compositions. Native WooCommerce featured image/gallery remain the main product photography. Leave empty until a suitable asset is supplied."
+    },
+    {
+      "key": "field_us_product_display_title",
+      "name": "us_product_display_title",
+      "label": "Display title",
+      "type": "text",
+      "instructions": "Optional short display title. Leave empty to use the WooCommerce product name."
+    },
+    {
+      "key": "field_us_product_subtitle",
+      "name": "us_product_subtitle",
+      "label": "Subtitle",
+      "type": "text",
+      "instructions": "A short factual introduction to this specific product."
+    },
+    {
+      "key": "field_us_product_series",
+      "name": "us_product_series",
+      "label": "Series label",
+      "type": "text",
+      "instructions": "Optional collection or series name."
+    },
+    {
+      "key": "field_us_product_care",
+      "name": "us_product_care",
+      "label": "Care & cleaning",
+      "type": "textarea",
+      "instructions": "Verified care instructions for this product. Empty sections are hidden."
     },
     {
       "key": "field_us_product_specifications",
