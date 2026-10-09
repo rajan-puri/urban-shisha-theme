@@ -26,6 +26,15 @@ function urban_shisha_render_media_photo( int $attachment_id, string $extra_clas
 	$index = get_post_meta( $attachment_id, '_us_cutout_index', true );
 	$frames = urban_shisha_get_cutout_frames();
 	$frame = '' !== $index && isset( $frames[ (int) $index ] ) ? $frames[ (int) $index ] : array( 0, 0, $src[1], $src[2], $src[1], $src[2] );
+    // Normalized media keeps a square file, but frames only the actual product
+    // plus padding so transparent side margins cannot shrink a tall hookah.
+    $normalized_frame = get_post_meta( $attachment_id, '_us_normalized_frame', true );
+    if ( is_array( $normalized_frame ) && 6 === count( $normalized_frame ) ) {
+        $normalized_frame = array_map( 'intval', array_values( $normalized_frame ) );
+        if ( $normalized_frame[0] >= 0 && $normalized_frame[1] >= 0 && $normalized_frame[2] > 0 && $normalized_frame[3] > 0 && $normalized_frame[0] + $normalized_frame[2] <= $src[1] && $normalized_frame[1] + $normalized_frame[3] <= $src[2] && $normalized_frame[4] === $src[1] && $normalized_frame[5] === $src[2] ) {
+            $frame = $normalized_frame;
+        }
+    }
 	if ( 'hero-photo' === $extra_class && '0' === (string) $index ) { $frame = array( 245, 0, 795, 1254, 1254, 1254 ); }
 	return sprintf( '<svg class="catalog-photo %s" viewBox="%d %d %d %d" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><image href="%s" width="%d" height="%d"/></svg>', esc_attr( $extra_class ), $frame[0], $frame[1], $frame[2], $frame[3], esc_url( $src[0] ), $frame[4], $frame[5] );
 }
