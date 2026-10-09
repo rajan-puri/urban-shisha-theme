@@ -33,7 +33,17 @@
 .contact-form-card .wpcf7-submit br,.ws-form-container .wpcf7-submit br{display:none}
 .contact-form-card .wpcf7-submit p,.ws-form-container .wpcf7-submit p{display:contents}
 
-/* Contact FAQ keeps the original HTML card/accordion styles from contact.css.
-   The WordPress closing section has no top margin, so reserve the reference
-   layout's 36px separation on the FAQ itself. */
-#main #faq.contact-faq-section{margin-bottom:36px;scroll-margin-top:145px}
+/* Match the reference FAQ-to-CTA spacing and main content bottom padding. */
+#main #faq.contact-faq-section{scroll-margin-top:145px}
+.contact-closing-wrap{padding-bottom:0}
+
+/* Contact CF7 matches the original .contact-form spacing and field geometry. */
+.contact-main .contact-form-card .wpcf7-form{gap:18px;margin-top:0}
+.contact-main .contact-form-card .form-group{gap:6px}
+.contact-main .contact-form-card .form-label{font-size:13px;margin-bottom:0}
+.contact-main .contact-form-card .wpcf7-form-control:not(.wpcf7-submit){min-height:48px;padding:10px 14px;border-radius:12px}
+.contact-main .contact-form-card textarea.wpcf7-form-control{height:130px;min-height:120px}
+.contact-main .contact-form-card .wpcf7-submit{min-height:48px;padding:12px 25px;font-size:14px}
+
+/* A 24px visible gap plus the header's 4px offset shadow. */
+@media(min-width:901px){.ws-main .ws-enquiry{top:var(--ws-sticky-top,153px)}}

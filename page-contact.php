@@ -12,47 +12,39 @@ $store_email    = urban_shisha_get_option( 'support_email', get_option( 'admin_e
 $store_address  = urban_shisha_get_option( 'store_address', '' );
 $store_hours    = urban_shisha_get_option( 'support_hours', '' );
 ?>
-<main id="main">
-	<section class="contact-hero">
-		<div class="wrap">
-			<nav class="info-breadcrumb" aria-label="<?php esc_attr_e( 'Breadcrumb', 'urban-shisha' ); ?>">
-				<a href="<?php echo esc_url( urban_shisha_route_url( 'home' ) ); ?>"><?php esc_html_e( 'Home', 'urban-shisha' ); ?></a>
-				<span aria-hidden="true">/</span>
-				<span aria-current="page"><?php the_title(); ?></span>
-			</nav>
+<main id="main" class="contact-main wrap">
+    <nav class="contact-breadcrumb" aria-label="<?php esc_attr_e( 'Breadcrumb', 'urban-shisha' ); ?>">
+        <a href="<?php echo esc_url( urban_shisha_route_url( 'home' ) ); ?>"><?php esc_html_e( 'Home', 'urban-shisha' ); ?></a>
+        <span aria-hidden="true">/</span><span aria-current="page"><?php the_title(); ?></span>
+    </nav>
+    <section class="contact-hero" aria-labelledby="contact-hero-title">
+        <div class="contact-hero-content">
+            <p class="eyebrow"><?php esc_html_e( 'CONCIERGE & SUPPORT', 'urban-shisha' ); ?></p>
+            <h1 id="contact-hero-title"><?php esc_html_e( 'LET’S TALK SETUPS.', 'urban-shisha' ); ?></h1>
+            <p><?php esc_html_e( 'Product questions, order help or finding the right pieces—we’re here to help.', 'urban-shisha' ); ?></p>
+        </div>
+        <div class="contact-hero-shapes" aria-hidden="true">
+            <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="12"/><path d="M40 100 Q100 40 160 100 T280 100" fill="none" stroke="currentColor" stroke-width="8"/></svg>
+        </div>
+    </section>
 
-			<div class="contact-hero-content">
-				<p class="eyebrow"><?php esc_html_e( 'URBAN SHISHA / DIRECT CONCIERGE', 'urban-shisha' ); ?></p>
-				<h1><?php esc_html_e( 'LET’S TALK.', 'urban-shisha' ); ?><br><span><?php esc_html_e( 'WE’RE HERE.', 'urban-shisha' ); ?></span></h1>
-				<p><?php esc_html_e( 'Advice on sizing, bowl compatibility, dispatches or wholesale enquiries. We respond with care.', 'urban-shisha' ); ?></p>
-			</div>
-
-			<div class="contact-hero-shapes" aria-hidden="true">
-				<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="2" stroke-dasharray="8 8"/>
-					<circle cx="100" cy="100" r="45" fill="currentColor"/>
-				</svg>
-			</div>
-		</div>
-	</section>
-
-	<div class="wrap contact-layout">
+	<div class="contact-layout" id="contact-layout">
 		<!-- Left Column: Contact Channels Card -->
 		<aside class="contact-options-card" aria-label="<?php esc_attr_e( 'Contact channels', 'urban-shisha' ); ?>">
 			<div class="contact-card-header">
-				<p class="eyebrow"><?php esc_html_e( 'DIRECT ACCESS', 'urban-shisha' ); ?></p>
-				<h2><?php esc_html_e( 'Speak with us.', 'urban-shisha' ); ?></h2>
-				<p><?php esc_html_e( 'Choose the channel that best fits your enquiry.', 'urban-shisha' ); ?></p>
+				<p class="eyebrow"><?php esc_html_e( 'DIRECT CHANNELS', 'urban-shisha' ); ?></p>
+				<h2><?php esc_html_e( 'Reach out.', 'urban-shisha' ); ?></h2>
+				<p><?php esc_html_e( 'Connect with our setup team through your preferred channel.', 'urban-shisha' ); ?></p>
 			</div>
 
-			<div class="contact-channels-list">
+			<div class="channels-list">
 				<!-- WhatsApp Channel -->
 				<div class="channel-card" id="channel-whatsapp-card">
 					<div class="channel-card-top">
 						<div class="channel-icon-badge"><svg aria-hidden="true"><use href="#i-chat"/></svg></div>
 						<div class="channel-title-wrap">
 							<h3><?php esc_html_e( 'WhatsApp Concierge', 'urban-shisha' ); ?></h3>
-							<p><?php esc_html_e( 'Direct chat for quick answers.', 'urban-shisha' ); ?></p>
+							<p><?php esc_html_e( 'Ask us about your setup.', 'urban-shisha' ); ?></p>
 						</div>
 					</div>
 					<div class="channel-content" id="channel-whatsapp-action">
@@ -150,7 +142,7 @@ $store_hours    = urban_shisha_get_option( 'support_hours', '' );
 	</div>
 
 	<!-- Helpful Answers: FAQ Accordion Section -->
-	<div class="wrap">
+	<div>
 		<section class="contact-faq-section" id="faq" aria-labelledby="faq-heading">
 			<div class="contact-faq-header">
 				<p class="eyebrow"><?php esc_html_e( 'FREQUENT QUESTIONS', 'urban-shisha' ); ?></p>
@@ -221,16 +213,19 @@ $store_hours    = urban_shisha_get_option( 'support_hours', '' );
 		</section>
 	</div>
 
-	<section class="wrap contact-closing">
-		<div>
-			<p class="eyebrow"><?php esc_html_e( 'EXPLORE THE CATALOGUE', 'urban-shisha' ); ?></p>
-			<h2><?php esc_html_e( 'PREFER BROWSING FIRST?', 'urban-shisha' ); ?></h2>
-			<p><?php esc_html_e( 'Explore hookahs, bowls, charcoal and precision accessories.', 'urban-shisha' ); ?></p>
-		</div>
-		<a class="button" href="<?php echo esc_url( urban_shisha_route_url( 'shop' ) ); ?>">
-			<?php esc_html_e( 'Explore collection', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg>
-		</a>
-	</section>
+    <div class="contact-closing-wrap">
+        <section class="contact-cta-band" aria-labelledby="cta-heading">
+            <div class="contact-cta-content">
+                <p class="eyebrow"><?php esc_html_e( 'STILL EXPLORING?', 'urban-shisha' ); ?></p>
+                <h2 id="cta-heading"><?php esc_html_e( 'Find your kind of setup.', 'urban-shisha' ); ?></h2>
+                <p><?php esc_html_e( 'Explore statement hookahs, heat management and curated loadouts.', 'urban-shisha' ); ?></p>
+            </div>
+            <div class="contact-cta-actions">
+                <a class="button" href="<?php echo esc_url( urban_shisha_route_url( 'shop' ) ); ?>"><?php esc_html_e( 'Explore the shop', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a class="button button-cream" href="<?php echo esc_url( home_url( '/#builder' ) ); ?>"><?php esc_html_e( 'Build your setup', 'urban-shisha' ); ?> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+        </section>
+    </div>
 </main>
 <?php
 get_footer();

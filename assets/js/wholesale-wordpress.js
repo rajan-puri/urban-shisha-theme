@@ -6,6 +6,20 @@ const key='urban-wholesale-enquiry-v2',clamp=n=>Math.min(9999,Math.max(1,Math.fl
 let rows=[],category='all',query='',limit=24;
 try{const saved=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(saved))rows=saved.filter(r=>r&&byId.has(Number(r.id))).map(r=>({id:Number(r.id),qty:clamp(r.qty)}));}catch{}
 const grid=$('#ws-products'),form=$('.ws-form-container .wpcf7-form');if(!grid)return;
+// Account for the actual sticky header height and WordPress admin-bar offset.
+const header=$('.site-header'),enquiry=$('.ws-enquiry');
+function updateStickyOffset(){
+ if(!header||!enquiry)return;
+ const headerTop=parseFloat(getComputedStyle(header).top)||0;
+ enquiry.style.setProperty('--ws-sticky-top',`${Math.ceil(headerTop+header.offsetHeight+28)}px`);
+}
+if(header&&enquiry){
+ new ResizeObserver(updateStickyOffset).observe(header);
+ new MutationObserver(updateStickyOffset).observe(header,{attributes:true,attributeFilter:['class']});
+ window.addEventListener('resize',updateStickyOffset,{passive:true});
+ updateStickyOffset();
+}
+
 const more=document.createElement('button');more.type='button';more.className='button ws-load-more';more.textContent='Show more products';grid.after(more);
 const cats=[{slug:'all',name:'All products'},...(config.categories||[]).filter(c=>products.some(p=>p.categories.includes(c.slug)))];
 $('#ws-categories').innerHTML=cats.map(c=>`<button type="button" data-category="${escape(c.slug)}" aria-pressed="${c.slug===category}">${escape(c.name)}</button>`).join('');
