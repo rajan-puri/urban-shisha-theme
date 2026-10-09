@@ -102,3 +102,13 @@
 .site-footer .footer-social-links .footer-social:hover,
 .site-footer .footer-social-links .footer-social:focus-visible{--social-bg:var(--soft);background:var(--social-bg);color:var(--ink)}
 .site-footer .footer-social-links .footer-social svg{color:var(--ink)}
+
+/* The monochrome brand mark stays white on the violet footer. */
+.footer-brand .wordmark .custom-logo-footer {
+ display: block;
+ width: 160px;
+ max-width: 100%;
+ max-height: none;
+ height: auto;
+ filter: brightness(0) invert(1);
+}
