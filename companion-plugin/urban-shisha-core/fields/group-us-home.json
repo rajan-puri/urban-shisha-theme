@@ -26,25 +26,36 @@
               "key": "field_us_home_hero_eyebrow",
               "name": "home_hero_eyebrow",
               "label": "Eyebrow",
-              "type": "text"
+              "type": "text",
+              "default_value": "NOT JUST A SETUP. A STATEMENT."
             },
             {
               "key": "field_us_home_hero_heading",
               "name": "home_hero_heading",
               "label": "Heading",
-              "type": "text"
+              "type": "text",
+              "default_value": "YOUR SETUP. YOUR STATEMENT."
             },
             {
               "key": "field_us_home_hero_description",
               "name": "home_hero_description",
               "label": "Description",
               "type": "textarea",
-              "rows": 3
+              "rows": 3,
+              "default_value": "Hookahs with character.\nEssentials that bring it all together.",
+              "instructions": "Use <br> for approved line breaks. Content is safely escaped when displayed."
             },
             {
               "key": "field_us_home_hero_cta",
               "name": "home_hero_cta",
-              "label": "Section CTA",
+              "label": "Primary CTA",
+              "type": "link",
+              "return_format": "array"
+            },
+            {
+              "key": "field_us_home_hero_secondary_cta",
+              "name": "home_hero_secondary_cta",
+              "label": "Secondary CTA",
               "type": "link",
               "return_format": "array"
             },
@@ -73,11 +84,86 @@
               "type": "text"
             },
             {
-              "key": "field_us_home_hero_secondary_cta",
-              "name": "home_hero_secondary_cta",
-              "label": "Secondary CTA",
-              "type": "link",
-              "return_format": "array"
+              "key": "field_us_home_hero_sticker_drop",
+              "name": "home_hero_sticker_drop",
+              "label": "Drop sticker text",
+              "type": "text",
+              "default_value": "NEW<br>DROP",
+              "instructions": "Use <br> for approved line breaks. Content is safely escaped when displayed."
+            },
+            {
+              "key": "field_us_home_hero_sticker_price_label",
+              "name": "home_hero_sticker_price_label",
+              "label": "Price sticker label",
+              "type": "text",
+              "default_value": "START YOUR SETUP"
+            },
+            {
+              "key": "field_us_home_hero_sticker_price_value",
+              "name": "home_hero_sticker_price_value",
+              "label": "Price sticker value",
+              "type": "text",
+              "default_value": "From \u20b94,499*"
+            },
+            {
+              "key": "field_us_home_hero_sticker_vibe_label",
+              "name": "home_hero_sticker_vibe_label",
+              "label": "Vibe sticker text",
+              "type": "text",
+              "default_value": "Shop<br>the vibe",
+              "instructions": "Use <br> for approved line breaks. Content is safely escaped when displayed."
+            },
+            {
+              "key": "field_us_home_hero_sticker_hot_label",
+              "name": "home_hero_sticker_hot_label",
+              "label": "Hot sticker text",
+              "type": "text",
+              "default_value": "\ud83d\udd25 HOT"
+            },
+            {
+              "key": "field_us_home_hero_pulse_text",
+              "name": "home_hero_pulse_text",
+              "label": "Pulse counter text",
+              "type": "text",
+              "default_value": "237 setups built this week"
+            },
+            {
+              "key": "field_us_home_hero_pulse_note",
+              "name": "home_hero_pulse_note",
+              "label": "Pulse counter note",
+              "type": "text",
+              "default_value": "DEMO COUNTER"
+            },
+            {
+              "key": "field_us_home_hero_chips",
+              "name": "home_hero_chips",
+              "label": "Trust chips",
+              "type": "textarea",
+              "rows": 3,
+              "default_value": "18+ crew only\nMix your setup\nSave your favourites",
+              "instructions": "One chip per line."
+            },
+            {
+              "key": "field_us_home_hero_price_note",
+              "name": "home_hero_price_note",
+              "label": "Price footnote",
+              "type": "text",
+              "default_value": "*Illustrative preview pricing."
+            },
+            {
+              "key": "field_us_home_hero_side_note",
+              "name": "home_hero_side_note",
+              "label": "Side badge note",
+              "type": "text",
+              "default_value": "URBAN SHISHA / SET THE VIBE"
+            },
+            {
+              "key": "field_us_home_hero_ticker_text",
+              "name": "home_hero_ticker_text",
+              "label": "Ticker ribbon text",
+              "type": "text",
+              "default_value": "GOOD DESIGN \u2022 GREAT SETUP \u2022 MAKE IT YOURS \u2022 URBAN SHISHA \u2022",
+              "instructions": "Use <br> for approved line breaks. Content is safely escaped when displayed."
             }
           ],
           "min": 0,
@@ -101,13 +187,15 @@
               "key": "field_us_home_categories_eyebrow",
               "name": "home_categories_eyebrow",
               "label": "Eyebrow",
-              "type": "text"
+              "type": "text",
+              "default_value": "THE WHOLE SETUP, SORTED."
             },
             {
               "key": "field_us_home_categories_heading",
               "name": "home_categories_heading",
               "label": "Heading",
-              "type": "text"
+              "type": "text",
+              "default_value": "Explore the essentials"
             },
             {
               "key": "field_us_home_categories_description",
@@ -165,6 +253,12 @@
                   "label": "Destination",
                   "type": "link",
                   "return_format": "array"
+                },
+                {
+                  "key": "field_us_home_categories_card_slug",
+                  "name": "home_categories_card_slug",
+                  "label": "Filter category slug",
+                  "type": "text"
                 }
               ],
               "min": 0,
@@ -192,13 +286,15 @@
               "key": "field_us_home_brands_eyebrow",
               "name": "home_brands_eyebrow",
               "label": "Eyebrow",
-              "type": "text"
+              "type": "text",
+              "default_value": "KNOW YOUR FAVOURITES."
             },
             {
               "key": "field_us_home_brands_heading",
               "name": "home_brands_heading",
               "label": "Heading",
-              "type": "text"
+              "type": "text",
+              "default_value": "SHOP BY BRAND"
             },
             {
               "key": "field_us_home_brands_description",
@@ -217,45 +313,23 @@
             {
               "key": "field_us_home_brands_cards",
               "name": "home_brands_cards",
-              "label": "Cards",
+              "label": "Brand tiles",
               "type": "repeater",
               "layout": "block",
-              "button_label": "Add item",
+              "button_label": "Add brand tile",
               "sub_fields": [
                 {
-                  "key": "field_us_home_brands_card_title",
-                  "name": "home_brands_card_title",
-                  "label": "Title",
-                  "type": "text"
-                },
-                {
-                  "key": "field_us_home_brands_card_eyebrow",
-                  "name": "home_brands_card_eyebrow",
-                  "label": "Eyebrow",
-                  "type": "text"
-                },
-                {
-                  "key": "field_us_home_brands_card_copy",
-                  "name": "home_brands_card_copy",
-                  "label": "Description",
-                  "type": "textarea",
-                  "rows": 2
-                },
-                {
-                  "key": "field_us_home_brands_card_image",
-                  "name": "home_brands_card_image",
-                  "label": "Image",
-                  "type": "image",
+                  "key": "field_us_home_brands_card_term",
+                  "name": "home_brands_card_term",
+                  "label": "Product brand (name and logo from WooCommerce)",
+                  "type": "taxonomy",
+                  "taxonomy": "product_brand",
+                  "field_type": "select",
                   "return_format": "id",
-                  "preview_size": "medium",
-                  "library": "all"
-                },
-                {
-                  "key": "field_us_home_brands_card_link",
-                  "name": "home_brands_card_link",
-                  "label": "Destination",
-                  "type": "link",
-                  "return_format": "array"
+                  "add_term": 1,
+                  "save_terms": 0,
+                  "load_terms": 0,
+                  "allow_null": 0
                 }
               ],
               "min": 0,
@@ -283,20 +357,23 @@
               "key": "field_us_home_moods_eyebrow",
               "name": "home_moods_eyebrow",
               "label": "Eyebrow",
-              "type": "text"
+              "type": "text",
+              "default_value": "SET THE VIBE \ud83d\udca8"
             },
             {
               "key": "field_us_home_moods_heading",
               "name": "home_moods_heading",
               "label": "Heading",
-              "type": "text"
+              "type": "text",
+              "default_value": "Shop by mood"
             },
             {
               "key": "field_us_home_moods_description",
               "name": "home_moods_description",
               "label": "Description",
               "type": "textarea",
-              "rows": 3
+              "rows": 3,
+              "default_value": "Same you. Different energy.\nFind the setup for your kind of night."
             },
             {
               "key": "field_us_home_moods_cta",
@@ -322,7 +399,7 @@
                 {
                   "key": "field_us_home_moods_card_eyebrow",
                   "name": "home_moods_card_eyebrow",
-                  "label": "Eyebrow",
+                  "label": "Eyebrow / Number",
                   "type": "text"
                 },
                 {
@@ -347,6 +424,30 @@
                   "label": "Destination",
                   "type": "link",
                   "return_format": "array"
+                },
+                {
+                  "key": "field_us_home_moods_card_key",
+                  "name": "home_moods_card_key",
+                  "label": "Mood key",
+                  "type": "select",
+                  "choices": {
+                    "chill": "Chill nights",
+                    "party": "Party mode",
+                    "date": "Date night"
+                  },
+                  "default_value": "chill"
+                },
+                {
+                  "key": "field_us_home_moods_card_budget",
+                  "name": "home_moods_card_budget",
+                  "label": "Linked budget filter",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_moods_card_cta_label",
+                  "name": "home_moods_card_cta_label",
+                  "label": "Card CTA label",
+                  "type": "text"
                 }
               ],
               "min": 0,
@@ -374,20 +475,23 @@
               "key": "field_us_home_hookah_rail_eyebrow",
               "name": "home_hookah_rail_eyebrow",
               "label": "Eyebrow",
-              "type": "text"
+              "type": "text",
+              "default_value": "THE MAIN EVENT."
             },
             {
               "key": "field_us_home_hookah_rail_heading",
               "name": "home_hookah_rail_heading",
               "label": "Heading",
-              "type": "text"
+              "type": "text",
+              "default_value": "Hookahs worth discovering"
             },
             {
               "key": "field_us_home_hookah_rail_description",
               "name": "home_hookah_rail_description",
               "label": "Description",
               "type": "textarea",
-              "rows": 3
+              "rows": 3,
+              "default_value": "Good looks. Considered details.\nFind the one that feels like you."
             },
             {
               "key": "field_us_home_hookah_rail_cta",
@@ -409,7 +513,7 @@
                 "taxonomy"
               ],
               "return_format": "id",
-              "instructions": "Select WooCommerce products. Price and stock always come from WooCommerce. Product structure will be configured after owner instructions."
+              "instructions": "Select WooCommerce products. Price and stock always come from WooCommerce."
             },
             {
               "key": "field_us_home_hookah_rail_mode",
@@ -454,20 +558,23 @@
               "key": "field_us_home_spotlight_eyebrow",
               "name": "home_spotlight_eyebrow",
               "label": "Eyebrow",
-              "type": "text"
+              "type": "text",
+              "default_value": "FOUR PICKS. YOUR NEXT STATEMENT."
             },
             {
               "key": "field_us_home_spotlight_heading",
               "name": "home_spotlight_heading",
               "label": "Heading",
-              "type": "text"
+              "type": "text",
+              "default_value": "MEET YOUR NEXT<br>FAVOURITE"
             },
             {
               "key": "field_us_home_spotlight_description",
               "name": "home_spotlight_description",
               "label": "Description",
               "type": "textarea",
-              "rows": 3
+              "rows": 3,
+              "default_value": "Take a closer look.\nPick a silhouette that feels like you."
             },
             {
               "key": "field_us_home_spotlight_cta",
@@ -489,7 +596,7 @@
                 "taxonomy"
               ],
               "return_format": "id",
-              "instructions": "Select WooCommerce products. Price and stock always come from WooCommerce. Product structure will be configured after owner instructions."
+              "instructions": "Select 4 featured WooCommerce products for the spotlight."
             },
             {
               "key": "field_us_home_spotlight_mode",
@@ -508,9 +615,9 @@
               "name": "home_spotlight_limit",
               "label": "Number of products",
               "type": "number",
-              "default_value": 8,
+              "default_value": 4,
               "min": 1,
-              "max": 24
+              "max": 8
             }
           ],
           "min": 0,
@@ -534,20 +641,23 @@
               "key": "field_us_home_kit_eyebrow",
               "name": "home_kit_eyebrow",
               "label": "Eyebrow",
-              "type": "text"
+              "type": "text",
+              "default_value": "THE EXTRAS MAKE IT YOURS."
             },
             {
               "key": "field_us_home_kit_heading",
               "name": "home_kit_heading",
               "label": "Heading",
-              "type": "text"
+              "type": "text",
+              "default_value": "COMPLETE YOUR KIT"
             },
             {
               "key": "field_us_home_kit_description",
               "name": "home_kit_description",
               "label": "Description",
               "type": "textarea",
-              "rows": 3
+              "rows": 3,
+              "default_value": "Got the hookah? Now pick\nthe pieces that go with it."
             },
             {
               "key": "field_us_home_kit_cta",
@@ -598,10 +708,42 @@
                   "label": "Destination",
                   "type": "link",
                   "return_format": "array"
+                },
+                {
+                  "key": "field_us_home_kit_card_cta",
+                  "name": "home_kit_card_cta",
+                  "label": "Card CTA label",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_kit_card_slug",
+                  "name": "home_kit_card_slug",
+                  "label": "Accessory filter key",
+                  "type": "select",
+                  "choices": {
+                    "bowls": "Bowls",
+                    "heat": "Heat management",
+                    "care": "Tools & spares"
+                  },
+                  "return_format": "value"
                 }
               ],
               "min": 0,
               "max": 0
+            },
+            {
+              "key": "field_us_home_kit_bottom_text",
+              "name": "home_kit_bottom_text",
+              "label": "Bottom banner text",
+              "type": "text",
+              "default_value": "Want to put the whole thing together?"
+            },
+            {
+              "key": "field_us_home_kit_bottom_cta",
+              "name": "home_kit_bottom_cta",
+              "label": "Bottom banner link",
+              "type": "link",
+              "return_format": "array"
             }
           ],
           "min": 0,
@@ -625,13 +767,15 @@
               "key": "field_us_home_accessories_eyebrow",
               "name": "home_accessories_eyebrow",
               "label": "Eyebrow",
-              "type": "text"
+              "type": "text",
+              "default_value": "SMALL DETAILS. BIG DIFFERENCE."
             },
             {
               "key": "field_us_home_accessories_heading",
               "name": "home_accessories_heading",
               "label": "Heading",
-              "type": "text"
+              "type": "text",
+              "default_value": "Complete your setup"
             },
             {
               "key": "field_us_home_accessories_description",
@@ -659,8 +803,7 @@
                 "search",
                 "taxonomy"
               ],
-              "return_format": "id",
-              "instructions": "Select WooCommerce products. Price and stock always come from WooCommerce. Product structure will be configured after owner instructions."
+              "return_format": "id"
             },
             {
               "key": "field_us_home_accessories_mode",
@@ -705,20 +848,23 @@
               "key": "field_us_home_budgets_eyebrow",
               "name": "home_budgets_eyebrow",
               "label": "Eyebrow",
-              "type": "text"
+              "type": "text",
+              "default_value": "YOUR BUDGET. YOUR RULES."
             },
             {
               "key": "field_us_home_budgets_heading",
               "name": "home_budgets_heading",
               "label": "Heading",
-              "type": "text"
+              "type": "text",
+              "default_value": "Find your sweet spot"
             },
             {
               "key": "field_us_home_budgets_description",
               "name": "home_budgets_description",
               "label": "Description",
               "type": "textarea",
-              "rows": 3
+              "rows": 3,
+              "default_value": "A compact first setup or a statement piece.\nExplore a collection that fits your budget."
             },
             {
               "key": "field_us_home_budgets_cta",
@@ -742,11 +888,25 @@
                   "type": "text"
                 },
                 {
+                  "key": "field_us_home_budgets_card_eyebrow",
+                  "name": "home_budgets_eyebrow",
+                  "label": "Card Eyebrow",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_budgets_copy",
+                  "name": "home_budgets_copy",
+                  "label": "Card Description",
+                  "type": "textarea",
+                  "rows": 2
+                },
+                {
                   "key": "field_us_home_budgets_min",
                   "name": "home_budgets_min",
                   "label": "Minimum price",
                   "type": "number",
-                  "min": 0
+                  "min": 0,
+                  "step": 0.01
                 },
                 {
                   "key": "field_us_home_budgets_max",
@@ -754,7 +914,8 @@
                   "label": "Maximum price",
                   "type": "number",
                   "min": 0,
-                  "instructions": "Leave empty for no upper limit."
+                  "instructions": "Leave empty for no upper limit.",
+                  "step": 0.01
                 },
                 {
                   "key": "field_us_home_budgets_range_image",
@@ -764,6 +925,18 @@
                   "return_format": "id",
                   "preview_size": "medium",
                   "library": "all"
+                },
+                {
+                  "key": "field_us_home_budgets_jump_key",
+                  "name": "home_budgets_jump_key",
+                  "label": "Filter key",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_budgets_cta_label",
+                  "name": "home_budgets_cta_label",
+                  "label": "Button label",
+                  "type": "text"
                 }
               ],
               "min": 0,
@@ -791,13 +964,15 @@
               "key": "field_us_home_arrivals_eyebrow",
               "name": "home_arrivals_eyebrow",
               "label": "Eyebrow",
-              "type": "text"
+              "type": "text",
+              "default_value": "A LITTLE SOMETHING NEW."
             },
             {
               "key": "field_us_home_arrivals_heading",
               "name": "home_arrivals_heading",
               "label": "Heading",
-              "type": "text"
+              "type": "text",
+              "default_value": "Fresh in the collection"
             },
             {
               "key": "field_us_home_arrivals_description",
@@ -825,8 +1000,7 @@
                 "search",
                 "taxonomy"
               ],
-              "return_format": "id",
-              "instructions": "Select WooCommerce products. Price and stock always come from WooCommerce. Product structure will be configured after owner instructions."
+              "return_format": "id"
             },
             {
               "key": "field_us_home_arrivals_mode",
@@ -845,9 +1019,9 @@
               "name": "home_arrivals_limit",
               "label": "Number of products",
               "type": "number",
-              "default_value": 8,
+              "default_value": 4,
               "min": 1,
-              "max": 24
+              "max": 12
             }
           ],
           "min": 0,
@@ -871,20 +1045,23 @@
               "key": "field_us_home_builder_eyebrow",
               "name": "home_builder_eyebrow",
               "label": "Eyebrow",
-              "type": "text"
+              "type": "text",
+              "default_value": "INDIVIDUALLY GOOD. BETTER TOGETHER."
             },
             {
               "key": "field_us_home_builder_heading",
               "name": "home_builder_heading",
               "label": "Heading",
-              "type": "text"
+              "type": "text",
+              "default_value": "Build it your way"
             },
             {
               "key": "field_us_home_builder_description",
               "name": "home_builder_description",
               "label": "Description",
               "type": "textarea",
-              "rows": 3
+              "rows": 3,
+              "default_value": "Pick your pieces.\nMake the setup yours."
             },
             {
               "key": "field_us_home_builder_cta",
@@ -894,11 +1071,73 @@
               "return_format": "array"
             },
             {
+              "key": "field_us_home_builder_hookahs",
+              "name": "home_builder_hookahs",
+              "label": "Builder hookahs",
+              "type": "relationship",
+              "post_type": [
+                "product"
+              ],
+              "filters": [
+                "search",
+                "taxonomy"
+              ],
+              "return_format": "id"
+            },
+            {
+              "key": "field_us_home_builder_bowls",
+              "name": "home_builder_bowls",
+              "label": "Builder bowls",
+              "type": "relationship",
+              "post_type": [
+                "product"
+              ],
+              "filters": [
+                "search",
+                "taxonomy"
+              ],
+              "return_format": "id"
+            },
+            {
+              "key": "field_us_home_builder_heat",
+              "name": "home_builder_heat",
+              "label": "Builder heat management",
+              "type": "relationship",
+              "post_type": [
+                "product"
+              ],
+              "filters": [
+                "search",
+                "taxonomy"
+              ],
+              "return_format": "id"
+            },
+            {
+              "key": "field_us_home_builder_charcoal",
+              "name": "home_builder_charcoal",
+              "label": "Builder charcoal",
+              "type": "relationship",
+              "post_type": [
+                "product"
+              ],
+              "filters": [
+                "search",
+                "taxonomy"
+              ],
+              "return_format": "id"
+            },
+            {
+              "key": "field_us_home_builder_disclaimer",
+              "name": "home_builder_disclaimer",
+              "label": "Builder disclaimer",
+              "type": "text",
+              "default_value": "Illustrative setup. Compatibility will be verified with the live catalog."
+            },
+            {
               "key": "field_us_home_builder_note",
               "name": "home_builder_note",
               "label": "Builder note",
-              "type": "textarea",
-              "instructions": "Product slots and compatibility will be configured after product instructions."
+              "type": "textarea"
             }
           ],
           "min": 0,
@@ -986,6 +1225,12 @@
                   "label": "Destination",
                   "type": "link",
                   "return_format": "array"
+                },
+                {
+                  "key": "field_us_home_editorial_card_category",
+                  "name": "home_editorial_card_category",
+                  "label": "Category filter key",
+                  "type": "text"
                 }
               ],
               "min": 0,
@@ -1013,20 +1258,23 @@
               "key": "field_us_home_guides_eyebrow",
               "name": "home_guides_eyebrow",
               "label": "Eyebrow",
-              "type": "text"
+              "type": "text",
+              "default_value": "A LITTLE KNOW-HOW."
             },
             {
               "key": "field_us_home_guides_heading",
               "name": "home_guides_heading",
               "label": "Heading",
-              "type": "text"
+              "type": "text",
+              "default_value": "Get to know your setup"
             },
             {
               "key": "field_us_home_guides_description",
               "name": "home_guides_description",
               "label": "Description",
               "type": "textarea",
-              "rows": 3
+              "rows": 3,
+              "default_value": "Thoughtful choices start\nwith the right information."
             },
             {
               "key": "field_us_home_guides_cta",
@@ -1077,6 +1325,19 @@
                   "label": "Destination",
                   "type": "link",
                   "return_format": "array"
+                },
+                {
+                  "key": "field_us_home_guides_card_guide_key",
+                  "name": "home_guides_card_guide_key",
+                  "label": "Guide key",
+                  "type": "text"
+                },
+                {
+                  "key": "field_us_home_guides_card_modal_content",
+                  "name": "home_guides_card_modal_content",
+                  "label": "Modal article content",
+                  "type": "textarea",
+                  "rows": 6
                 }
               ],
               "min": 0,
@@ -1110,7 +1371,15 @@
               "key": "field_us_home_closing_heading",
               "name": "home_closing_heading",
               "label": "Heading",
-              "type": "text"
+              "type": "text",
+              "default_value": "FOUND YOUR NEXT"
+            },
+            {
+              "key": "field_us_home_closing_highlight",
+              "name": "home_closing_highlight",
+              "label": "Highlight text",
+              "type": "text",
+              "default_value": "STATEMENT?"
             },
             {
               "key": "field_us_home_closing_description",
@@ -1132,15 +1401,15 @@
         }
       },
       "button_label": "Add approved section",
-      "instructions": "Drag to reorder approved sections. Fields are ready; template binding and approved content migration are the next conversion stage."
+      "instructions": "Drag to reorder approved sections. All copy and media can be configured here."
     }
   ],
   "location": [
     [
       {
-        "param": "options_page",
+        "param": "page_type",
         "operator": "==",
-        "value": "urban-shisha-home"
+        "value": "front_page"
       }
     ]
   ],

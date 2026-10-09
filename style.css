@@ -21,12 +21,28 @@ Text Domain: urban-shisha
 .desktop-nav .sub-menu{position:absolute;top:calc(100% + 8px);left:0;background:var(--bg);border:2px solid var(--ink);border-radius:18px;box-shadow:var(--shadow);padding:10px 16px;list-style:none;margin:0;min-width:180px;display:none;flex-direction:column;gap:8px;z-index:60}
 .desktop-nav .menu-item-has-children:hover .sub-menu,.desktop-nav .menu-item-has-children:focus-within .sub-menu{display:flex}
 .desktop-nav .sub-menu a{font-size:14px;white-space:nowrap}
+.mobile-sub-menu{display:flex;flex-direction:column;gap:6px;padding-left:18px;margin-bottom:10px}
+.mobile-sub-link{font-size:13px;color:var(--muted);text-decoration:none;padding-block:4px;display:block}
+.mobile-sub-link:hover{color:var(--ink)}
+
+/* Footer presentation classes moved from inline styles */
 .footer-location{margin-top:14px;font-size:13px;line-height:1.5;color:var(--bg);opacity:.92}
+.footer-icon-pin{width:16px;height:16px;display:inline-block;vertical-align:-2px;margin-right:6px}
 .footer-contacts{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.footer-contacts-email{margin-top:6px}
 .footer-contact-link{font-size:13px;color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
 .footer-contact-link:hover{text-decoration:underline}
-.social-link-custom{font-size:11px;font-weight:700;color:var(--bg);border:1px solid rgba(250,247,242,.4);border-radius:999px;padding:4px 10px;text-decoration:none;transition:background .2s,color .2s}
-.social-link-custom:hover{background:var(--accent);color:var(--ink);border-color:var(--ink)}
+.footer-contact-icon{width:14px;height:14px}
+.footer-hours{font-size:12px;opacity:.8;margin-top:8px}
+
+/* Footer social links styling */
+.social-links a:not(.social-link-custom){min-width:30px;min-height:36px;display:grid;place-items:center;color:inherit;text-decoration:none}
+.social-links a:not(.social-link-custom):hover{color:var(--accent)}
+.social-links a:not(.social-link-custom) svg{width:17px;height:17px}
+.social-links a.social-link-custom{font-size:11px;font-weight:700;color:var(--bg);border:1px solid rgba(250,247,242,.4);border-radius:999px;padding:4px 10px;text-decoration:none;transition:background .2s,color .2s;display:inline-block}
+.social-links a.social-link-custom:hover{background:var(--accent);color:var(--ink);border-color:var(--ink)}
+
+/* Account dropdown integration */
 .account-menu-intro.account-user-greeting{font-weight:700;color:var(--primary);margin-bottom:14px}
 .account-logout{margin-top:14px;font-size:13px;font-weight:700;color:var(--pop);display:inline-flex;align-items:center;gap:6px;text-decoration:none}
 .account-logout:hover{text-decoration:underline}

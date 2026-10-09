@@ -1,0 +1,74 @@
+<main id="main" class="cart-main wrap">
+<nav class="cart-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Your Bag</span></nav>
+<div class="cart-intro">
+<p class="eyebrow">CONFIRM YOUR LOADOUT.</p>
+<div class="cart-title-row">
+<h1>YOUR BAG.<br><span>YOUR NEXT SETUP.</span></h1>
+<span class="cart-count-badge" id="cart-item-count">0 items in your bag</span>
+</div>
+</div>
+
+<div class="cart-layout" id="cart-layout">
+<section class="cart-products-section" aria-label="Items in your bag">
+<div class="cart-table-header">
+<span class="col-product">PRODUCT</span>
+<span class="col-price">PRICE</span>
+<span class="col-qty">QUANTITY</span>
+<span class="col-total">TOTAL</span>
+</div>
+<div class="cart-items-list" id="cart-items-list"></div>
+<div class="cart-table-footer">
+<a class="cart-continue-link" href="shop.html"><svg aria-hidden="true"><use href="#i-arrow"/></svg> Continue shopping</a>
+<button type="button" class="cart-clear-btn" id="cart-clear">Clear bag</button>
+</div>
+</section>
+
+<aside class="cart-summary-aside" id="cart-summary-aside" aria-label="Order summary">
+<div class="order-summary-card">
+<div class="summary-header">
+<p class="eyebrow">ORDER BREAKDOWN</p>
+<h2>Summary.</h2>
+</div>
+<div class="summary-lines">
+<div class="summary-line">
+<span>Subtotal (<span id="summary-item-count">0 items</span>)</span>
+<strong id="summary-subtotal">₹0</strong>
+</div>
+<div class="summary-line">
+<span>Shipping</span>
+<span class="summary-shipping-note">Calculated at checkout</span>
+</div>
+</div>
+<div class="summary-divider"></div>
+<div class="summary-total-line">
+<div class="summary-total-label">
+<strong>Total</strong>
+<span class="summary-sublabel">Subtotal before shipping</span>
+</div>
+<strong class="summary-total-amount" id="summary-total">₹0</strong>
+</div>
+<div class="summary-actions">
+<a class="checkout-btn" id="checkout-btn" href="checkout.html">Proceed to checkout <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+<a class="summary-continue-btn" href="shop.html">Continue shopping</a>
+</div>
+<p class="summary-preview-disclaimer">Design preview. Stock, delivery charges and live payment will open with the live store.</p>
+<div class="summary-age-notice">
+<svg aria-hidden="true"><use href="#i-check"/></svg>
+<span>Adults 18+ only. Age verification required at checkout.</span>
+</div>
+</div>
+</aside>
+</div>
+
+<div class="cart-empty-state" id="cart-empty" hidden>
+<div class="empty-bag-badge" aria-hidden="true"><svg><use href="#i-bag"/></svg></div>
+<p class="eyebrow">YOUR COLLECTION AWAITS</p>
+<h2>YOUR NEXT FAVOURITE<br><span>IS WAITING.</span></h2>
+<p>Your bag is empty. Explore statement hookahs, precision bowls and curated loadout essentials.</p>
+<div class="empty-actions">
+<a class="button" href="shop.html">Explore the shop <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+<a class="button button-cream" href="index.html#builder">Build your setup <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</div>
+</div>
+</main>
+<dialog class="content-dialog" id="checkout-preview-dialog" aria-labelledby="checkout-dialog-title"><div class="content-dialog-header"><span class="wordmark">URBAN<span>SHISHA</span></span><button class="icon-button close-dialog" aria-label="Close checkout details"><svg><use href="#i-close"/></svg></button></div><div class="article-content"><p class="eyebrow">URBAN SHISHA / NEXT STEP</p><h2 id="checkout-dialog-title">Checkout is coming next.</h2><p>You’ve reached the checkout preview. In the next development phase, real order processing, live delivery address entry, courier shipping calculations, and 18+ age verification will be connected.</p><p>Your current loadout and saved items are safely stored in your browser session for this design preview.</p><div class="summary-age-notice" style="margin-block:20px"><svg aria-hidden="true"><use href="#i-check"/></svg><span>Strictly for adults aged 18 and older. Smoking is injurious to health.</span></div><button class="button close-dialog" type="button">Back to your bag <svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div></dialog>

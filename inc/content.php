@@ -120,8 +120,41 @@ function urban_shisha_render_footer_column( $location, $column_id, $default_titl
 	<div class="footer-column">
 		<button class="footer-toggle" aria-expanded="true" aria-controls="<?php echo esc_attr( $column_id ); ?>"><?php echo esc_html( $heading ); ?> <svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
 		<ul id="<?php echo esc_attr( $column_id ); ?>">
-			<?php foreach ( $items as $item ) : ?>
-				<li><a href="<?php echo esc_url( $item->url ); ?>"><?php echo esc_html( $item->title ); ?></a></li>
+			<?php foreach ( $items as $item ) :
+				$url = $item->url;
+
+				// Resolve ?category= to canonical WooCommerce taxonomy URL if needed.
+				if ( is_string( $url ) && ( false !== strpos( $url, '?category=' ) || false !== strpos( $url, '&category=' ) ) ) {
+					$query_str = wp_parse_url( $url, PHP_URL_QUERY );
+					if ( $query_str ) {
+						parse_str( $query_str, $query_params );
+						if ( ! empty( $query_params['category'] ) ) {
+							$term = get_term_by( 'slug', sanitize_title( $query_params['category'] ), 'product_cat' );
+							if ( $term && ! is_wp_error( $term ) ) {
+								$canonical_link = get_term_link( $term, 'product_cat' );
+								if ( ! is_wp_error( $canonical_link ) ) {
+									$url = $canonical_link;
+								}
+							}
+						}
+					}
+				}
+
+				$raw_classes = ! empty( $item->classes ) && is_array( $item->classes ) ? array_filter( $item->classes ) : array();
+				$is_wishlist = in_array( 'open-wishlist', $raw_classes, true )
+					|| in_array( 'urban-wishlist-trigger', $raw_classes, true )
+					|| in_array( 'menu-item-wishlist', $raw_classes, true )
+					|| ( is_string( $item->url ) && false !== strpos( $item->url, 'tab=wishlist' ) && ( false !== stripos( $item->title, 'wishlist' ) || false !== stripos( $item->title, 'saved' ) ) );
+
+				$classes = $raw_classes;
+				if ( $is_wishlist && ! in_array( 'open-wishlist', $classes, true ) ) {
+					$classes[] = 'open-wishlist';
+				}
+
+				$class_attr = ! empty( $classes ) ? ' class="' . esc_attr( implode( ' ', array_map( 'sanitize_html_class', $classes ) ) ) . '"' : '';
+				$data_attr  = $is_wishlist ? ' data-open="wishlist"' : '';
+			?>
+				<li<?php echo $class_attr; ?>><a href="<?php echo esc_url( $url ); ?>"<?php echo $class_attr; ?><?php echo $data_attr; ?>><?php echo esc_html( $item->title ); ?></a></li>
 			<?php endforeach; ?>
 		</ul>
 	</div>

@@ -63,3 +63,8 @@ Important global names: brand_name, brand_logo, brand_logo_light (image IDs), an
 - FAIL: unconfigured Instagram and WhatsApp render pretend channel buttons. Hide absent social channels; keep a truthful general contact link. Move inline presentation styles into allowlisted style.css. Style configured social anchors consistently with the original social buttons; retain transparent images and approved spacing.
 - Other priorities: preserve blank credit behavior (no fabricated URL), validate link URL after sanitizing, guarantee menu parent/child accessibility. Do not rewrite already-correct icon/account/cart markup unnecessarily.
 - Final attempt: continue the partial implementation; do not start over or spend the turn re-auditing unchanged documents. Finish seed script and these precise corrections. No additional feature files beyond the original allowlist.
+
+### In-progress seed review notes for final attempt
+
+- `scripts/seed-shell.php` image source currently uses `get_template_directory()`, which resolves the ACTIVE twentytwentyfive theme under ordinary WP-CLI, not this inactive theme. Resolve theme source from `dirname(__DIR__)` or an explicit Urban Shisha theme directory; fail truthfully if media import fails.
+- Seed menu URLs must match existing `inc/routes.php` canonical slugs and WooCommerce page mappings: wholesale `/bulk-orders/`; account `/my-account/`; orders `/my-account/orders/`; privacy `/privacy-policy/`; terms `/terms-and-conditions/`. Current seed literals `/wholesale/`, `/account/`, `/privacy/`, `/terms/` are wrong. Read/use the route helper or matching WooCommerce URL APIs.

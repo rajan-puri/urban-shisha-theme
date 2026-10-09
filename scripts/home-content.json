@@ -1,0 +1,468 @@
+[
+  {
+    "acf_fc_layout": "hero",
+    "home_hero_enabled": 1,
+    "home_hero_eyebrow": "NOT JUST A SETUP. A STATEMENT.",
+    "home_hero_heading": "YOUR SETUP. YOUR STATEMENT.",
+    "home_hero_description": "Hookahs with character.<br>Essentials that bring it all together.",
+    "home_hero_cta": {
+      "url": "#collection",
+      "title": "Shop hookahs"
+    },
+    "home_hero_secondary_cta": {
+      "url": "#accessories",
+      "title": "Shop accessories"
+    },
+    "home_hero_image": {
+      "asset": "assets/images/product-cutout-0.webp"
+    },
+    "home_hero_sticker_drop": "NEW<br>DROP",
+    "home_hero_sticker_price_label": "YOUR NEXT SETUP",
+    "home_hero_sticker_price_value": "Make it yours.",
+    "home_hero_sticker_vibe_label": "Shop<br>the vibe",
+    "home_hero_sticker_hot_label": "🔥 HOT",
+    "home_hero_pulse_text": "Pick your pieces. Make the setup yours.",
+    "home_hero_pulse_note": "URBAN SHISHA",
+    "home_hero_chips": "18+ crew only\nMix your setup\nSave your favourites",
+    "home_hero_price_note": "",
+    "home_hero_side_note": "URBAN SHISHA / SET THE VIBE",
+    "home_hero_ticker_text": "GOOD DESIGN <b>•</b> GREAT SETUP <b>•</b> MAKE IT YOURS <b>•</b> URBAN SHISHA <b>•</b>"
+  },
+  {
+    "acf_fc_layout": "categories",
+    "home_categories_enabled": 1,
+    "home_categories_eyebrow": "THE WHOLE SETUP, SORTED.",
+    "home_categories_heading": "Explore the essentials",
+    "home_categories_description": "",
+    "home_categories_cta": {
+      "url": "#collection",
+      "title": "Explore the store"
+    },
+    "home_categories_cards": [
+      {
+        "home_categories_card_title": "Hookahs",
+        "home_categories_card_copy": "Find your signature.",
+        "home_categories_card_image": {
+          "asset": "assets/images/product-cutout-0.webp"
+        },
+        "home_categories_card_link": {
+          "url": "#collection",
+          "title": "Hookahs"
+        },
+        "home_categories_card_slug": ""
+      },
+      {
+        "home_categories_card_title": "Bowls",
+        "home_categories_card_copy": "A little more character.",
+        "home_categories_card_image": {
+          "asset": "assets/images/product-cutout-4.webp"
+        },
+        "home_categories_card_link": {
+          "url": "",
+          "title": ""
+        },
+        "home_categories_card_slug": "bowls"
+      },
+      {
+        "home_categories_card_title": "Heat management",
+        "home_categories_card_copy": "Details that matter.",
+        "home_categories_card_image": {
+          "asset": "assets/images/product-cutout-5.webp"
+        },
+        "home_categories_card_link": {
+          "url": "",
+          "title": ""
+        },
+        "home_categories_card_slug": "heat"
+      },
+      {
+        "home_categories_card_title": "Charcoal",
+        "home_categories_card_copy": "Keep your setup stocked.",
+        "home_categories_card_image": {
+          "asset": "assets/images/product-cutout-10.webp"
+        },
+        "home_categories_card_link": {
+          "url": "",
+          "title": ""
+        },
+        "home_categories_card_slug": "charcoal"
+      },
+      {
+        "home_categories_card_title": "Hoses & tips",
+        "home_categories_card_copy": "Your finishing touch.",
+        "home_categories_card_image": {
+          "asset": "assets/images/product-cutout-6.webp"
+        },
+        "home_categories_card_link": {
+          "url": "",
+          "title": ""
+        },
+        "home_categories_card_slug": "hoses"
+      },
+      {
+        "home_categories_card_title": "Tools & spares",
+        "home_categories_card_copy": "The finishing details.",
+        "home_categories_card_image": {
+          "asset": "assets/images/product-cutout-9.webp"
+        },
+        "home_categories_card_link": {
+          "url": "",
+          "title": ""
+        },
+        "home_categories_card_slug": "care"
+      }
+    ]
+  },
+  {
+    "acf_fc_layout": "brands",
+    "home_brands_enabled": 1,
+    "home_brands_eyebrow": "KNOW YOUR FAVOURITES.",
+    "home_brands_heading": "SHOP BY BRAND",
+    "home_brands_description": "",
+    "home_brands_cta": {
+      "url": "shop.html",
+      "title": "Explore the shop"
+    },
+    "home_brands_cards": [
+      {
+        "home_brands_card_term": {
+          "brand": "Al Fakher",
+          "slug": "al-fakher",
+          "asset": "assets/images/brands/brand-1.webp"
+        }
+      },
+      {
+        "home_brands_card_term": {
+          "brand": "Nakhla",
+          "slug": "nakhla",
+          "asset": "assets/images/brands/brand-2.webp"
+        }
+      },
+      {
+        "home_brands_card_term": {
+          "brand": "Serbetli",
+          "slug": "serbetli",
+          "asset": "assets/images/brands/brand-3.png"
+        }
+      },
+      {
+        "home_brands_card_term": {
+          "brand": "Revoshi",
+          "slug": "revoshi",
+          "asset": "assets/images/brands/brand-4.webp"
+        }
+      },
+      {
+        "home_brands_card_term": {
+          "brand": "Jibiar",
+          "slug": "jibiar",
+          "asset": "assets/images/brands/brand-5.webp"
+        }
+      },
+      {
+        "home_brands_card_term": {
+          "brand": "MustHave",
+          "slug": "musthave",
+          "asset": "assets/images/brands/brand-6.webp"
+        }
+      }
+    ]
+  },
+  {
+    "acf_fc_layout": "moods",
+    "home_moods_enabled": 1,
+    "home_moods_eyebrow": "SET THE VIBE 💨",
+    "home_moods_heading": "Shop by mood",
+    "home_moods_description": "Same you. Different energy.<br>Find the setup for your kind of night.",
+    "home_moods_cta": {
+      "url": "",
+      "title": ""
+    },
+    "home_moods_cards": [
+      {
+        "home_moods_card_title": "Chill<br>nights.",
+        "home_moods_card_eyebrow": "01 / KEEP IT LOW-KEY",
+        "home_moods_card_copy": "Good company. Your everyday signature.",
+        "home_moods_card_image": {
+          "asset": "assets/images/product-cutout-0.webp"
+        },
+        "home_moods_card_link": {
+          "url": "#collection",
+          "title": "Shop the chill edit"
+        },
+        "home_moods_card_key": "chill",
+        "home_moods_card_budget": "mid",
+        "home_moods_card_cta_label": "Shop the chill edit"
+      },
+      {
+        "home_moods_card_title": "Party<br>mode.",
+        "home_moods_card_eyebrow": "02 / TURN IT UP",
+        "home_moods_card_copy": "Big silhouettes. Main-character energy.",
+        "home_moods_card_image": {
+          "asset": "assets/images/product-cutout-3.webp"
+        },
+        "home_moods_card_link": {
+          "url": "#collection",
+          "title": "Shop statement pieces"
+        },
+        "home_moods_card_key": "party",
+        "home_moods_card_budget": "premium",
+        "home_moods_card_cta_label": "Shop statement pieces"
+      },
+      {
+        "home_moods_card_title": "Date<br>night.",
+        "home_moods_card_eyebrow": "03 / LESS IS MORE",
+        "home_moods_card_copy": "A compact setup. A little extra character.",
+        "home_moods_card_image": {
+          "asset": "assets/images/product-cutout-2.webp"
+        },
+        "home_moods_card_link": {
+          "url": "#collection",
+          "title": "Shop compact setups"
+        },
+        "home_moods_card_key": "date",
+        "home_moods_card_budget": "under",
+        "home_moods_card_cta_label": "Shop compact setups"
+      }
+    ]
+  },
+  {
+    "acf_fc_layout": "hookah_rail",
+    "home_hookah_rail_enabled": 1,
+    "home_hookah_rail_eyebrow": "THE MAIN EVENT.",
+    "home_hookah_rail_heading": "Hookahs worth discovering",
+    "home_hookah_rail_description": "Good looks. Considered details.<br>Find the one that feels like you.",
+    "home_hookah_rail_cta": {
+      "url": "",
+      "title": ""
+    }
+  },
+  {
+    "acf_fc_layout": "spotlight",
+    "home_spotlight_enabled": 1,
+    "home_spotlight_eyebrow": "FOUR PICKS. YOUR NEXT STATEMENT.",
+    "home_spotlight_heading": "MEET YOUR NEXT<br>FAVOURITE",
+    "home_spotlight_description": "Take a closer look.<br>Pick a silhouette that feels like you.",
+    "home_spotlight_cta": {
+      "url": "",
+      "title": ""
+    }
+  },
+  {
+    "acf_fc_layout": "kit",
+    "home_kit_enabled": 1,
+    "home_kit_eyebrow": "THE EXTRAS MAKE IT YOURS.",
+    "home_kit_heading": "COMPLETE YOUR KIT",
+    "home_kit_description": "Got the hookah? Now pick<br>the pieces that go with it.",
+    "home_kit_cta": {
+      "url": "",
+      "title": ""
+    },
+    "home_kit_cards": [
+      {
+        "home_kit_card_title": "Pick your bowl.",
+        "home_kit_card_eyebrow": "01 / THE KIT EDIT",
+        "home_kit_card_copy": "Different finishes. Your kind of detail.",
+        "home_kit_card_image": {
+          "asset": "assets/images/product-cutout-11.webp"
+        },
+        "home_kit_card_link": {
+          "url": "#accessories",
+          "title": "Shop bowls"
+        },
+        "home_kit_card_slug": "bowls",
+        "home_kit_card_cta": "Shop bowls"
+      },
+      {
+        "home_kit_card_title": "Take control.",
+        "home_kit_card_eyebrow": "02 / THE KIT EDIT",
+        "home_kit_card_copy": "Explore heat management for your setup.",
+        "home_kit_card_image": {
+          "asset": "assets/images/product-cutout-5.webp"
+        },
+        "home_kit_card_link": {
+          "url": "#accessories",
+          "title": "Shop heat management"
+        },
+        "home_kit_card_slug": "heat",
+        "home_kit_card_cta": "Shop heat management"
+      },
+      {
+        "home_kit_card_title": "Keep it ready.",
+        "home_kit_card_eyebrow": "03 / THE KIT EDIT",
+        "home_kit_card_copy": "Tongs, tools and the little essentials.",
+        "home_kit_card_image": {
+          "asset": "assets/images/product-cutout-8.webp"
+        },
+        "home_kit_card_link": {
+          "url": "#accessories",
+          "title": "Shop tools & spares"
+        },
+        "home_kit_card_slug": "care",
+        "home_kit_card_cta": "Shop tools & spares"
+      }
+    ],
+    "home_kit_bottom_text": "Want to put the whole thing together?",
+    "home_kit_bottom_cta": {
+      "url": "#builder",
+      "title": "Build your setup"
+    }
+  },
+  {
+    "acf_fc_layout": "accessories",
+    "home_accessories_enabled": 1,
+    "home_accessories_eyebrow": "SMALL DETAILS. BIG DIFFERENCE.",
+    "home_accessories_heading": "Complete your setup",
+    "home_accessories_description": "",
+    "home_accessories_cta": {
+      "url": "#builder",
+      "title": "Find your combination"
+    }
+  },
+  {
+    "acf_fc_layout": "budgets",
+    "home_budgets_enabled": 1,
+    "home_budgets_eyebrow": "YOUR BUDGET. YOUR RULES.",
+    "home_budgets_heading": "Find your sweet spot",
+    "home_budgets_description": "A compact first setup or a statement piece.<br>Explore a collection that fits your budget.",
+    "home_budgets_cta": {
+      "url": "",
+      "title": ""
+    },
+    "home_budgets_ranges": [
+      {
+        "home_budgets_range_title": "Under ₹5,000",
+        "home_budgets_eyebrow": "01 / START WITH CHARACTER",
+        "home_budgets_copy": "Compact choices.<br>A considered place to start.",
+        "home_budgets_range_image": {
+          "asset": "assets/images/product-cutout-2.webp"
+        },
+        "home_budgets_jump_key": "under",
+        "home_budgets_cta_label": "Shop this range",
+        "home_budgets_min": 0,
+        "home_budgets_max": 4999.99
+      },
+      {
+        "home_budgets_range_title": "₹5,000–₹10,000",
+        "home_budgets_eyebrow": "02 / YOUR EVERYDAY UPGRADE",
+        "home_budgets_copy": "A little more presence.<br>Find your everyday signature.",
+        "home_budgets_range_image": {
+          "asset": "assets/images/product-cutout-0.webp"
+        },
+        "home_budgets_jump_key": "mid",
+        "home_budgets_cta_label": "Shop this range",
+        "home_budgets_min": 5000,
+        "home_budgets_max": 10000
+      },
+      {
+        "home_budgets_range_title": "₹10,000+",
+        "home_budgets_eyebrow": "03 / MAKE A STATEMENT",
+        "home_budgets_copy": "Distinctive silhouettes.<br>Details worth discovering.",
+        "home_budgets_range_image": {
+          "asset": "assets/images/product-cutout-1.webp"
+        },
+        "home_budgets_jump_key": "premium",
+        "home_budgets_cta_label": "Shop this range",
+        "home_budgets_min": 10000.01,
+        "home_budgets_max": null
+      }
+    ]
+  },
+  {
+    "acf_fc_layout": "arrivals",
+    "home_arrivals_enabled": 1,
+    "home_arrivals_eyebrow": "A LITTLE SOMETHING NEW.",
+    "home_arrivals_heading": "Fresh in the collection",
+    "home_arrivals_description": "",
+    "home_arrivals_cta": {
+      "url": "#collection",
+      "title": "Keep exploring"
+    }
+  },
+  {
+    "acf_fc_layout": "builder",
+    "home_builder_enabled": 1,
+    "home_builder_eyebrow": "INDIVIDUALLY GOOD. BETTER TOGETHER.",
+    "home_builder_heading": "Build it your way",
+    "home_builder_description": "Pick your pieces.<br>Make the setup yours.",
+    "home_builder_cta": {
+      "url": "",
+      "title": ""
+    },
+    "home_builder_disclaimer": "Check product compatibility and included items before ordering."
+  },
+  {
+    "acf_fc_layout": "editorial",
+    "home_editorial_enabled": 1,
+    "home_editorial_eyebrow": "",
+    "home_editorial_heading": "",
+    "home_editorial_description": "",
+    "home_editorial_cta": {
+      "url": "",
+      "title": ""
+    },
+    "home_editorial_cards": [
+      {
+        "home_editorial_card_title": "Bowls &amp;<br>heat management.",
+        "home_editorial_card_eyebrow": "FIND YOUR FINISH.",
+        "home_editorial_card_copy": "Explore the essentials",
+        "home_editorial_card_image": {
+          "asset": "assets/images/product-cutout-11.webp"
+        },
+        "home_editorial_card_category": "bowls"
+      },
+      {
+        "home_editorial_card_title": "Everyday<br>essentials.",
+        "home_editorial_card_eyebrow": "ALWAYS IN ROTATION.",
+        "home_editorial_card_copy": "Keep your setup stocked",
+        "home_editorial_card_image": {
+          "asset": "assets/images/product-cutout-10.webp"
+        },
+        "home_editorial_card_category": "charcoal"
+      }
+    ]
+  },
+  {
+    "acf_fc_layout": "guides",
+    "home_guides_enabled": 1,
+    "home_guides_eyebrow": "A LITTLE KNOW-HOW.",
+    "home_guides_heading": "Get to know your setup",
+    "home_guides_description": "Thoughtful choices start<br>with the right information.",
+    "home_guides_cta": {
+      "url": "",
+      "title": ""
+    },
+    "home_guides_cards": [
+      {
+        "home_guides_card_title": "Find your first hookah.",
+        "home_guides_card_eyebrow": "THE BUYING GUIDE · 3 MIN READ",
+        "home_guides_card_image": {
+          "asset": "assets/images/product-cutout-1.webp"
+        },
+        "home_guides_card_guide_key": "first",
+        "home_guides_card_modal_content": "<p>A considered setup starts with a few practical choices. Compare the details before choosing a product.</p><h3>Start with your space.</h3><p>Consider the dimensions of the product and where it will sit. A compact silhouette and a larger statement piece have different storage needs.</p><h3>Check what is included.</h3><p>Compare the listed package contents. A product photograph does not always mean the bowl, hose, base and heat-management device are all included.</p><h3>Think beyond the first purchase.</h3><p>Look for clear material information, cleaning instructions and available replacement parts. Keep room in your budget for any required accessories.</p>"
+      },
+      {
+        "home_guides_card_title": "The pieces that fit.",
+        "home_guides_card_eyebrow": "THE DETAILS · 2 MIN READ",
+        "home_guides_card_image": {
+          "asset": "assets/images/product-cutout-11.webp"
+        },
+        "home_guides_card_guide_key": "accessories",
+        "home_guides_card_modal_content": "<p>Small details determine whether your accessories fit together. Confirm specifications before building a combination.</p><h3>Bowl and heat-management fit.</h3><p>Check the bowl rim dimensions and the manufacturer’s compatibility guidance for your heat-management device.</p><h3>Hoses and connectors.</h3><p>Verify connector sizes, adapters and included seals. A compatible connector is more useful than a matching colour alone.</p><h3>Care and replacement parts.</h3><p>Follow the manufacturer’s cleaning instructions and use suitable brushes and replacement seals. Do not assume all accessories are universally compatible.</p>"
+      }
+    ]
+  },
+  {
+    "acf_fc_layout": "closing",
+    "home_closing_enabled": 1,
+    "home_closing_eyebrow": "",
+    "home_closing_heading": "FOUND YOUR NEXT",
+    "home_closing_description": "",
+    "home_closing_cta": {
+      "url": "#collection",
+      "title": "Make it yours"
+    },
+    "home_closing_highlight": "STATEMENT?"
+  }
+]

@@ -1,0 +1,191 @@
+{
+  "key": "group_us_shop",
+  "title": "Urban Shisha — Shop page",
+  "fields": [
+    {
+      "key": "field_us_shop_hero_tab",
+      "name": "shop_hero_tab",
+      "label": "Hero & Poster",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_us_shop_hero_eyebrow",
+      "name": "shop_hero_eyebrow",
+      "label": "Hero eyebrow",
+      "type": "text",
+      "default_value": "THE WHOLE SETUP. ALL IN ONE PLACE."
+    },
+    {
+      "key": "field_us_shop_hero_heading",
+      "name": "shop_hero_heading",
+      "label": "Hero heading",
+      "type": "text",
+      "default_value": "GOOD TASTE.<br>GREAT GEAR."
+    },
+    {
+      "key": "field_us_shop_hero_description",
+      "name": "shop_hero_description",
+      "label": "Hero description",
+      "type": "textarea",
+      "rows": 3,
+      "default_value": "Statement hookahs. The right extras. Find your kind of setup."
+    },
+    {
+      "key": "field_us_shop_hero_poster_word",
+      "name": "shop_hero_poster_word",
+      "label": "Poster large text",
+      "type": "text",
+      "default_value": "THE<br>EDIT"
+    },
+    {
+      "key": "field_us_shop_hero_poster_sticker",
+      "name": "shop_hero_poster_sticker",
+      "label": "Poster sticker text",
+      "type": "text",
+      "default_value": "18+<br>ONLY"
+    },
+    {
+      "key": "field_us_shop_hero_poster_image",
+      "name": "shop_hero_poster_image",
+      "label": "Poster cutout image",
+      "type": "image",
+      "return_format": "id",
+      "preview_size": "medium",
+      "library": "all"
+    },
+    {
+      "key": "field_us_shop_filters_tab",
+      "name": "shop_filters_tab",
+      "label": "Filters & Help",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_us_shop_filter_heading",
+      "name": "shop_filter_heading",
+      "label": "Filter sidebar heading",
+      "type": "text",
+      "default_value": "Refine your edit."
+    },
+    {
+      "key": "field_us_shop_filter_help_eyebrow",
+      "name": "shop_filter_help_eyebrow",
+      "label": "Filter help eyebrow",
+      "type": "text",
+      "default_value": "NEED A LITTLE DIRECTION?"
+    },
+    {
+      "key": "field_us_shop_filter_help_text",
+      "name": "shop_filter_help_text",
+      "label": "Filter help link text",
+      "type": "text",
+      "default_value": "Build your setup"
+    },
+    {
+      "key": "field_us_shop_filter_help_url",
+      "name": "shop_filter_help_url",
+      "label": "Filter help destination URL",
+      "type": "text",
+      "default_value": "/#builder"
+    },
+    {
+      "key": "field_us_shop_empty_tab",
+      "name": "shop_empty_tab",
+      "label": "Empty State",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_us_shop_empty_eyebrow",
+      "name": "shop_empty_eyebrow",
+      "label": "Empty state eyebrow",
+      "type": "text",
+      "default_value": "LET’S FIND YOUR NEXT PIECE."
+    },
+    {
+      "key": "field_us_shop_empty_heading",
+      "name": "shop_empty_heading",
+      "label": "Empty state heading",
+      "type": "text",
+      "default_value": "A different edit?"
+    },
+    {
+      "key": "field_us_shop_empty_description",
+      "name": "shop_empty_description",
+      "label": "Empty state description",
+      "type": "textarea",
+      "rows": 3,
+      "default_value": "No products match these filters. Try widening your search."
+    },
+    {
+      "key": "field_us_shop_band_tab",
+      "name": "shop_band_tab",
+      "label": "Build Band & Notes",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_us_shop_build_band_eyebrow",
+      "name": "shop_build_band_eyebrow",
+      "label": "Build band eyebrow",
+      "type": "text",
+      "default_value": "GOOD TOGETHER."
+    },
+    {
+      "key": "field_us_shop_build_band_heading",
+      "name": "shop_build_band_heading",
+      "label": "Build band heading",
+      "type": "text",
+      "default_value": "MAKE THE<br>WHOLE THING YOURS."
+    },
+    {
+      "key": "field_us_shop_build_band_button_text",
+      "name": "shop_build_band_button_text",
+      "label": "Build band button label",
+      "type": "text",
+      "default_value": "Build your setup"
+    },
+    {
+      "key": "field_us_shop_build_band_button_url",
+      "name": "shop_build_band_button_url",
+      "label": "Build band destination URL",
+      "type": "text",
+      "default_value": "/#builder"
+    },
+    {
+      "key": "field_us_shop_end_note_eyebrow",
+      "name": "shop_end_note_eyebrow",
+      "label": "End note eyebrow",
+      "type": "text",
+      "default_value": "YOU’VE SEEN THE WHOLE EDIT."
+    },
+    {
+      "key": "field_us_shop_end_note_text",
+      "name": "shop_end_note_text",
+      "label": "End note text",
+      "type": "text",
+      "default_value": "Still deciding? Build a setup that feels like you."
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_type",
+        "operator": "==",
+        "value": "shop"
+      }
+    ],
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "urban-shisha-settings"
+      }
+    ]
+  ],
+  "active": true,
+  "position": "normal",
+  "style": "default",
+  "show_in_rest": 0
+}

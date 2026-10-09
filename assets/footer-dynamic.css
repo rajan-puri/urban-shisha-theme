@@ -1,0 +1,85 @@
+/**
+ * Urban Shisha — Scoped footer enhancements & contacts block
+ *
+ * Preserves approved design grid, spacing, and typography while
+ * safely accommodating dynamic business contact details and status cues.
+ */
+
+.footer-contacts-block {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-top: 20px;
+	font-size: 11px;
+	line-height: 1.6;
+	color: var(--soft);
+}
+
+.footer-address {
+	display: flex;
+	align-items: flex-start;
+	gap: 9px;
+	margin: 0;
+	line-height: 1.5;
+}
+
+.footer-icon-pin,
+.footer-contact-icon {
+	width: 14px;
+	height: 14px;
+	flex-shrink: 0;
+	margin-top: 2px;
+	color: var(--muted);
+}
+
+.footer-contacts {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.footer-contact-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--soft);
+	text-decoration: none;
+	transition: color 0.2s ease;
+	min-height: 20px;
+}
+
+.footer-contact-link:hover {
+	color: var(--ivory);
+}
+
+.footer-hours {
+	font-size: 10px;
+	color: var(--muted);
+	margin: 2px 0 0;
+}
+
+.newsletter-note {
+	min-height: 1.5em;
+	transition: color 0.2s ease;
+}
+
+.newsletter-note.is-success {
+	color: var(--accent);
+}
+
+.newsletter-note.is-error {
+	color: var(--pop);
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+	.footer-contacts-block {
+		grid-column: 1 / -1;
+		margin-top: 16px;
+	}
+}
+
+@media (max-width: 600px) {
+	.footer-contacts-block {
+		margin-top: 18px;
+	}
+}

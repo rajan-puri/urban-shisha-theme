@@ -1,0 +1,557 @@
+/**
+ * Urban Shisha — Commerce Drawers (Cart & Wishlist)
+ *
+ * Implements the approved side panel drawer design with full accessibility,
+ * responsive mobile controls, WooCommerce mini-cart and persistent wishlist.
+ */
+
+/* Drawer dialog base */
+dialog.drawer {
+	position: fixed;
+	inset: 0 0 0 auto;
+	margin: 0;
+	height: 100dvh;
+	max-height: 100%;
+	width: min(480px, 100%);
+	max-width: 100%;
+	display: none;
+	z-index: 90;
+	border: 0;
+	border-left: 2px solid var(--ink, #14121F);
+	background: var(--bg, #FAF7F2);
+	color: var(--ink, #14121F);
+	padding: 0;
+	box-shadow: -8px 0 24px rgb(20 18 31 / .12);
+}
+
+dialog.drawer::backdrop {
+	background: rgb(20 18 31 / .62);
+	backdrop-filter: blur(4px);
+}
+
+dialog.drawer[open] {
+	display: flex;
+	flex-direction: column;
+	animation: drawerSlideIn .28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes drawerSlideIn {
+	from {
+		transform: translateX(100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	dialog.drawer[open] {
+		animation: none;
+	}
+}
+
+/* Header */
+.drawer-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 30px 28px 22px;
+	border-bottom: 2px solid var(--ink, #14121F);
+	background: var(--soft, #E9E0FF);
+	flex-shrink: 0;
+}
+
+.drawer-header .eyebrow {
+	color: var(--primary, #6C2BFF);
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: .09em;
+	margin: 0 0 6px;
+	text-transform: uppercase;
+}
+
+.drawer-header h2 {
+	font-size: clamp(28px, 4vw, 34px);
+	font-weight: 700;
+	letter-spacing: -.045em;
+	line-height: 1.05;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.drawer-header .close-dialog {
+	width: 42px;
+	height: 42px;
+	display: grid;
+	place-items: center;
+	border-radius: 50%;
+	border: 2px solid var(--ink, #14121F);
+	background: var(--bg, #FAF7F2);
+	color: var(--ink, #14121F);
+	cursor: pointer;
+	transition: background .15s ease, transform .15s ease;
+	flex-shrink: 0;
+}
+
+.drawer-header .close-dialog svg {
+	width: 20px;
+	height: 20px;
+}
+
+.drawer-header .close-dialog:hover {
+	background: var(--accent, #C6FF3D);
+	transform: rotate(90deg);
+}
+
+/* Body & Panels */
+.drawer-body {
+	padding: 26px 28px;
+	overflow-y: auto;
+	flex: 1;
+	overscroll-behavior: contain;
+}
+
+.drawer-panel[hidden] {
+	display: none !important;
+}
+
+/* Empty State */
+.drawer-body .empty-state {
+	padding: 44px 0 24px;
+	text-align: left;
+}
+
+.drawer-body .empty-state h3 {
+	font-size: 26px;
+	font-weight: 700;
+	line-height: 1.15;
+	letter-spacing: -.035em;
+	margin: 0 0 12px;
+	text-transform: uppercase;
+}
+
+.drawer-body .empty-state p {
+	font-size: 14px;
+	line-height: 1.65;
+	color: var(--muted, #625A73);
+	margin: 0 0 28px;
+}
+
+.drawer-body .empty-state .button {
+	width: 100%;
+	justify-content: space-between;
+}
+
+/* Cart Items */
+.drawer-body .cart-items {
+	display: flex;
+	flex-direction: column;
+}
+
+.drawer-body .cart-item {
+	display: grid;
+	grid-template-columns: 88px 1fr auto;
+	align-items: center;
+	gap: 16px;
+	padding-bottom: 20px;
+	border-bottom: 1.5px solid var(--line, #C9C0D8);
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.drawer-body .cart-thumb {
+	width: 88px;
+	height: 96px;
+	border: 1.5px solid var(--ink, #14121F);
+	border-radius: 16px;
+	background: var(--soft, #E9E0FF);
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8px;
+	flex-shrink: 0;
+}
+
+.drawer-body .cart-thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+}
+
+.drawer-body .cart-item h3 {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.25;
+	letter-spacing: -.03em;
+	margin: 0 0 6px;
+}
+
+.drawer-body .cart-item p {
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--ink, #14121F);
+	margin: 0;
+}
+
+.drawer-body .quantity-control {
+	display: inline-flex;
+	align-items: center;
+	margin-top: 10px;
+	border: 1.5px solid var(--ink, #14121F);
+	border-radius: 999px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.drawer-body .quantity-control button {
+	width: 32px;
+	height: 32px;
+	display: grid;
+	place-items: center;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 1;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	color: var(--ink, #14121F);
+	transition: background .15s ease;
+}
+
+.drawer-body .quantity-control button:hover {
+	background: var(--soft, #E9E0FF);
+}
+
+.drawer-body .quantity-control span {
+	width: 26px;
+	text-align: center;
+	font-size: 13px;
+	font-weight: 700;
+}
+
+.drawer-body .remove-item {
+	font-size: 11px;
+	font-weight: 600;
+	color: var(--muted, #625A73);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	padding: 6px;
+	align-self: flex-start;
+	transition: color .15s ease;
+}
+
+.drawer-body .remove-item:hover {
+	color: var(--pop, #FF5C39);
+}
+
+.drawer-body .cart-summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 22px;
+	border-top: 2px solid var(--ink, #14121F);
+	margin-top: 14px;
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.drawer-body .cart-summary strong {
+	font-size: 26px;
+	font-family: var(--display, 'Space Grotesk', sans-serif);
+	letter-spacing: -.04em;
+	color: var(--primary, #6C2BFF);
+}
+
+.drawer-body .view-full-cart {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 13px;
+	font-weight: 700;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	padding: 10px 0;
+	margin-top: 10px;
+	margin-bottom: 14px;
+	color: var(--ink, #14121F);
+}
+
+.drawer-body .view-full-cart svg {
+	width: 16px;
+	height: 16px;
+}
+
+.drawer-body .cart-checkout {
+	width: 100%;
+	justify-content: space-between;
+}
+
+/* Wishlist Products Grid */
+.drawer-body .wishlist-products {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 20px 16px;
+}
+
+.drawer-body .wishlist-products .product-card {
+	border: 2px solid var(--ink, #14121F);
+	border-radius: 22px;
+	box-shadow: 4px 4px 0 var(--ink, #14121F);
+	background: #fff;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	transition: transform .15s ease;
+}
+
+.drawer-body .wishlist-products .product-card:hover {
+	transform: translateY(-2px);
+}
+
+.drawer-body .wishlist-products .product-image {
+	aspect-ratio: 1;
+	border-bottom: 1.5px solid var(--ink, #14121F);
+	position: relative;
+	background: var(--soft, #E9E0FF);
+	overflow: hidden;
+	margin: 0;
+}
+
+.drawer-body .wishlist-products .product-picture {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	padding: 12px;
+	background: none;
+}
+
+.drawer-body .wishlist-products .product-picture img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+}
+
+.drawer-body .wishlist-products .save-product {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	width: 34px;
+	height: 34px;
+	min-width: 34px;
+	min-height: 34px;
+	border: 1.5px solid var(--ink, #14121F);
+	border-radius: 50%;
+	background: var(--bg, #FAF7F2);
+	color: var(--ink, #14121F);
+	display: grid;
+	place-items: center;
+	cursor: pointer;
+	z-index: 2;
+	transition: background .15s ease, transform .15s ease;
+}
+
+.drawer-body .wishlist-products .save-product.is-saved {
+	background: var(--pop, #FF5C39);
+}
+
+.drawer-body .wishlist-products .save-product svg {
+	width: 16px;
+	height: 16px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.8;
+}
+
+.drawer-body .wishlist-products .save-product.is-saved svg {
+	fill: var(--ink, #14121F);
+}
+
+.drawer-body .wishlist-products .product-info {
+	padding: 14px 12px;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 0;
+}
+
+.drawer-body .wishlist-products .product-type {
+	font-size: 9px;
+	font-weight: 700;
+	color: var(--primary, #6C2BFF);
+	margin-bottom: 4px;
+	text-transform: uppercase;
+	letter-spacing: .06em;
+}
+
+.drawer-body .wishlist-products .product-name {
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.25;
+	margin: 0 0 6px;
+	color: var(--ink, #14121F);
+	text-decoration: none;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.drawer-body .wishlist-products .product-name:hover {
+	color: var(--primary, #6C2BFF);
+}
+
+.drawer-body .wishlist-products .price {
+	font-size: 15px;
+	font-weight: 700;
+	color: var(--ink, #14121F);
+	margin-top: auto;
+	padding-right: 0;
+}
+
+/* Mobile Reachability & Trigger Overrides */
+.site-header .wishlist-nav {
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+}
+
+.mobile-wishlist-toggle {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	padding: 17px 0;
+	border: 0;
+	border-bottom: 1px solid var(--line, #C9C0D8);
+	background: none;
+	font: 700 22px var(--display, 'Space Grotesk', sans-serif);
+	letter-spacing: -.035em;
+	color: var(--ink, #14121F);
+	cursor: pointer;
+	text-align: left;
+}
+
+.mobile-wishlist-toggle svg {
+	width: 22px;
+	height: 22px;
+	flex-shrink: 0;
+}
+
+.mobile-wishlist-toggle:hover {
+	color: var(--primary, #6C2BFF);
+}
+
+/* Heart buttons on native shop & single product */
+.save-product {
+	cursor: pointer;
+	border: 2px solid var(--ink, #14121F);
+	border-radius: 50%;
+	background: var(--bg, #FAF7F2);
+	color: var(--ink, #14121F);
+	transition: background .15s ease, transform .15s ease;
+}
+
+.save-product.is-saved {
+	background: var(--pop, #FF5C39);
+}
+
+.save-product.is-saved svg {
+	fill: var(--ink, #14121F);
+}
+
+/* Scroll lock when dialog is open */
+body.is-locked {
+	overflow: hidden !important;
+}
+
+/* Toast notification */
+.toast {
+	position: fixed;
+	left: 50%;
+	bottom: 28px;
+	transform: translate(-50%, 20px);
+	max-width: calc(100% - 40px);
+	padding: 14px 24px;
+	color: var(--ink, #14121F);
+	background: var(--accent, #C6FF3D);
+	border: 2px solid var(--ink, #14121F);
+	border-radius: 999px;
+	box-shadow: 4px 4px 0 var(--ink, #14121F);
+	font-size: 13px;
+	font-weight: 700;
+	z-index: 120;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+	text-align: center;
+	pointer-events: none;
+}
+
+.toast.visible {
+	opacity: 1;
+	visibility: visible;
+	transform: translate(-50%, 0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+	dialog.drawer {
+		width: 100%;
+		border-left: 0;
+	}
+
+	.drawer-header {
+		padding: 22px 18px 16px;
+	}
+
+	.drawer-header h2 {
+		font-size: 28px;
+	}
+
+	.drawer-body {
+		padding: 20px 18px;
+	}
+
+	.drawer-body .cart-item {
+		grid-template-columns: 75px 1fr auto;
+		gap: 12px;
+	}
+
+	.drawer-body .cart-thumb {
+		width: 75px;
+		height: 84px;
+	}
+
+	.drawer-body .wishlist-products {
+		gap: 16px 12px;
+	}
+
+	.drawer-body .wishlist-products .product-info {
+		padding: 12px 10px;
+	}
+
+	.drawer-body .wishlist-products .product-name {
+		font-size: 14px;
+	}
+
+	.drawer-body .wishlist-products .price {
+		font-size: 14px;
+	}
+}
+
+/* Accessibility Focus Rings */
+dialog.drawer button:focus-visible,
+dialog.drawer a:focus-visible {
+	outline: 2px solid var(--primary, #6C2BFF);
+	outline-offset: 3px;
+}

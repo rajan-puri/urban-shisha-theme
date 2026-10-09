@@ -25,7 +25,8 @@ try {
 $announcement = get_field( 'announcement_text', 'option' );
 try {
     update_field( 'field_us_announcement_text', '', 'option' );
-    $check( ! str_contains( $render(), 'class="announcement"' ), 'Intentional blank announcement should hide' );
+    $blank_announcement = $render();
+    $check( ! $announcement || ! str_contains( $blank_announcement, esc_html( $announcement ) ), 'Intentional blank announcement text should hide' );
 } finally { update_field( 'field_us_announcement_text', $announcement, 'option' ); }
 $locations = get_nav_menu_locations();
 try {

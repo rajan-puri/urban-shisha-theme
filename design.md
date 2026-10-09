@@ -619,3 +619,11 @@ Asset handling uses WordPress queues, file-modification versions, local fonts/de
 Validation: all 15 PHP files pass syntax checks; JS/static lint and the static-source build pass. An isolated real WordPress bootstrap selected this theme per-process, rendered a standard page and verified hooks, features, asset URLs and WooCommerce endpoint mappings without changing the active-theme database settings. Browser checks on that rendered shell pass at 1440, 1024, 768, 390 and 320px with no overflow, failed assets, JavaScript errors or automated WCAG A/AA violations. Checked mega/mobile navigation, account keyboard access, image hydration, footer accordion and age gate. Reports: `WORDPRESS-FOUNDATION-CHECK.json`, `WORDPRESS-FOUNDATION-BROWSER.json`.
 
 Implementation references: [WordPress asset loading](https://developer.wordpress.org/themes/core-concepts/including-assets/) and [WooCommerce classic-theme support](https://developer.woocommerce.com/docs/theming/theme-development/classic-theme-developer-handbook).
+
+## WordPress builder image dropdowns — 9 October 2026
+
+The Home setup builder now lists the complete real Hookahs/Bowls/Heat Management/Charcoal category inventory. Saved Home product selections set initial ordering, rather than restricting inventory. Drafts remain admin-preview only.
+
+`template-parts/home/builder.php` retains native select IDs/data attributes and photograph templates. `assets/js/builder-picker.js` enhances each select into a searchable, image-based picker; `assets/builder-picker.css` provides scoped styling. These assets are enqueued only on Home via `inc/assets.php`. Preserve this integration during other Home changes. Choosing any row dispatches the native change event, including reselecting the current product, so the existing Home controller updates photographs, total and the 0–4 confirmed-choice vibe meter. Keyboard arrows, Escape, outside click and no-result search are supported. Native selects remain the no-JavaScript fallback.
+
+Builder cart validation in `inc/commerce.php` accepts genuine inventory from the matching category and descendants, then enforces publication/stock/purchasability and atomic cart addition. Variable products are labelled “From” and require product options; preview/unavailable items do not become purchasable through this picker.

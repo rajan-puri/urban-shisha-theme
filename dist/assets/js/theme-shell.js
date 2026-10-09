@@ -47,11 +47,60 @@ if(search){
  search.addEventListener('click',e=>{const r=search.getBoundingClientRect();if(e.target===search&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))closeSearch();});
 }
 const footerMQ=matchMedia('(max-width:600px)');function footerLayout(){$$('.footer-toggle').forEach((button,i)=>{const expanded=!footerMQ.matches||i===0,target=$('#'+button.getAttribute('aria-controls'));button.setAttribute('aria-expanded',String(expanded));button.tabIndex=footerMQ.matches?0:-1;if(target)target.hidden=!expanded;});}footerLayout();footerMQ.addEventListener('change',footerLayout);
-document.addEventListener('click',e=>{const button=e.target.closest('button');if(!button)return;
+document.addEventListener('click',e=>{
+ const wlLink=e.target.closest('a.open-wishlist, a.urban-wishlist-trigger, a.menu-item-wishlist');
+ if(wlLink&&!e.defaultPrevented){
+  const drawer=$('#shop-dialog');
+  if(drawer){
+   e.preventDefault();
+   const c=$('#drawer-panel-cart'),w=$('#drawer-panel-wishlist');
+   const eb=$('#drawer-eyebrow'),dt=$('#drawer-title');
+   if(eb)eb.textContent='MAKE IT YOURS.';
+   if(dt)dt.textContent='Your saved edit.';
+   if(c)c.hidden=true;
+   if(w)w.hidden=false;
+   if(!drawer.open){drawer.showModal();document.body.classList.add('is-locked');}
+  }
+  return;
+ }
+ const button=e.target.closest('button');if(!button)return;
  if(button.matches('.footer-toggle')&&footerMQ.matches){const target=$('#'+button.getAttribute('aria-controls')),show=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(show));if(target)target.hidden=!show;return;}
  if((button.dataset.info==='contact'||button.dataset.info==='faq')&&context.contactUrl){location.href=context.contactUrl;return;}
  if(button.dataset.info==='social'){const url=window.URBAN_STORE?.instagram||'';if(/^https:\/\/(www\.)?instagram\.com\//.test(url))window.open(url,'_blank','noopener,noreferrer');else notify('Instagram details will be added when available.');}
 });
-$('#newsletter-form')?.addEventListener('submit',e=>{e.preventDefault();const note=$('#newsletter-note');if(note)note.textContent='Subscriptions are not connected yet. Your email has not been submitted.';notify('Subscriptions will open with the store.');});
+const nlForm=$('#newsletter-form');
+if(nlForm){
+ nlForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const input=$('#newsletter-email',nlForm),note=$('#newsletter-note',nlForm)||$('#newsletter-note'),btn=$('button[type="submit"]',nlForm);
+  const email=input?input.value.trim():'';
+  if(!email){if(note){note.textContent='Please enter a valid email address.';note.className='newsletter-note is-error';}return;}
+  const ajaxUrl=context.ajaxUrl||'/wp-admin/admin-ajax.php';
+  const nonce=nlForm.querySelector('input[name="nonce"]')?.value||context.newsletterNonce||'';
+  const fd=new FormData();fd.append('action','urban_shisha_newsletter');fd.append('nonce',nonce);fd.append('email',email);
+  if(btn)btn.disabled=true;
+  if(note){note.textContent='Subscribing...';note.className='newsletter-note';}
+  try{
+   const res=await fetch(ajaxUrl,{method:'POST',body:fd,credentials:'same-origin'});
+   const data=await res.json();
+   if(data.success){
+    const msg=data.data?.message||'Thank you for subscribing! Your email has been saved.';
+    if(note){note.textContent=msg;note.className='newsletter-note is-success';}
+    notify(msg);
+    if(input&&data.data?.status==='subscribed')input.value='';
+   }else{
+    const err=data.data?.message||'Could not subscribe. Please try again.';
+    if(note){note.textContent=err;note.className='newsletter-note is-error';}
+    notify(err);
+   }
+  }catch(_){
+   const netErr='Network error. Please try again later.';
+   if(note){note.textContent=netErr;note.className='newsletter-note is-error';}
+   notify(netErr);
+  }finally{
+   if(btn)btn.disabled=false;
+  }
+ });
+}
 const age=$('#age-dialog');if(age){function lock(){document.body.classList.toggle('is-locked',!!$('dialog[open]'));}age.addEventListener('cancel',e=>e.preventDefault());let accepted=false;try{accepted=localStorage.getItem('urban-preview-age')==='accepted';}catch{}if(context.requireAgeConfirmation&&!accepted){age.showModal();lock();}$('#age-accept')?.addEventListener('click',()=>{try{localStorage.setItem('urban-preview-age','accepted');}catch{}age.close();lock();});$('#age-decline')?.addEventListener('click',()=>{const actions=$('.age-actions'),declined=$('#age-declined');if(actions)actions.hidden=true;if(declined)declined.hidden=false;});}
 })();
