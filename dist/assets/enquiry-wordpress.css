@@ -32,3 +32,8 @@
 .contact-form-card textarea.wpcf7-form-control,.ws-form-container textarea.wpcf7-form-control{height:160px}
 .contact-form-card .wpcf7-submit br,.ws-form-container .wpcf7-submit br{display:none}
 .contact-form-card .wpcf7-submit p,.ws-form-container .wpcf7-submit p{display:contents}
+
+/* Contact FAQ keeps the original HTML card/accordion styles from contact.css.
+   The WordPress closing section has no top margin, so reserve the reference
+   layout's 36px separation on the FAQ itself. */
+#main #faq.contact-faq-section{margin-bottom:36px;scroll-margin-top:145px}
